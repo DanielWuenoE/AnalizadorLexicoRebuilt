@@ -1,0 +1,16 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - test",
+            "request": "launch",
+            "mainClass": "Gramatica.test"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - TestLista",
+            "request": "launch",
+            "mainClass": "Estructuras.TestLista"
+        }
+    ]
+}
