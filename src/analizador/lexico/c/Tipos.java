@@ -2,13 +2,13 @@ package analizador.lexico.c;
 
 public class Tipos {
     
-    public boolean esPunto(int ascii){
-        if(ascii == 46 )
-            return true;
-        else
-            return false;
-    }
-    
+//    public boolean esPunto(int ascii){
+//        if(ascii == 46 )
+//            return true;
+//        else
+//            return false;
+//    }
+//    
     public boolean esEspacio(int ascii){
         if(ascii == 32 || ascii == 3 || ascii == 9)
             return true;
@@ -44,11 +44,66 @@ public class Tipos {
             return false;
     }
     
-    public boolean esCaracter(int ascii){               //verifica si el caracter es caracater especial
-        if((ascii >= 33 && ascii <= 47) || (ascii >= 58 && ascii <= 64) ||
-                (ascii >= 91 && ascii <= 96) || (ascii >= 123 && ascii <= 126))
+    public boolean esParentesis1(int ascii){
+        if(ascii == 40 )
             return true;
         else
             return false;
     }
+    
+    public boolean esParentesis2(int ascii){
+        if(ascii == 41 )
+            return true;
+        else
+            return false;
+    }
+    
+    public boolean esComa(int ascii){
+        if(ascii == 44 )
+            return true;
+        else
+            return false;
+    }
+    
+    public boolean esPyC(int ascii){
+        if(ascii == 59 )
+            return true;
+        else
+            return false;
+    }
+    
+    public boolean esIgual(int ascii){
+        if(ascii == 61 )
+            return true;
+        else
+            return false;
+    }
+    
+    public boolean esDPuntos(int ascii){
+        if(ascii == 58 )
+            return true;
+        else
+            return false;
+    }
+    
+    public boolean esMas(int ascii){
+        if(ascii == 43 )
+            return true;
+        else
+            return false;
+    }
+    
+    public boolean esMenos(int ascii){
+        if(ascii == 45 )
+            return true;
+        else
+            return false;
+    }
+//    public boolean esCaracter(int ascii){               //verifica si el caracter es caracater especial
+//        if((ascii >= 33 && ascii <= 47) || (ascii >= 58 && ascii <= 64) ||
+//                (ascii >= 91 && ascii <= 96) || (ascii >= 123 && ascii <= 126))
+//            return true;
+//        else
+//            return false;
+//    }
 }
