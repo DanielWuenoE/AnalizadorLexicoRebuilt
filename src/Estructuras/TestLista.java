@@ -1,5 +1,7 @@
 package Estructuras;
 
+import com.sun.org.apache.xalan.internal.xsltc.compiler.sym;
+
 public class TestLista {
     
     public void test() {
@@ -18,6 +20,17 @@ public class TestLista {
     
     public static void main(String[] args) {
         TestLista t = new TestLista();
-        t.test();
+        //t.test();
+        char c[] = {
+                    ',',
+                    '(',
+                    ')',
+                    '+',
+                    '-',
+                    ':',
+                    ';',
+                    '='};
+            for (char ci : c)
+                System.out.println( Integer.valueOf(ci) );
     }
 }
