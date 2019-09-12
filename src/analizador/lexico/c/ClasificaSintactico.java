@@ -11,10 +11,6 @@ public class ClasificaSintactico {
     LeerArchivo leer = new LeerArchivo();
     int actual = 0;
 
-    public ClasificaSintactico() {
-        leer.leerArchivo();
-        archivo = leer.datos();
-    }
 
     public String pedirToken() {
         q0(archivo);
