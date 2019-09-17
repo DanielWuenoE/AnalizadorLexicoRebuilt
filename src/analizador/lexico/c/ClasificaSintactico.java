@@ -78,7 +78,7 @@ public class ClasificaSintactico {
     }
 
     public static void main(String[] args) {
-        ClasificaSintactico obj = new ClasificaSintactico();
+        ClasificaSintact obj = new ClasificaSintactico();
 //        LeerArchivo leer = new LeerArchivo();
 //        leer.leerArchivo();
 
