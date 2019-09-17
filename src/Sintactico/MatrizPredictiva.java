@@ -2,20 +2,20 @@ package Sintactico;
 
 import Estructuras.Pila;
 import Gramatica.AcomodoGramatica;
-import analizador.lexico.c.ClasificaSintactico;
+import analizador.lexico.c.ClasificaRebuilt;
 
 public class MatrizPredictiva {
     
     Pila pila;
     AcomodoGramatica gramatica;
-    ClasificaSintactico lexico;
+    ClasificaRebuilt lexico;
     boolean error = false;
     
     MatrizPredictiva() {
         pila = new Pila();
         gramatica = new AcomodoGramatica();
         gramatica.ini();
-        lexico = new ClasificaSintactico();
+        lexico = new ClasificaRebuilt();
     }
     
     public int matriz(int x, int y) {
