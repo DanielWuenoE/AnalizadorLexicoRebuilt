@@ -6,15 +6,14 @@ public class ClasificaRebuilt {
 
     Tipos tipo = new Tipos();
     ConversionCaracter conv = new ConversionCaracter();
-    String archivo = "begin read (ID);" +
-"	ID := ID + (int - ID);\n" +
-"	write(ID);\n" +
-"end\n" +
-"begin f:=a+(4-a);end\n" +
-"begin read (a); read(b);\n" +
-"	f:=a+(4-b);write(f);end ", token;
+    String archivo = "", token;
     LeerArchivo leer = new LeerArchivo();
     int actual = 0;
+    
+    public ClasificaRebuilt() {
+        leer.leerArchivo();
+        archivo = leer.datos();
+    }
 
     public String pedirToken() {
         q0(archivo);
@@ -161,8 +160,8 @@ public class ClasificaRebuilt {
 //        LeerArchivo leer = new LeerArchivo();
 //        leer.leerArchivo();
 
-        String archivo = "Este .9 Este 0 00 .9 es 002 00t un Ar rA rA3 rA3.s 4.3e4 archivo archivo2 archi. 0. de prueba 12 12.12 0 0 00 edwsd 12 12.1 . . .. edsd # # ##  ";
-        String archivo2 = ";";
+        //String archivo = "Este .9 Este 0 00 .9 es 002 00t un Ar rA rA3 rA3.s 4.3e4 archivo archivo2 archi. 0. de prueba 12 12.12 0 0 00 edwsd 12 12.1 . . .. edsd # # ##  ";
+        //String archivo2 = ";";
         //String archivo3 = leer.datos();
         //obj.q0(archivo2);
         //        obj.im(archivo);

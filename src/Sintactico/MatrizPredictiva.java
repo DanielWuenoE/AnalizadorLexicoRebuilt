@@ -14,8 +14,8 @@ public class MatrizPredictiva {
     MatrizPredictiva() {
         pila = new Pila();
         gramatica = new AcomodoGramatica();
-        gramatica.ini();
-        lexico = new ClasificaRebuilt();
+        gramatica.ini();  // pedimos la gramatica y se trabaja
+        lexico = new ClasificaRebuilt(); // pedimos el programa a analizar
     }
     
     public int matriz(int x, int y) {
@@ -54,7 +54,7 @@ public class MatrizPredictiva {
         pila.push(gramatica.simboloInicial());
         String x = pila.peak(); // tope de la pila
         String a = lexico.pedirToken(); // pedir la primer palabra
-                    System.out.print(a+" ");
+                    System.out.print(a+" k");
         while(pila.isEmpty()) {
             if (noEsTerminal(x)) {
                 if(obtenProduccionMatrizP(x, a) != 0) {
