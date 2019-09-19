@@ -4,6 +4,13 @@
             "type": "java",
             "name": "CodeLens (Launch) - test",
             "request": "launch",
+            "mainClass": "Sintactico.test",
+            "projectName": "AnalizadorLexicoRebuilt_a75107df"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - test",
+            "request": "launch",
             "mainClass": "Gramatica.test"
         },
         {
