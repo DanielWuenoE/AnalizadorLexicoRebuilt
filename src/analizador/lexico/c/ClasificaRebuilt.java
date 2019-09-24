@@ -166,7 +166,10 @@ public class ClasificaRebuilt {
         //obj.q0(archivo2);
         //        obj.im(archivo);
         while (!obj.pedirToken().equals("end")) {
-            //obj.pedirToken();
+//            obj.pedirToken();
+        }
+         while (!obj.pedirToken().equals("end")) {
+//            obj.pedirToken();
         }
     }
 }

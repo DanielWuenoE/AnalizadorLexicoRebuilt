@@ -1,4 +1,4 @@
-begin read (ID);
+begin read(ID);
 	ID := ID + (int - ID);
 	write(ID);
 end

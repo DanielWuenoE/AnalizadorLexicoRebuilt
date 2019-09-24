@@ -53,14 +53,17 @@ public class MatrizPredictiva {
     public void LlDiver() { //a sera el lexema enviado del analizador lexico
         pila.push(gramatica.simboloInicial());
         String x = pila.peak(); // tope de la pila
+        System.out.println("x: "+x);
         String a = lexico.pedirToken(); // pedir la primer palabra
-                    System.out.print(a+" k");
+        System.out.println("a: "+a);
+//                    System.out.print(a+" ");
         while(pila.isEmpty()) {
             if (noEsTerminal(x)) {
                 if(obtenProduccionMatrizP(x, a) != 0) {
-                    pila.pop(); //y un siclo push();
+                    pila.pop(); //y un ciclo push();
                     cicloPush(obtenProduccionMatrizP(x, a)); // derecha a izquierda
                     x = pila.peak();
+                    System.out.println("x: "+x);
                 } else {
                     errorSintactico(a);
                     break;
@@ -69,27 +72,29 @@ public class MatrizPredictiva {
                 if(x.equals(a)) {
                     pila.pop();
                     x = pila.peak();
+                    System.out.println("x: "+x);
                     a = lexico.pedirToken();
-                    System.out.print(a+" ");
+                    System.out.println("a: "+a);
+//                    System.out.print(a+" ");
                 } 
-                else if(x.equals("ε")) {
-                    pila.pop();
-                    pila.pop();
-                    x = pila.peak();
-                }
+//                else if(x.equals("ε")) {
+//                    pila.pop();
+//                    pila.pop();
+//                    x = pila.peak();
+//                }
                 else {
                     errorSintactico(a);
                     break;
                 }
             }
         }
-        if(error == false){
-        if (!a.equals("$")) {
-            System.out.println("");
-            LlDiver();
-        } else
+//        if(error == false){
+//        if (!a.equals("$")) {
+//            System.out.println("");
+//            LlDiver();
+//        } else
             System.out.println("Análisis terminado");
-        }
+//        }
     }
     
     private void cicloPush(int produccion) {

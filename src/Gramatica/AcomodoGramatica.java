@@ -70,7 +70,7 @@ public class AcomodoGramatica {
     
     private void simbolosTerminales() {
         int i = 0, j = 0;
-            imprime(simbolosNoTerminales);
+//            imprime(simbolosNoTerminales);
         while (j < todasLasProducciones.length) {
             temp = nes.noEsEsplit(todasLasProducciones[j][1], " ");
             for (String tempDerecha : temp) {           //  949 - vacio - 'ε'
