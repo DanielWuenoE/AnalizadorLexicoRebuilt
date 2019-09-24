@@ -191,11 +191,12 @@ public class ListasR<dato> {
         
         public int ultimoEnFila() {
             NodoTSimR recorrer = inicioSim;
+            int idValue = 0;
             while (recorrer != null) {
                 if (recorrer.tipoToken.equals("Identificador"))
-                    return (int) recorrer.valorToken;
+                    idValue = (int) recorrer.valorToken;
                 recorrer = recorrer.siguiente;
             }
-            return 0;
+            return idValue;
         }
 }

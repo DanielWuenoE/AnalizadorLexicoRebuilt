@@ -92,7 +92,7 @@ public class ClasificaRebuilt {
             conv.convertirCaracter(archivo.charAt(i));
             if (tipo.esEspacio(conv.getAscii())) {
                 token = crearCadena(actual - 1, actual + movs, archivo);
-                listaTab.agregarElementoLSimbolosR(token, tipoPalabra(token), calValToken(token), 0, null, listaTab.buscaRepR(token) + 1);
+                listaTab.agregarElementoLSimbolosR(token, tipoPalabra(token), calValToken(token), -1, null, listaTab.buscaRepR(token) + 1);
                 actual = actual + movs;
                 break;
             } else if ((tipo.esMinuscula(conv.getAscii()) == true)
@@ -101,6 +101,7 @@ public class ClasificaRebuilt {
                 movs++;
             } else {
                 token = crearCadena(actual - 1, actual + movs, archivo);
+                listaTab.agregarElementoLSimbolosR(token, tipoPalabra(token), calValToken(token), -1, null, listaTab.buscaRepR(token) + 1);
                 actual = actual + movs-1;
 //                qErrorLexico(archivo, movs);
                 break;
@@ -192,9 +193,15 @@ public class ClasificaRebuilt {
             if (listaTab.ExistePalabraT(token)) {
                 listaTab.buscaRepR(token);
             } else {
-                if (listaTab.ExistePalabraT(token))
+                if (listaTab.ExistePalabraT(token)) {
+                    System.out.println("id: " + listaTab.buscaIdent(token));
                     return listaTab.buscaIdent(token);
-                return listaTab.ultimoEnFila() + 1;
+                }
+                else {
+                    System.out.println("id: " + listaTab.buscaIdent(token));
+                    System.out.println("ul: " + listaTab.ultimoEnFila());
+                    return listaTab.ultimoEnFila() + 1;
+                }
                 //return -1;
             }
             return 0;

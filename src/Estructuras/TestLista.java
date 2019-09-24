@@ -8,8 +8,8 @@ public class TestLista {
         al = new ListasR();
     }
     
-    public void test(String token) {
-        al.agregarElementoLSimbolosR(token, "Simb. Esp.", 9, 0, null, al.buscaRepR(token) + 1);
+    public void test(String token, String tipo) {
+        al.agregarElementoLSimbolosR(token, tipo, (int)(token.charAt(0)), 0, null, al.buscaRepR(token) + 1);
     }
     
     public void imp() {
@@ -21,13 +21,13 @@ public class TestLista {
     
     public static void main(String[] args) {
         TestLista t = new TestLista();
-//        t.test(":=");
-//        t.test("!");
-//        t.test("!");
-//        t.test(":=");
-//        t.test("#");
-//        t.test("#");
-//        t.test("!");
+        t.test(":=", "Identificador");
+        t.test("!", "Sim. Esp.");
+        t.test("!", "Identificador");
+        t.test(":=", "Sim. Esp.");
+        t.test("#", "Sim. Esp.");
+        t.test("#", "Identificador");
+        t.test("!", "Sim. Esp.");
         t.imp();
         
 //        char c[] = {
