@@ -86,8 +86,9 @@ public class MatrizPredictiva {
                 } 
                 else if(x.equals("ε")) {
                     pila.pop();
-                    pila.pop();
+//                    pila.pop();
                     x = pila.peak();
+                    System.out.println("vacio x: "+x);
                 }
                 else {
                     System.out.println("error 2");
