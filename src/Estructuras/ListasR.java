@@ -1,33 +1,30 @@
 package Estructuras;
 
-public class Listas<dato> {
-    public NodoTSim inicioSim, finSim;
-    public NodoTErrores inicioErr, finErr;
-    public NodoTToken inicioTok, finTok;
-    public NodoTReservadas inicioR, finR;
+public class ListasR<dato> {
+    private NodoTSimR inicioSim, finSim;
+    private NodoTErrores inicioErr, finErr;
+    private NodoTToken inicioTok, finTok;
+    private NodoTReservadas inicioR, finR;
     
     /*
-            Símbolos
-    Tipo    Identificador   Valor
-    
-            Errores
-    Palabra  Error
-    
-            Tokens
-    Palabra  Tipo   Token
-
-            Reservadas
-    Palabra  Token
+            Supuesta tabla de símbolos
+    Token   |   Tipo Token    |  Valor Token   |   Valor Identf  |  Tipo Identif  |  #Veces Repite  |
     */
     
-    class NodoTSim<dato> {
-        public String tipoSim, identificador; dato valor;
-        public NodoTSim siguiente;
+    /* Hola */
+    
+    class NodoTSimR<dato> {
+        public String token, tipoToken, tipoIdentificador;
+        dato valorToken, valorIdentificador, vecesRepite;
+        public NodoTSimR siguiente;
         
-        public NodoTSim(String tipoSim, String identificador, dato valor) {
-            this.tipoSim = tipoSim;
-            this.identificador = identificador;
-            this.valor = valor;
+        public NodoTSimR(String token, String tipoToken, dato valorToken, dato valorIdentificador, String tipoIdentificador, dato vecesRepite) {
+            this.token = token;
+            this.tipoToken = tipoToken;
+            this.valorToken = valorToken;
+            this.valorIdentificador = valorIdentificador;
+            this.tipoIdentificador = tipoIdentificador;
+            this.vecesRepite = vecesRepite;
         }
     }
     
@@ -65,8 +62,8 @@ public class Listas<dato> {
                 Símbolos
             Tipo    Identificador   Valor
         */
-        public void agregarElementoLSimbolos(String tipoSim, String identificador, dato valor) {
-            NodoTSim agregarElemento = new NodoTSim(tipoSim, identificador, valor);
+        public void agregarElementoLSimbolos(String token, String tipoToken, dato valorToken, dato valorIdentificador, String tipoIdentificador, dato vecesRepite) {
+            NodoTSimR agregarElemento = new NodoTSimR(token, tipoToken, valorToken, valorIdentificador, tipoIdentificador, vecesRepite);
             if (inicioSim != null) {  // Existe el inicio
                 finSim.siguiente = agregarElemento;  //Agregar al final de la
                 finSim = agregarElemento;
@@ -127,11 +124,14 @@ public class Listas<dato> {
         }
         
         public void mostrarListaSimbolos() {
-            NodoTSim recorrer = inicioSim;
+            NodoTSimR recorrer = inicioSim;
             while (recorrer != null) {
-                System.out.println(recorrer.tipoSim + "\t" +
-                                   recorrer.identificador + "\t" +
-                                   recorrer.valor);
+                System.out.println(recorrer.token + "\t" +
+                                   recorrer.tipoToken + "\t" +
+                                   recorrer.valorToken + "\t" +
+                                   recorrer.valorIdentificador + "\t" +
+                                   recorrer.tipoIdentificador + "\t" +
+                                   recorrer.vecesRepite);
                 recorrer = recorrer.siguiente;
             }
         }
