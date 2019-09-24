@@ -1,36 +1,45 @@
 package Estructuras;
 
-import com.sun.org.apache.xalan.internal.xsltc.compiler.sym;
-
 public class TestLista {
     
-    public void test() {
-        Listas al = new Listas();
-        al.agregarElementoLErrores("un error");
-        al.agregarElementoLErrores("dos error");
-        al.agregarElementoLSimbolos("int", "folder", 10);
-        al.agregarElementoLSimbolos("float", "cub", 20.9);
-        al.agregarElementoLTokens("fileR", "identificador", 201);
-        al.agregarElementoLTokens(20.9, "float", 201);
-        al.agregarElementoLReservadas("boolean", 300);
-        al.agregarElementoLReservadas("int", 500);
-        
-        al.mostrarListaReservadas();
+    ListasR al;
+            
+    TestLista() {
+        al = new ListasR();
+    }
+    
+    public void test(String token) {
+        al.agregarElementoLSimbolosR(token, "Simb. Esp.", 9, 0, null, al.buscaRepR(token) + 1);
+    }
+    
+    public void imp() {
+        System.out.println(al.ExistePalabraT("0"));
+        al.mostrarListaSimbolosR();
+        System.out.println(al.buscaIdent("!"));
+        System.out.println(al.ultimoEnFila());
     }
     
     public static void main(String[] args) {
         TestLista t = new TestLista();
-        //t.test();
-        char c[] = {
-                    ',',
-                    '(',
-                    ')',
-                    '+',
-                    '-',
-                    ':',
-                    ';',
-                    '='};
-            for (char ci : c)
-                System.out.println( Integer.valueOf(ci) );
+//        t.test(":=");
+//        t.test("!");
+//        t.test("!");
+//        t.test(":=");
+//        t.test("#");
+//        t.test("#");
+//        t.test("!");
+        t.imp();
+        
+//        char c[] = {
+//                    ',',
+//                    '(',
+//                    ')',
+//                    '+',
+//                    '-',
+//                    ':',
+//                    ';',
+//                    '='};
+//            for (char ci : c)
+//                System.out.println( Integer.valueOf(ci) );
     }
 }
