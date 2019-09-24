@@ -64,8 +64,12 @@ public class MatrizPredictiva {
         while(pila.isEmpty()) {
             if (noEsTerminal(x)) {
                 if(obtenProduccionMatrizP(x, a) != 0) {
+                    System.out.println("no-matriz: "+obtenProduccionMatrizP(x, a));
                     pila.pop(); //y un ciclo push();
                     cicloPush(obtenProduccionMatrizP(x, a)); // derecha a izquierda
+                            System.out.println("inicia pila:");
+        pila.imprime();
+        System.out.println("termina pila");
 //                    System.out.println("despues");
                     x = pila.peak();
                     System.out.println("x: "+x);
