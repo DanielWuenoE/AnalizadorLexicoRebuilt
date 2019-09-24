@@ -55,16 +55,22 @@ public class MatrizPredictiva {
         String x = pila.peak(); // tope de la pila
         System.out.println("x: "+x);
         String a = lexico.pedirToken(); // pedir la primer palabra
+        System.out.println("pedir token 1");
         System.out.println("a: "+a);
+        System.out.println("inicia pila:");
+        pila.imprime();
+        System.out.println("termina pila");
 //                    System.out.print(a+" ");
         while(pila.isEmpty()) {
             if (noEsTerminal(x)) {
                 if(obtenProduccionMatrizP(x, a) != 0) {
                     pila.pop(); //y un ciclo push();
                     cicloPush(obtenProduccionMatrizP(x, a)); // derecha a izquierda
+                    System.out.println("despues");
                     x = pila.peak();
                     System.out.println("x: "+x);
                 } else {
+                    System.out.println("error 1");
                     errorSintactico(a);
                     break;
                 }
@@ -74,6 +80,7 @@ public class MatrizPredictiva {
                     x = pila.peak();
                     System.out.println("x: "+x);
                     a = lexico.pedirToken();
+                    System.out.println("pedir token 2");
                     System.out.println("a: "+a);
 //                    System.out.print(a+" ");
                 } 
@@ -83,18 +90,19 @@ public class MatrizPredictiva {
 //                    x = pila.peak();
 //                }
                 else {
+                    System.out.println("error 2");
                     errorSintactico(a);
                     break;
                 }
             }
         }
-//        if(error == false){
-//        if (!a.equals("$")) {
-//            System.out.println("");
-//            LlDiver();
-//        } else
+        if(error == false){
+        if (!a.equals("$")) {
+            System.out.println("");
+            LlDiver();
+        } else
             System.out.println("Análisis terminado");
-//        }
+        }
     }
     
     private void cicloPush(int produccion) {
