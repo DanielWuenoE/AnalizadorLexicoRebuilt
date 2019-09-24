@@ -1,22 +1,22 @@
 program			> begin statement-list end
 statement-list	> statement statement-tail
 statement-tail	> statement statement-tail
-statement-tail	> vacio
+statement-tail	> ε
 statement		> ID := expression ;
 statement		> read ( id-list ) ;
 statement		> write ( exp-list ) ;
 id-list			> ID id-tail
 id-tail			> , ID id-tail
-id-tail			> vacio
+id-tail			> ε
 exp-list 		> expression expression-tail
 expression-tail	> ; expression expression-tail
-expression-tail	> vacio
+expression-tail	> ε
 expression		> primary primary-tail
 primary-tail	> add-op primary primary-tail
-primary-tail	> vacio
+primary-tail	> ε
 expression		> primary primary-tail
 primary-tail	> add-op primary primary-tail
-primary-tail	> vacio
+primary-tail	> ε
 primary			> ( expression )
 primary			> ID
 primary			> int

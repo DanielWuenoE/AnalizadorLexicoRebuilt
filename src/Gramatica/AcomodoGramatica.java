@@ -96,6 +96,7 @@ public class AcomodoGramatica {
     public int indiceNoTerminal(String buscar) {
         for (int i = 0; i < simbolosNoTerminales.length; i++) {
             if (simbolosNoTerminales[i] != null)
+//                System.out.println("simbolo nt:"+simbolosNoTerminales[i]);
                 if (simbolosNoTerminales[i].equals(buscar)){
 //                    System.out.println("encontrado no terminal "+i);
                     return i;
@@ -107,6 +108,7 @@ public class AcomodoGramatica {
     public int indiceTerminal(String buscar) {
         for (int i = 0; i < simbolosTerminales.length; i++) {
             if (simbolosTerminales[i] != null)
+//                System.out.println("simbolo t:"+simbolosTerminales[i]);
                 if (simbolosTerminales[i].equals(buscar)){
 //                    System.out.println("encontrado terminal "+i);
                     return i;

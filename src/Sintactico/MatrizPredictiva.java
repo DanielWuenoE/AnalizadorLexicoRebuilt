@@ -57,16 +57,16 @@ public class MatrizPredictiva {
         String a = lexico.pedirToken(); // pedir la primer palabra
         System.out.println("pedir token 1");
         System.out.println("a: "+a);
-        System.out.println("inicia pila:");
-        pila.imprime();
-        System.out.println("termina pila");
+//        System.out.println("inicia pila:");
+//        pila.imprime();
+//        System.out.println("termina pila");
 //                    System.out.print(a+" ");
         while(pila.isEmpty()) {
             if (noEsTerminal(x)) {
                 if(obtenProduccionMatrizP(x, a) != 0) {
                     pila.pop(); //y un ciclo push();
                     cicloPush(obtenProduccionMatrizP(x, a)); // derecha a izquierda
-                    System.out.println("despues");
+//                    System.out.println("despues");
                     x = pila.peak();
                     System.out.println("x: "+x);
                 } else {
@@ -84,11 +84,11 @@ public class MatrizPredictiva {
                     System.out.println("a: "+a);
 //                    System.out.print(a+" ");
                 } 
-//                else if(x.equals("ε")) {
-//                    pila.pop();
-//                    pila.pop();
-//                    x = pila.peak();
-//                }
+                else if(x.equals("ε")) {
+                    pila.pop();
+                    pila.pop();
+                    x = pila.peak();
+                }
                 else {
                     System.out.println("error 2");
                     errorSintactico(a);
