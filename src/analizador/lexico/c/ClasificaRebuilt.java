@@ -12,14 +12,14 @@ public class ClasificaRebuilt {
     ListasR listaTab;
     PalabraReservada palR;
     int actual = 0;
-    
+
     public ClasificaRebuilt() {
         leer.leerArchivo();
         archivo = leer.datos();
         palR = new PalabraReservada();
         crearListasT();
     }
-    
+
     private void crearListasT() {
         listaTab = new ListasR();
     }
@@ -47,37 +47,37 @@ public class ClasificaRebuilt {
                 q2NumeroEntero(archivo);
             } else if (tipo.esParentesis1(conv.getAscii()) == true) {
                 actual++;
-                token = crearCadena(actual-1, actual+1, archivo);
+                token = crearCadena(actual - 1, actual + 1, archivo);
                 /*Token|Tipo Token|Valor Token|Valor Identf|Tipo Identif|#Veces Repite|*/
-                listaTab.agregarElementoLSimbolosR(token, "Simb. Esp.", listaTab.buscaRepR(token) + 1, (int)(token.charAt(0)) + 300, 0, null);
+                listaTab.agregarElementoLSimbolosR(token, "Simb. Esp.", listaTab.buscaRepR(token) + 1, (int) (token.charAt(0)) + 300, 0, null);
 //                q1Identificador(archivo);
             } else if (tipo.esParentesis2(conv.getAscii()) == true) {
                 actual++;
-                token = crearCadena(actual-1, actual+1, archivo);
-                listaTab.agregarElementoLSimbolosR(token, "Simb. Esp.", listaTab.buscaRepR(token) + 1, (int)(token.charAt(0)) + 300, 0, null);
+                token = crearCadena(actual - 1, actual + 1, archivo);
+                listaTab.agregarElementoLSimbolosR(token, "Simb. Esp.", listaTab.buscaRepR(token) + 1, (int) (token.charAt(0)) + 300, 0, null);
 //                q1Identificador(archivo);
             } else if (tipo.esComa(conv.getAscii()) == true) {
                 actual++;
-                token = crearCadena(actual-1, actual+1, archivo);
-                listaTab.agregarElementoLSimbolosR(token, "Simb. Esp.", listaTab.buscaRepR(token) + 1, (int)(token.charAt(0)) + 300, 0, null);
+                token = crearCadena(actual - 1, actual + 1, archivo);
+                listaTab.agregarElementoLSimbolosR(token, "Simb. Esp.", listaTab.buscaRepR(token) + 1, (int) (token.charAt(0)) + 300, 0, null);
 //                q1Identificador(archivo);
             } else if (tipo.esPyC(conv.getAscii()) == true) {
                 actual++;
-                token = crearCadena(actual-1, actual+1, archivo);
-                listaTab.agregarElementoLSimbolosR(token, "Simb. Esp.", listaTab.buscaRepR(token) + 1, (int)(token.charAt(0)) + 300, 0, null);
+                token = crearCadena(actual - 1, actual + 1, archivo);
+                listaTab.agregarElementoLSimbolosR(token, "Simb. Esp.", listaTab.buscaRepR(token) + 1, (int) (token.charAt(0)) + 300, 0, null);
 //                q1Identificador(archivo);
             } else if (tipo.esDPuntos(conv.getAscii()) == true) {
                 actual++;
                 q3Asignacion(archivo);
             } else if (tipo.esMas(conv.getAscii()) == true) {
                 actual++;
-                token = crearCadena(actual - 1, actual+1, archivo);
-                listaTab.agregarElementoLSimbolosR(token, "Simb. Esp.", listaTab.buscaRepR(token) + 1, (int)(token.charAt(0)) + 300, 0, null);
+                token = crearCadena(actual - 1, actual + 1, archivo);
+                listaTab.agregarElementoLSimbolosR(token, "Simb. Esp.", listaTab.buscaRepR(token) + 1, (int) (token.charAt(0)) + 300, 0, null);
 //                q1Identificador(archivo);
             } else if (tipo.esMenos(conv.getAscii()) == true) {
                 actual++;
-                token = crearCadena(actual - 1, actual+1, archivo);
-                listaTab.agregarElementoLSimbolosR(token, "Simb. Esp.", listaTab.buscaRepR(token) + 1, (int)(token.charAt(0)) + 300, 0, null);
+                token = crearCadena(actual - 1, actual + 1, archivo);
+                listaTab.agregarElementoLSimbolosR(token, "Simb. Esp.", listaTab.buscaRepR(token) + 1, (int) (token.charAt(0)) + 300, 0, null);
 //                q1Identificador(archivo);
             } else {
                 actual++;
@@ -93,6 +93,9 @@ public class ClasificaRebuilt {
             if (tipo.esEspacio(conv.getAscii())) {
                 token = crearCadena(actual - 1, actual + movs, archivo);
                 listaTab.agregarElementoLSimbolosR(token, tipoPalabra(token), listaTab.buscaRepR(token) + 1, calValToken(token), -1, null);
+                if (!palR.ExistePalabraReservada(token)) {
+                    token = "ID";
+                }
                 actual = actual + movs;
                 break;
             } else if ((tipo.esMinuscula(conv.getAscii()) == true)
@@ -102,7 +105,10 @@ public class ClasificaRebuilt {
             } else {
                 token = crearCadena(actual - 1, actual + movs, archivo);
                 listaTab.agregarElementoLSimbolosR(token, tipoPalabra(token), listaTab.buscaRepR(token) + 1, calValToken(token), -1, null);
-                actual = actual + movs-1;
+                if (!palR.ExistePalabraReservada(token)) {
+                    token = "ID";
+                }
+                actual = actual + movs - 1;
 //                qErrorLexico(archivo, movs);
                 break;
             }
@@ -135,7 +141,7 @@ public class ClasificaRebuilt {
             conv.convertirCaracter(archivo.charAt(i));
             if (tipo.esEspacio(conv.getAscii())) {
                 token = crearCadena(actual - 1, actual + movs, archivo);
-                listaTab.agregarElementoLSimbolosR(token, "Simb. Esp.", listaTab.buscaRepR(token) + 1, (int)(token.charAt(0)) + 300, 0, null);
+                listaTab.agregarElementoLSimbolosR(token, "Simb. Esp.", listaTab.buscaRepR(token) + 1, (int) (token.charAt(0)) + 300, 0, null);
                 actual = actual + movs;
                 break;
             } else if (tipo.esIgual(conv.getAscii()) == true) {
@@ -143,7 +149,7 @@ public class ClasificaRebuilt {
                 //NOTA: SOLO DEBE HABER UNO
             } else {
                 token = crearCadena(actual - 1, actual + movs, archivo);
-                actual = actual + movs-1;
+                actual = actual + movs - 1;
 //                qErrorLexico(archivo, movs);
                 break;
             }
@@ -174,29 +180,29 @@ public class ClasificaRebuilt {
 
         return cad;
     }
-    
+
     public void imprimeTablas() {
         listaTab.mostrarListaSimbolosR();
     }
-    
+
     public String tipoPalabra(String token) {
-        if (palR.ExistePalabraReservada(token))
+        if (palR.ExistePalabraReservada(token)) {
             return "Palabra Re.";
-        else
+        } else {
             return "Identificador";
+        }
     }
-    
+
     public int calValToken(String Token) {
-        if (palR.ExistePalabraReservada(token))
+        if (palR.ExistePalabraReservada(token)) {
             return palR.getValorPalabraReservada(Token);
-        else {
+        } else {
             if (listaTab.ExistePalabraT(token)) {
                 listaTab.buscaRepR(token);
             } else {
                 if (listaTab.ExistePalabraT(token)) {
                     return listaTab.buscaIdent(token);
-                }
-                else {
+                } else {
                     return listaTab.ultimoEnFila() + 1;
                 }
                 //return -1;
@@ -204,8 +210,8 @@ public class ClasificaRebuilt {
             return 0;
         }
     }
-    
-     public static void main(String[] args) {
+
+    public static void main(String[] args) {
         ClasificaRebuilt obj = new ClasificaRebuilt();
 //        LeerArchivo leer = new LeerArchivo();
 //        leer.leerArchivo();
