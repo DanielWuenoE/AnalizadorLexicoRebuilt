@@ -19,6 +19,7 @@ public class MatrizPredictiva {
     }
     
     public int matriz(int x, int y) {
+                                 /* |beg|end| id| :=| ; |rea| ( | ) |wri| , |int| + | - | $| */
         int[][] matrizPredictiva = {{ 1,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0},
                                     { 0,  0,  2,  0,  0,  2,  0,  0,  2,  0,  0,  0,  0,  0},
                                     { 0,  4,  3,  0,  0,  3,  0,  0,  3,  0,  0,  0,  0,  0},
@@ -76,6 +77,7 @@ public class MatrizPredictiva {
                 } else {
                     System.out.println("error 1");
                     errorSintactico(a);
+                    lexico.imprimeTablas();
                     break;
                 }
             } else {
@@ -97,16 +99,19 @@ public class MatrizPredictiva {
                 else {
                     System.out.println("error 2");
                     errorSintactico(a);
+                    lexico.imprimeTablas();
                     break;
                 }
             }
         }
         if(error == false){
-        if (!a.equals("$")) {
-            System.out.println("");
-            LlDiver();
-        } else
-            System.out.println("Análisis terminado");
+            if (!a.equals("$")) {
+                System.out.println("");
+                LlDiver();
+            } else {
+                System.out.println("Análisis terminado");
+                lexico.imprimeTablas();
+            }
         }
     }
     

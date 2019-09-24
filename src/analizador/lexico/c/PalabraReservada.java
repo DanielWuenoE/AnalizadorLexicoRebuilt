@@ -71,11 +71,19 @@ public class PalabraReservada {
             System.out.println(pr.name() + "\t" + pr.getValor());
         }
     }
+    
+    public String tipoPalabra(String token) {
+        if (ExistePalabraReservada(token))
+            return "Palabra Re.";
+        else
+            return "Identificador";
+    }
 }
 
 class test {
     public static void main(String[] args) {
         PalabraReservada pr = new PalabraReservada();
+        System.out.println(pr.tipoPalabra("bololean"));
         System.out.println("Existe: " + pr.ExistePalabraReservada("boolean"));
         System.out.println("Palabra: " + pr.getValorPalabraReservada("boolean"));
         

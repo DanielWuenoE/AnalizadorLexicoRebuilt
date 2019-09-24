@@ -9,9 +9,8 @@ public class ListasR<dato> {
     /*
             Supuesta tabla de símbolos
     Token   |   Tipo Token    |  Valor Token   |   Valor Identf  |  Tipo Identif  |  #Veces Repite  |
+      w        identificador         115                0                int              3
     */
-    
-    /* Hola */
     
     class NodoTSimR<dato> {
         public String token, tipoToken, tipoIdentificador;
@@ -62,7 +61,7 @@ public class ListasR<dato> {
                 Símbolos
             Tipo    Identificador   Valor
         */
-        public void agregarElementoLSimbolos(String token, String tipoToken, dato valorToken, dato valorIdentificador, String tipoIdentificador, dato vecesRepite) {
+        public void agregarElementoLSimbolosR(String token, String tipoToken, dato valorToken, dato valorIdentificador, String tipoIdentificador, dato vecesRepite) {
             NodoTSimR agregarElemento = new NodoTSimR(token, tipoToken, valorToken, valorIdentificador, tipoIdentificador, vecesRepite);
             if (inicioSim != null) {  // Existe el inicio
                 finSim.siguiente = agregarElemento;  //Agregar al final de la
@@ -77,7 +76,7 @@ public class ListasR<dato> {
                 Errores
             Palabra  Error
         */
-        public void agregarElementoLErrores(String palabra) {
+        public void agregarElementoLErroresR(String palabra) {
             NodoTErrores agregarElemento = new NodoTErrores(palabra);
             if (inicioErr != null) {
                 finErr.siguiente = agregarElemento;
@@ -91,7 +90,7 @@ public class ListasR<dato> {
                 Tokens
             Palabra  Tipo   Token
         */
-        public void agregarElementoLTokens(dato palabra, String tipo, int token) {
+        public void agregarElementoLTokensR(dato palabra, String tipo, int token) {
             NodoTToken agregarElemento = new NodoTToken(palabra, tipo, token);
             if (inicioTok != null) {
                 finTok.siguiente = agregarElemento;
@@ -105,7 +104,7 @@ public class ListasR<dato> {
                 Reservadas
             Palabra  Token
         */
-        public void agregarElementoLReservadas(String palabra, int token) {
+        public void agregarElementoLReservadasR(String palabra, int token) {
             NodoTReservadas agregarElemento = new NodoTReservadas(palabra, token);
             if (inicioR != null) {
                 finR.siguiente = agregarElemento;
@@ -115,7 +114,7 @@ public class ListasR<dato> {
             }
         }
         
-        public void mostrarListaErrores() {
+        public void mostrarListaErroresR() {
             NodoTErrores recorrer = inicioErr;
             while (recorrer != null) {
                 System.out.println(recorrer.error);
@@ -123,20 +122,22 @@ public class ListasR<dato> {
             }
         }
         
-        public void mostrarListaSimbolos() {
+        public void mostrarListaSimbolosR() {
             NodoTSimR recorrer = inicioSim;
+            System.out.println("Token   |   Tipo Token    |  Valor Token   |   Valor Identf  |  Tipo Identif  |  #Veces Repite");
             while (recorrer != null) {
-                System.out.println(recorrer.token + "\t" +
-                                   recorrer.tipoToken + "\t" +
-                                   recorrer.valorToken + "\t" +
-                                   recorrer.valorIdentificador + "\t" +
-                                   recorrer.tipoIdentificador + "\t" +
+                System.out.printf("%-10s %13s %10s %17s %18s %15s %n",
+                                   recorrer.token,
+                                   recorrer.tipoToken,
+                                   recorrer.valorToken,
+                                   recorrer.valorIdentificador,
+                                   recorrer.tipoIdentificador,
                                    recorrer.vecesRepite);
                 recorrer = recorrer.siguiente;
             }
         }
         
-        public void mostrarListaTokens() {
+        public void mostrarListaTokensR() {
             NodoTToken recorrer = inicioTok;
             while (recorrer != null) {
                 System.out.println(recorrer.palabra + "\t" +
@@ -146,12 +147,55 @@ public class ListasR<dato> {
             }
         }
         
-        public void mostrarListaReservadas() {
+        public void mostrarListaReservadasR() {
             NodoTReservadas recorrer = inicioR;
             while (recorrer != null) {
                 System.out.println(recorrer.palabraR + "\t" +
                                    recorrer.tokenR + "\t");
                 recorrer = recorrer.siguiente;
             }
+        }
+        
+        public boolean ExistePalabraT(String token) {
+            NodoTSimR recorrer = inicioSim;
+            while (recorrer != null) {
+                if (recorrer.token.equals(token))
+                    return true;
+                else
+                    recorrer = recorrer.siguiente;
+            }
+            return false;
+        }
+        
+        public int buscaIdent(String token) {
+            NodoTSimR recorrer = inicioSim;
+            while (recorrer != null) {
+                if (recorrer.token.equals(token))
+                    return (int) recorrer.valorToken;
+                recorrer = recorrer.siguiente;
+            }
+            return 0;
+        }
+        
+        public int buscaRepR(String token) {
+            NodoTSimR recorrer = inicioSim;
+            int sumEn = 0;
+            while (recorrer != null) {
+                if (recorrer.token.equals(token)) {
+                    sumEn++;
+                }
+                recorrer = recorrer.siguiente;
+            }
+            return sumEn;
+        }
+        
+        public int ultimoEnFila() {
+            NodoTSimR recorrer = inicioSim;
+            while (recorrer != null) {
+                if (recorrer.tipoToken.equals("Identificador"))
+                    return (int) recorrer.valorToken;
+                recorrer = recorrer.siguiente;
+            }
+            return 0;
         }
 }
