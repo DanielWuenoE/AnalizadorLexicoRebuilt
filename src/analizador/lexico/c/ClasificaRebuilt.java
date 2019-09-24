@@ -49,22 +49,22 @@ public class ClasificaRebuilt {
                 actual++;
                 token = crearCadena(actual-1, actual+1, archivo);
                 /*Token|Tipo Token|Valor Token|Valor Identf|Tipo Identif|#Veces Repite|*/
-                listaTab.agregarElementoLSimbolosR(token, "Simb. Esp.", (int)(token.charAt(0)) + 300, 0, null, listaTab.buscaRepR(token) + 1);
+                listaTab.agregarElementoLSimbolosR(token, "Simb. Esp.", listaTab.buscaRepR(token) + 1, (int)(token.charAt(0)) + 300, 0, null);
 //                q1Identificador(archivo);
             } else if (tipo.esParentesis2(conv.getAscii()) == true) {
                 actual++;
                 token = crearCadena(actual-1, actual+1, archivo);
-                listaTab.agregarElementoLSimbolosR(token, "Simb. Esp.", (int)(token.charAt(0)) + 300, 0, null, listaTab.buscaRepR(token) + 1);
+                listaTab.agregarElementoLSimbolosR(token, "Simb. Esp.", listaTab.buscaRepR(token) + 1, (int)(token.charAt(0)) + 300, 0, null);
 //                q1Identificador(archivo);
             } else if (tipo.esComa(conv.getAscii()) == true) {
                 actual++;
                 token = crearCadena(actual-1, actual+1, archivo);
-                listaTab.agregarElementoLSimbolosR(token, "Simb. Esp.", (int)(token.charAt(0)) + 300, 0, null, listaTab.buscaRepR(token) + 1);
+                listaTab.agregarElementoLSimbolosR(token, "Simb. Esp.", listaTab.buscaRepR(token) + 1, (int)(token.charAt(0)) + 300, 0, null);
 //                q1Identificador(archivo);
             } else if (tipo.esPyC(conv.getAscii()) == true) {
                 actual++;
                 token = crearCadena(actual-1, actual+1, archivo);
-                listaTab.agregarElementoLSimbolosR(token, "Simb. Esp.", (int)(token.charAt(0)) + 300, 0, null, listaTab.buscaRepR(token) + 1);
+                listaTab.agregarElementoLSimbolosR(token, "Simb. Esp.", listaTab.buscaRepR(token) + 1, (int)(token.charAt(0)) + 300, 0, null);
 //                q1Identificador(archivo);
             } else if (tipo.esDPuntos(conv.getAscii()) == true) {
                 actual++;
@@ -72,12 +72,12 @@ public class ClasificaRebuilt {
             } else if (tipo.esMas(conv.getAscii()) == true) {
                 actual++;
                 token = crearCadena(actual - 1, actual+1, archivo);
-                listaTab.agregarElementoLSimbolosR(token, "Simb. Esp.", (int)(token.charAt(0)) + 300, 0, null, listaTab.buscaRepR(token) + 1);
+                listaTab.agregarElementoLSimbolosR(token, "Simb. Esp.", listaTab.buscaRepR(token) + 1, (int)(token.charAt(0)) + 300, 0, null);
 //                q1Identificador(archivo);
             } else if (tipo.esMenos(conv.getAscii()) == true) {
                 actual++;
                 token = crearCadena(actual - 1, actual+1, archivo);
-                listaTab.agregarElementoLSimbolosR(token, "Simb. Esp.", (int)(token.charAt(0)) + 300, 0, null, listaTab.buscaRepR(token) + 1);
+                listaTab.agregarElementoLSimbolosR(token, "Simb. Esp.", listaTab.buscaRepR(token) + 1, (int)(token.charAt(0)) + 300, 0, null);
 //                q1Identificador(archivo);
             } else {
                 actual++;
@@ -92,7 +92,7 @@ public class ClasificaRebuilt {
             conv.convertirCaracter(archivo.charAt(i));
             if (tipo.esEspacio(conv.getAscii())) {
                 token = crearCadena(actual - 1, actual + movs, archivo);
-                listaTab.agregarElementoLSimbolosR(token, tipoPalabra(token), calValToken(token), -1, null, listaTab.buscaRepR(token) + 1);
+                listaTab.agregarElementoLSimbolosR(token, tipoPalabra(token), listaTab.buscaRepR(token) + 1, calValToken(token), -1, null);
                 actual = actual + movs;
                 break;
             } else if ((tipo.esMinuscula(conv.getAscii()) == true)
@@ -101,7 +101,7 @@ public class ClasificaRebuilt {
                 movs++;
             } else {
                 token = crearCadena(actual - 1, actual + movs, archivo);
-                listaTab.agregarElementoLSimbolosR(token, tipoPalabra(token), calValToken(token), -1, null, listaTab.buscaRepR(token) + 1);
+                listaTab.agregarElementoLSimbolosR(token, tipoPalabra(token), listaTab.buscaRepR(token) + 1, calValToken(token), -1, null);
                 actual = actual + movs-1;
 //                qErrorLexico(archivo, movs);
                 break;
@@ -115,7 +115,7 @@ public class ClasificaRebuilt {
             conv.convertirCaracter(archivo.charAt(i));
             if (tipo.esEspacio(conv.getAscii())) {
                 token = crearCadena(actual - 1, actual + movs, archivo);
-                listaTab.agregarElementoLSimbolosR(token, "Número", 500, token, null, listaTab.buscaRepR(token) + 1);
+                listaTab.agregarElementoLSimbolosR(token, "Número", listaTab.buscaRepR(token) + 1, 500, token, null);
                 actual = actual + movs;
                 break;
             } else if (tipo.esNumero(conv.getAscii()) == true) {
@@ -135,7 +135,7 @@ public class ClasificaRebuilt {
             conv.convertirCaracter(archivo.charAt(i));
             if (tipo.esEspacio(conv.getAscii())) {
                 token = crearCadena(actual - 1, actual + movs, archivo);
-                listaTab.agregarElementoLSimbolosR(token, "Simb. Esp.", (int)(token.charAt(0)) + 300, 0, null, listaTab.buscaRepR(token) + 1);
+                listaTab.agregarElementoLSimbolosR(token, "Simb. Esp.", listaTab.buscaRepR(token) + 1, (int)(token.charAt(0)) + 300, 0, null);
                 actual = actual + movs;
                 break;
             } else if (tipo.esIgual(conv.getAscii()) == true) {
@@ -194,12 +194,9 @@ public class ClasificaRebuilt {
                 listaTab.buscaRepR(token);
             } else {
                 if (listaTab.ExistePalabraT(token)) {
-                    System.out.println("id: " + listaTab.buscaIdent(token));
                     return listaTab.buscaIdent(token);
                 }
                 else {
-                    System.out.println("id: " + listaTab.buscaIdent(token));
-                    System.out.println("ul: " + listaTab.ultimoEnFila());
                     return listaTab.ultimoEnFila() + 1;
                 }
                 //return -1;
@@ -219,7 +216,7 @@ public class ClasificaRebuilt {
         //obj.q0(archivo2);
         //        obj.im(archivo);
         while (!obj.pedirToken().equals("end")) {
-//            obj.pedirToken();
+            obj.pedirToken();
         }
         obj.imprimeTablas();
     }

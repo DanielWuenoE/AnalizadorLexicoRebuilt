@@ -61,13 +61,28 @@ public class ListasR<dato> {
                 Símbolos
             Tipo    Identificador   Valor
         */
-        public void agregarElementoLSimbolosR(String token, String tipoToken, dato valorToken, dato valorIdentificador, String tipoIdentificador, dato vecesRepite) {
-            NodoTSimR agregarElemento = new NodoTSimR(token, tipoToken, valorToken, valorIdentificador, tipoIdentificador, vecesRepite);
-            if (inicioSim != null) {  // Existe el inicio
-                finSim.siguiente = agregarElemento;  //Agregar al final de la
-                finSim = agregarElemento;
-            } else {
-                inicioSim = finSim = agregarElemento; //Crea la lista con su primer Nodo
+        public void agregarElementoLSimbolosR(String token, String tipoToken, dato vecesRepite, dato valorToken, dato valorIdentificador, String tipoIdentificador) {
+            if (!ExistePalabraT(token)) {
+                NodoTSimR agregarElemento = new NodoTSimR(token, tipoToken, valorToken, valorIdentificador, tipoIdentificador, vecesRepite);
+                if (inicioSim != null) {  // Existe el inicio
+                    finSim.siguiente = agregarElemento;  //Agregar al final de la
+                    finSim = agregarElemento;
+                } else {
+                    inicioSim = finSim = agregarElemento; //Crea la lista con su primer Nodo
+                }
+            } else
+                siExiste(token, vecesRepite);
+        }
+        
+        public void siExiste(String token, dato vecesRepite) {
+            NodoTSimR recorrer = inicioSim;
+            while (recorrer != null) {
+                if (recorrer.token.equals(token)) {
+                    System.out.println("vr: " + vecesRepite);
+                    recorrer.vecesRepite = vecesRepite;
+                    break;
+                }
+                recorrer = recorrer.siguiente;
             }
         }
         
@@ -182,7 +197,7 @@ public class ListasR<dato> {
             int sumEn = 0;
             while (recorrer != null) {
                 if (recorrer.token.equals(token)) {
-                    sumEn++;
+                    sumEn = (int) recorrer.vecesRepite;
                 }
                 recorrer = recorrer.siguiente;
             }

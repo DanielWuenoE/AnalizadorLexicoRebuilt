@@ -9,7 +9,7 @@ public class TestLista {
     }
     
     public void test(String token, String tipo) {
-        al.agregarElementoLSimbolosR(token, tipo, (int)(token.charAt(0)), 0, null, al.buscaRepR(token) + 1);
+        al.agregarElementoLSimbolosR(token, tipo, al.buscaRepR(token) + 1, (int)(token.charAt(0)), 0, null);
     }
     
     public void imp() {

@@ -3,37 +3,12 @@ package analizador.lexico.c;
 //**********            Enumerado Palabras Reservadas            **********//
     
 enum PalabrasReservadas { // lista de palabras reservadas a usar
-        BOOLEAN (200),
-        BREAK (201),
-        BYTE (203),
-        CASE (204),
-        CHAR (205),
-        CLASS (206),
-        DO (207),
-        DOUBLE (208),
-        ELSE (209),
-        EXTENDS (210),
-        FINAL (211),
-        FLOAT (212),
-        FOR (213),
-        IF (214),
-        IMPORT (215),
-        INT (216),
-        INTERFACE (217),
-        LONG (218),
-        NEW (219),
-        PACKAGE (220),
-        PRIVATE (221),
-        PROTECTED (222),
-        PUBLIC (223),
-        RETURN (224),
-        SHORT (225),
-        STATIC (226),
-        SWITCH (227),
-        THIS (228),
-        TRY (229),
-        VOID (230),
-        WHILE (231);
+        READ (200),
+        ID (201),
+        WRITE (202),
+        INT (203),
+        END (204),
+        BEGIN (205);
     
     private final int valor;  // valor numérico de cada palabra reservada
     
@@ -51,7 +26,7 @@ public class PalabraReservada {
     public boolean ExistePalabraReservada(String pReservada) {
         // ciclo que recorre el enumerado hasta encontrar la palabra recibida
         for (PalabrasReservadas pr : PalabrasReservadas.values()) {
-                if (pr.name().toLowerCase().equals(pReservada))
+                if (pr.name().toLowerCase().equals(pReservada.toLowerCase()))
                     return true; // si se encuentra regresa un true
         }
         return false; // en caso de que no existe se regresa un false
@@ -60,7 +35,7 @@ public class PalabraReservada {
     public int getValorPalabraReservada(String pReservada) {
         // ciclo que recorre el enumerado hasta encontrar la palabra recibida
         for (PalabrasReservadas pr : PalabrasReservadas.values()) {
-                if (pr.name().toLowerCase().equals(pReservada))
+                if (pr.name().toLowerCase().equals(pReservada.toLowerCase()))
                     return pr.getValor(); // si la encuentra devuelve su valor numérico
         }
         return -1; // en caso contrario masna un -1 que seria el caso de error (no encontrado)

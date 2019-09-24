@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - ClasificaRebuilt",
+            "request": "launch",
+            "mainClass": "analizador.lexico.c.ClasificaRebuilt",
+            "projectName": "AnalizadorLexicoRebuilt_a75107df"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - test",
             "request": "launch",
             "mainClass": "Sintactico.test",
