@@ -19,6 +19,7 @@ public class MatrizPredictiva {
     }
     
     public int matriz(int x, int y) {
+                                 /* |beg|end| id| :=| ; |rea| ( | ) |wri| , |int| + | - | $| */
         int[][] matrizPredictiva = {{ 1,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0},
                                     { 0,  0,  2,  0,  0,  2,  0,  0,  2,  0,  0,  0,  0,  0},
                                     { 0,  4,  3,  0,  0,  3,  0,  0,  3,  0,  0,  0,  0,  0},

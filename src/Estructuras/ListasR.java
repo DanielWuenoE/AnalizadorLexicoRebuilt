@@ -9,9 +9,8 @@ public class ListasR<dato> {
     /*
             Supuesta tabla de símbolos
     Token   |   Tipo Token    |  Valor Token   |   Valor Identf  |  Tipo Identif  |  #Veces Repite  |
+      w        identificador         115                0                int              3
     */
-    
-    /* Hola */
     
     class NodoTSimR<dato> {
         public String token, tipoToken, tipoIdentificador;

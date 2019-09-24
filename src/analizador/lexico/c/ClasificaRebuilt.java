@@ -1,6 +1,7 @@
 package analizador.lexico.c;
 
 import Lectura.LeerArchivo;
+import Estructuras.ListasR;
 
 public class ClasificaRebuilt {
 
@@ -8,11 +9,17 @@ public class ClasificaRebuilt {
     ConversionCaracter conv = new ConversionCaracter();
     String archivo = "", token;
     LeerArchivo leer = new LeerArchivo();
+    ListasR listaTab;
     int actual = 0;
     
     public ClasificaRebuilt() {
         leer.leerArchivo();
         archivo = leer.datos();
+        crearListasT();
+    }
+    
+    private void crearListasT() {
+        listaTab = new ListasR();
     }
 
     public String pedirToken() {
