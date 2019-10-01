@@ -152,6 +152,7 @@ public class ClasificaRebuilt {
                 //NOTA: SOLO DEBE HABER UNO
             } else {
                 token = crearCadena(actual - 1, actual + movs, archivo);
+                listaTab.agregarElementoLSimbolosR(token, "Simb. Esp.", listaTab.buscaRepR(token) + 1, (int) (token.charAt(0)) + 300, 0, null);
                 actual = actual + movs - 1;
 //                qErrorLexico(archivo, movs);
                 break;
