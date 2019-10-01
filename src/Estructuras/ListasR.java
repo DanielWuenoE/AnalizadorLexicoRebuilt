@@ -78,7 +78,7 @@ public class ListasR<dato> {
             NodoTSimR recorrer = inicioSim;
             while (recorrer != null) {
                 if (recorrer.token.equals(token)) {
-                    System.out.println("vr: " + vecesRepite);
+//                    System.out.println("vr: " + vecesRepite);
                     recorrer.vecesRepite = vecesRepite;
                     break;
                 }
