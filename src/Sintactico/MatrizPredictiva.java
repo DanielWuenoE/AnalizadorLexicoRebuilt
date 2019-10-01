@@ -107,9 +107,9 @@ public class MatrizPredictiva {
         if(error == false){
             if (!a.equals("$")) {
                 
-        System.out.println("inicia pila:");
-        pila.imprime();
-        System.out.println("termina pila");
+//        System.out.println("inicia pila:");
+//        pila.imprime();
+//        System.out.println("termina pila");
                 System.out.println("");
                 LlDiver();
             } else {
