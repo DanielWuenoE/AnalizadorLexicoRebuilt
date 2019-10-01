@@ -1,8 +1,0 @@
-{ { }
-} kj
-boolean acci0n = uno ;
-use 1rchivo = dos ;
-523.906
-123u
-i12wdf
-;
