@@ -122,12 +122,14 @@ public class ClasificaRebuilt {
             if (tipo.esEspacio(conv.getAscii())) {
                 token = crearCadena(actual - 1, actual + movs, archivo);
                 listaTab.agregarElementoLSimbolosR(token, "Número", listaTab.buscaRepR(token) + 1, 500, token, null);
+                token = "int";
                 actual = actual + movs;
                 break;
             } else if (tipo.esNumero(conv.getAscii()) == true) {
                 movs++;
             } else {
                 token = crearCadena(actual - 1, actual + movs, archivo);
+                token = "int";
                 actual = actual + movs - 1;
 //                qErrorLexico(archivo, movs);
                 break;
