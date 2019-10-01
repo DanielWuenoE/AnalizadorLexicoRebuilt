@@ -20,6 +20,11 @@ public class ClasificaRebuilt {
         crearListasT();
     }
 
+    public void retroceder(){
+        actual=actual-6;
+        listaTab.agregarElementoLSimbolosR("begin", tipoPalabra("begin"), listaTab.buscaRepR("begin") - 1, calValToken("begin"), -1, null);
+    }
+    
     private void crearListasT() {
         listaTab = new ListasR();
     }

@@ -88,13 +88,13 @@ public class MatrizPredictiva {
                     a = lexico.pedirToken();
 //                    System.out.println("pedir token 2");
 //                    System.out.println("a: "+a);
-                    System.out.print(a+" ");
+//                    System.out.print(a+" ");
                 } 
                 else if(x.equals("ε")) {
                     pila.pop();
 //                    pila.pop();
                     x = pila.peak();
-                    System.out.println("vacio x: "+x);
+//                    System.out.println("vacio x: "+x);
                 }
                 else {
 //                    System.out.println("error 2");
@@ -106,11 +106,11 @@ public class MatrizPredictiva {
         }
         if(error == false){
             if (!a.equals("$")) {
-                
+                lexico.retroceder();
 //        System.out.println("inicia pila:");
 //        pila.imprime();
 //        System.out.println("termina pila");
-                System.out.println("");
+//                System.out.println("");
                 LlDiver();
             } else {
                 System.out.println("Análisis terminado");
