@@ -4,5 +4,4 @@ begin read(ID);
 end
 begin f:=a+(4-a);end
 begin read (a); read(b);
-	f:=a+(4-b);write(f);
-	end
+	f:=a+(4-b);write(f); end

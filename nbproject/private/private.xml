@@ -3,11 +3,23 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
+            <file>file:/C:/Users/Daniel/Documents/NetBeansProjects/AnalizadorLexicoRebuilt/src/Archivos/codigo.txt</file>
+            <file>file:/C:/Users/Daniel/Documents/NetBeansProjects/AnalizadorLexicoRebuilt/src/Archivos/ProgramaV1.0.txt</file>
+            <file>file:/C:/Users/Daniel/Documents/NetBeansProjects/AnalizadorLexicoRebuilt/src/Gramatica/AcomodoGramatica.java</file>
+            <file>file:/C:/Users/Daniel/Documents/NetBeansProjects/AnalizadorLexicoRebuilt/src/Sintactico/tesst.java</file>
+            <file>file:/C:/Users/Daniel/Documents/NetBeansProjects/AnalizadorLexicoRebuilt/src/Estructuras/TestLista.java</file>
+            <file>file:/C:/Users/Daniel/Documents/NetBeansProjects/AnalizadorLexicoRebuilt/src/Sintactico/MatrizPredictiva.java</file>
+            <file>file:/C:/Users/Daniel/Documents/NetBeansProjects/AnalizadorLexicoRebuilt/src/analizador/lexico/c/ClasificaRebuilt.java</file>
+            <file>file:/C:/Users/Daniel/Documents/NetBeansProjects/AnalizadorLexicoRebuilt/src/Estructuras/ListasR.java</file>
+            <file>file:/C:/Users/Daniel/Documents/NetBeansProjects/AnalizadorLexicoRebuilt/src/Estructuras/Pila.java</file>
+=======
             <file>file:/F:/Escritorio/7mo%20Semestre/Lenguajes%20y%20Autómatas%20II/GitHub/AnalizadorLexicoRebuilt-1/src/Gramatica/AcomodoGramatica.java</file>
             <file>file:/F:/Escritorio/7mo%20Semestre/Lenguajes%20y%20Autómatas%20II/GitHub/AnalizadorLexicoRebuilt-1/src/analizador/lexico/c/Tipos.java</file>
             <file>file:/F:/Escritorio/7mo%20Semestre/Lenguajes%20y%20Autómatas%20II/GitHub/AnalizadorLexicoRebuilt-1/src/Estructuras/ListasR.java</file>
             <file>file:/F:/Escritorio/7mo%20Semestre/Lenguajes%20y%20Autómatas%20II/GitHub/AnalizadorLexicoRebuilt-1/src/Sintactico/MatrizPredictiva.java</file>
             <file>file:/F:/Escritorio/7mo%20Semestre/Lenguajes%20y%20Autómatas%20II/GitHub/AnalizadorLexicoRebuilt-1/src/analizador/lexico/c/ClasificaRebuilt.java</file>
+>>>>>>> c74e0212dfc297b81f7dce4bf2931ae81912715c
         </group>
     </open-files>
 </project-private>
