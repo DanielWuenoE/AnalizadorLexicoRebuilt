@@ -148,7 +148,6 @@ public class ListasR<dato> {
                                    recorrer.valorIdentificador,
                                    recorrer.tipoIdentificador,
                                    recorrer.vecesRepite);
-                System.out.printf("75s", "_");
                 recorrer = recorrer.siguiente;
             }
         }
