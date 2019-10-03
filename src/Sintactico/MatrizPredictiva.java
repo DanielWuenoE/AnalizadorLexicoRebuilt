@@ -106,7 +106,7 @@ public class MatrizPredictiva {
         }
         if(error == false){
             if (!a.equals("$")) {
-//                lexico.retroceder();
+                lexico.retroceder();
 //        System.out.println("inicia pila:");
 //        pila.imprime();
 //        System.out.println("termina pila");
