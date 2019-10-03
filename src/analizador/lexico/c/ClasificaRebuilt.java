@@ -21,8 +21,10 @@ public class ClasificaRebuilt {
     }
 
     public void retroceder(){
-        actual=actual-6;
-        listaTab.agregarElementoLSimbolosR("begin", tipoPalabra("begin"), listaTab.buscaRepR("begin") - 1, calValToken("begin"), -1, null);
+        if (actual < archivo.length()) {
+            actual=actual-6;
+            listaTab.agregarElementoLSimbolosR("begin", tipoPalabra("begin"), listaTab.buscaRepR("begin") - 1, calValToken("begin"), -1, null);
+        }        
     }
     
     private void crearListasT() {
