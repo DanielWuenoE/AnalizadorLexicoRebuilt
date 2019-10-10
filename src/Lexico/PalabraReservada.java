@@ -1,4 +1,4 @@
-package analizador.lexico.c;
+package Lexico;
 
 //**********            Enumerado Palabras Reservadas            **********//
     

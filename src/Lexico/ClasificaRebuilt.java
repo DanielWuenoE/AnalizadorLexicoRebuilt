@@ -1,4 +1,4 @@
-package analizador.lexico.c;
+package Lexico;
 
 import Lectura.LeerArchivo;
 import Estructuras.ListasR;
