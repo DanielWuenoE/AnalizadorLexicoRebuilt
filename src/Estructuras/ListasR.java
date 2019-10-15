@@ -191,7 +191,7 @@ public class ListasR<dato> {
             }
             return 0;
         }
-        
+        //borrar
         public int buscaRepR(String token) {
             NodoTSimR recorrer = inicioSim;
             int sumEn = 0;
