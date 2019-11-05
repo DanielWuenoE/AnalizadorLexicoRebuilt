@@ -1,21 +1,29 @@
 package Sintactico;
 
+import Controlador.Monarquia;
 import Estructuras.Pila;
 import Gramatica.AcomodoGramatica;
 import Lexico.ClasificaRebuilt;
+//import Lexico.ClasificaRebuilt;
 
 public class MatrizPredictiva {
 
     Pila pila;
     AcomodoGramatica gramatica;
-    ClasificaRebuilt lexico;
+    //ClasificaRebuilt lexico;
+    Monarquia what;
     boolean error = false;
 
-    MatrizPredictiva() {
+    MatrizPredictiva(Monarquia what) {
         pila = new Pila();
         gramatica = new AcomodoGramatica();
         gramatica.ini();  // pedimos la gramatica y se trabaja
-        lexico = new ClasificaRebuilt(); // pedimos el programa a analizar
+        //what = new ClasificaRebuilt(); // pedimos el programa a analizar
+        this.what = what;
+    }
+
+    MatrizPredictiva(ClasificaRebuilt Lexico) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public int matriz(int x, int y) {
@@ -53,11 +61,11 @@ public class MatrizPredictiva {
         return false;
     }
 
-    public void LlDiver() { //a sera el lexema enviado del analizador lexico
+    public void LlDiver() { //a sera el lexema enviado del analizador what
         pila.push(gramatica.simboloInicial());
         String x = pila.peak(); // tope de la pila
 //        System.out.println("x: "+x);
-        String a = lexico.pedirToken(); // pedir la primer palabra
+        String a = what.pedirToken(); // pedir la primer palabra
 //        System.out.println("pedir token 1");
 //        System.out.println("a: "+a);
 //        System.out.println("inicia pila:");
@@ -79,7 +87,7 @@ public class MatrizPredictiva {
                 } else {
 //                    System.out.println("error 1");
                     errorSintactico(a);
-                    lexico.imprimeTablas();
+                    what.imprimeTablas();
                     break;
                 }
             } else {
@@ -87,7 +95,7 @@ public class MatrizPredictiva {
                     pila.pop();
                     x = pila.peak();
 //                    System.out.println("x: "+x);
-                    a = lexico.pedirToken();
+                    a = what.pedirToken();
 //                    System.out.println("pedir token 2");
 //                    System.out.println("a: "+a);
 //                    System.out.print(a+" ");
@@ -99,14 +107,14 @@ public class MatrizPredictiva {
                 } else {
 //                    System.out.println("error 2");
                     errorSintactico(a);
-                    lexico.imprimeTablas();
+                    what.imprimeTablas();
                     break;
                 }
             }
         }
         if (error == false) {
             if (!a.equals("$")) {
-                lexico.retroceder();
+                what.retroceder();
 //        System.out.println("inicia pila:");
 //        pila.imprime();
 //        System.out.println("termina pila");
@@ -114,7 +122,7 @@ public class MatrizPredictiva {
                 LlDiver();
             } else {
                 System.out.println("Análisis terminado");
-                lexico.imprimeTablas();
+                what.imprimeTablas();
             }
         }
     }
@@ -139,8 +147,8 @@ public class MatrizPredictiva {
 class test {
 
     public static void main(String[] args) {
-        MatrizPredictiva m = new MatrizPredictiva();
-        m.LlDiver();
+        //MatrizPredictiva m = new MatrizPredictiva();
+        //m.LlDiver();
         //m.obtenProduccionMatrizP(0, 7);
     }
 }
