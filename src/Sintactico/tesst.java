@@ -13,8 +13,6 @@ public class tesst {
         Lexico = new ClasificaRebuilt();
         Semantico = new ValidacionTipos();
         
-        MatrizPredictiva m = new MatrizPredictiva(Lexico);
         
-        m.LlDiver();    
     }
 }
