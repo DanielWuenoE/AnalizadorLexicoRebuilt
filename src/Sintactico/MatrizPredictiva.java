@@ -22,9 +22,9 @@ public class MatrizPredictiva {
         this.what = what;
     }
 
-    MatrizPredictiva(ClasificaRebuilt Lexico) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+//    MatrizPredictiva(ClasificaRebuilt Lexico) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
 
     public int matriz(int x, int y) {
         /* |beg|end| id| :=| ; |rea| ( | ) |wri| , |int| + | - | $| */
