@@ -2,6 +2,7 @@ package Lexico;
 
 import Lectura.LeerArchivo;
 import Estructuras.ListasR;
+import Semantico.ValidacionTipos;
 
 public class ClasificaRebuilt {
 
@@ -11,12 +12,14 @@ public class ClasificaRebuilt {
     LeerArchivo leer = new LeerArchivo();
     ListasR listaTab;
     PalabraReservada palR;
+    ValidacionTipos validaT;
     int actual = 0;
 
     public ClasificaRebuilt() {
         leer.leerArchivo();
         archivo = leer.datos();
         palR = new PalabraReservada();
+        validaT = new ValidacionTipos();
         crearListasT();
     }
 
@@ -128,15 +131,18 @@ public class ClasificaRebuilt {
             conv.convertirCaracter(archivo.charAt(i));
             if (tipo.esEspacio(conv.getAscii())) {
                 token = crearCadena(actual - 1, actual + movs, archivo);
-                listaTab.agregarElementoLSimbolosR(token, "Número", listaTab.buscaRepR(token) + 1, 500, token, null);
-                token = "int";
+                if (!validaT.validacionInt(token))
+                    listaTab.agregarElementoLSimbolosR(token, "Número", listaTab.buscaRepR(token) + 1, 500, token, "Int");
+                //token = "int";
+                //validaT.validacionInt(token); //LLama a metodo/s del analizador Sincatico
                 actual = actual + movs;
                 break;
             } else if (tipo.esNumero(conv.getAscii()) == true) {
                 movs++;
             } else {
                 token = crearCadena(actual - 1, actual + movs, archivo);
-                listaTab.agregarElementoLSimbolosR(token, "Número", listaTab.buscaRepR(token) + 1, 500, token, null);
+                if (!validaT.validacionInt(token))
+                    listaTab.agregarElementoLSimbolosR(token, "Número", listaTab.buscaRepR(token) + 1, 500, token, "Int");
                 token = "int";
                 actual = actual + movs - 1;
 //                qErrorLexico(archivo, movs);
