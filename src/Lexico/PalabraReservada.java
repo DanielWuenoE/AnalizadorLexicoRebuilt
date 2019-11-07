@@ -59,8 +59,8 @@ class test {
     public static void main(String[] args) {
         PalabraReservada pr = new PalabraReservada();
         System.out.println(pr.tipoPalabra("bololean"));
-        System.out.println("Existe: " + pr.ExistePalabraReservada("boolean"));
-        System.out.println("Palabra: " + pr.getValorPalabraReservada("boolean"));
+        System.out.println("Existe: " + pr.ExistePalabraReservada("int"));
+        System.out.println("Palabra: " + pr.getValorPalabraReservada("int"));
         
     }
 }
