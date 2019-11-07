@@ -43,6 +43,7 @@ public class ValidacionTipos {
             // Revisar uno antes :=
             if (pr.getValorPalabraReservada(t) == 203) {
                 // el tipo es int/INT
+                //tabla.agregarElementoLTokensR(tabla, t, token);
             }
             // Revisar uno despues de :=
             if (validacionInt(t)) {
