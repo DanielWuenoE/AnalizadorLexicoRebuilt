@@ -15,12 +15,12 @@ public class ClasificaRebuilt {
     ValidacionTipos validaT;
     int actual = 0;
 
-    public ClasificaRebuilt() {
+    public ClasificaRebuilt(ListasR tabla) {
         leer.leerArchivo();
         archivo = leer.datos();
         palR = new PalabraReservada();
-        validaT = new ValidacionTipos();
-        crearListasT();
+        //validaT = new ValidacionTipos();
+        this.listaTab = tabla;
     }
 
     public void retroceder() {
@@ -28,10 +28,6 @@ public class ClasificaRebuilt {
             actual = actual - 6;
             listaTab.agregarElementoLSimbolosR("begin", tipoPalabra("begin"), listaTab.buscaRepR("begin") - 1, calValToken("begin"), -1, null);
         }
-    }
-
-    private void crearListasT() {
-        listaTab = new ListasR();
     }
 
     public String pedirToken() {
@@ -131,8 +127,7 @@ public class ClasificaRebuilt {
             conv.convertirCaracter(archivo.charAt(i));
             if (tipo.esEspacio(conv.getAscii())) {
                 token = crearCadena(actual - 1, actual + movs, archivo);
-                if (!validaT.validacionInt(token))
-                    listaTab.agregarElementoLSimbolosR(token, "Número", listaTab.buscaRepR(token) + 1, 500, token, "Int");
+                listaTab.agregarElementoLSimbolosR(token, "Número", listaTab.buscaRepR(token) + 1, 500, token, "Int");
                 //token = "int";
                 //validaT.validacionInt(token); //LLama a metodo/s del analizador Sincatico
                 actual = actual + movs;
@@ -141,8 +136,7 @@ public class ClasificaRebuilt {
                 movs++;
             } else {
                 token = crearCadena(actual - 1, actual + movs, archivo);
-                if (!validaT.validacionInt(token))
-                    listaTab.agregarElementoLSimbolosR(token, "Número", listaTab.buscaRepR(token) + 1, 500, token, "Int");
+                listaTab.agregarElementoLSimbolosR(token, "Número", listaTab.buscaRepR(token) + 1, 500, token, "Int");
                 token = "int";
                 actual = actual + movs - 1;
 //                qErrorLexico(archivo, movs);
@@ -229,10 +223,10 @@ public class ClasificaRebuilt {
     }
 
     public static void main(String[] args) {
-        ClasificaRebuilt obj = new ClasificaRebuilt();
-        while (!obj.pedirToken().equals("end")) {
-            obj.pedirToken();
-        }
-        obj.imprimeTablas();
+        //ClasificaRebuilt obj = new ClasificaRebuilt();
+//        while (!obj.pedirToken().equals("end")) {
+//            obj.pedirToken();
+//        }
+//        obj.imprimeTablas();
     }
 }
