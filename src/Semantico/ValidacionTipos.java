@@ -41,7 +41,7 @@ public class ValidacionTipos {
         
         if (t == ":=") {
             // Revisar uno antes :=
-            if (pr.getValorPalabraReservada(t) == 203) {
+            if (pr.getValorPalabraReservada(lexico.tokenAnt) == 203) {
                 // el tipo es int/INT
                 //tabla.agregarElementoLTokensR(tabla, t, token);
             }

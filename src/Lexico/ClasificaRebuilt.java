@@ -14,7 +14,7 @@ public class ClasificaRebuilt {
     PalabraReservada palR;
     ValidacionTipos validaT;
     int actual = 0;
-    String tokenAnt;
+    public String tokenAnt;
 
     public ClasificaRebuilt(ListasR tabla) {
         leer.leerArchivo();
@@ -25,7 +25,7 @@ public class ClasificaRebuilt {
     }
     
     public void retocedeToken(String token){
-        String token1;
+        String token1 = null;
         tokenAnt = token1;
         token1 = token;        
     }
@@ -40,7 +40,7 @@ public class ClasificaRebuilt {
     public String pedirToken() {
         q0(archivo);
         System.out.println(token);
-        retrocederToken(token);
+        retrocedeToken(token);
         return token;
     }
 
