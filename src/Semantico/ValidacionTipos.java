@@ -2,10 +2,19 @@ package Semantico;
 
 import Lexico.Tipos;
 import Lexico.ConversionCaracter;
+import Estructuras.ListasR;
+import Lexico.ClasificaRebuilt;
 
 public class ValidacionTipos {
     Tipos tipo = new Tipos();
     ConversionCaracter conv = new ConversionCaracter();
+    ListasR tabla;
+    ClasificaRebuilt lexico;
+    
+    public ValidacionTipos(ListasR tabla, ClasificaRebuilt lexico) {
+        this.tabla = tabla;
+        this.lexico = lexico;
+    }
     
     public boolean validacionInt(String token){
         boolean flag = false;
@@ -30,12 +39,12 @@ public class ValidacionTipos {
     }
     
     public static void main(String[] args) {
-        ValidacionTipos var = new ValidacionTipos();
+        //ValidacionTipos var = new ValidacionTipos();
         
-        var.validacionInt("123e");
-        System.out.println("");
-        var.validacionInt("1234");
-        System.out.println("");
-        var.validacionInt("1e23");
+//        var.validacionInt("123e");
+//        System.out.println("");
+//        var.validacionInt("1234");
+//        System.out.println("");
+//        var.validacionInt("1e23");
     }
 }
