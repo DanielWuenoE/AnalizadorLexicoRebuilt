@@ -14,7 +14,7 @@ public class ClasificaRebuilt {
     PalabraReservada palR;
     ValidacionTipos validaT;
     int actual = 0;
-    public String tokenAnt;
+    public String tokenAnt = "", tokenAnt2 = "";
     private String token1 = "";
 
     public ClasificaRebuilt(ListasR tabla) {
@@ -26,6 +26,7 @@ public class ClasificaRebuilt {
     }
     
     public void retrocedeToken(String token){
+        tokenAnt2 = tokenAnt;
         tokenAnt = token1;
         token1 = token;        
     }
@@ -43,9 +44,9 @@ public class ClasificaRebuilt {
 
     public String pedirToken() {
         q0(archivo);
-        System.out.println(token);
-        retrocedeToken(token);
-        System.out.println("Token anterior: "+tokenAnt);
+//        System.out.println(token);
+        
+//        System.out.println("Token anterior: "+tokenAnt);
         return token;
     }
 
@@ -145,7 +146,9 @@ public class ClasificaRebuilt {
                 token = crearCadena(actual - 1, actual + movs, archivo);
                 listaTab.agregarElementoLSimbolosR(token, "Número", listaTab.buscaRepR(token) + 1, 500, token, "Int");
 //                token = "int";
-                actual = actual + movs - 1;
+                   token = crearCadena(actual - 1, actual + movs, archivo);
+                listaTab.agregarElementoLSimbolosR(token, "Número", listaTab.buscaRepR(token) + 1, 500, token, "Int");
+//                token = "int";    actual = actual + movs - 1;
 //                qErrorLexico(archivo, movs);
                 break;
             }

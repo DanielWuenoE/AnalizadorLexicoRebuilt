@@ -1,7 +1,7 @@
 begin read(ID);
 	ID := ID + (int - ID);
 	write(ID);
-        ID := 23423;
+        ID := 2;
 end
 begin f:=a+(4-a);end
 begin read (a); read(b);

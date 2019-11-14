@@ -37,9 +37,12 @@ public class ValidacionTipos {
     }
     
     public void idenficiaVT() {
+        String t = "";
         lexico.reiniciarLectura(); 
-        String t = lexico.pedirToken();
-        
+        while(!(lexico.tokenAnt2.equals("end") && t.equals("end"))){
+        t = lexico.pedirToken();
+        lexico.retrocedeToken(t);
+        System.out.println(t);
         if (t == ":=") {
             // Revisar uno antes :=
             if (pr.getValorPalabraReservada(lexico.tokenAnt) == 203) {
@@ -50,6 +53,8 @@ public class ValidacionTipos {
             if (validacionInt(t)) {
                 // es un entero
             }
+        }
+            
         }
     }
     

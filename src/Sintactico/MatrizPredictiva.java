@@ -91,6 +91,7 @@ public class MatrizPredictiva {
                     x = pila.peak();
 //                    System.out.println("x: "+x);
                     a = lexico.pedirToken();
+                    a = lexico.cambiazo(a);
 //                    System.out.println("pedir token 2");
 //                    System.out.println("a: "+a);
 //                    System.out.print(a+" ");
