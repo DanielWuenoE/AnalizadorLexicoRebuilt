@@ -37,7 +37,7 @@ public class ValidacionTipos {
     }
     
     public void idenficiaVT() {
-        lexico.reiniciarLectura();
+        lexico.reiniciarLectura(); 
         String t = lexico.pedirToken();
         
         if (t == ":=") {

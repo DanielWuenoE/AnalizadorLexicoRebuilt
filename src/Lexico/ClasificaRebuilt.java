@@ -112,9 +112,6 @@ public class ClasificaRebuilt {
             if (tipo.esEspacio(conv.getAscii())) {
                 token = crearCadena(actual - 1, actual + movs, archivo);
                 listaTab.agregarElementoLSimbolosR(token, tipoPalabra(token), listaTab.buscaRepR(token) + 1, calValToken(token), -1, null);
-                if (!palR.ExistePalabraReservada(token)) {
-                    token = "ID";
-                }
                 actual = actual + movs;
                 break;
             } else if ((tipo.esMinuscula(conv.getAscii()) == true)
@@ -124,9 +121,6 @@ public class ClasificaRebuilt {
             } else {
                 token = crearCadena(actual - 1, actual + movs, archivo);
                 listaTab.agregarElementoLSimbolosR(token, tipoPalabra(token), listaTab.buscaRepR(token) + 1, calValToken(token), -1, null);
-                if (!palR.ExistePalabraReservada(token)) {
-                    token = "ID";
-                }
                 actual = actual + movs - 1;
 //                qErrorLexico(archivo, movs);
                 break;
@@ -150,7 +144,7 @@ public class ClasificaRebuilt {
             } else {
                 token = crearCadena(actual - 1, actual + movs, archivo);
                 listaTab.agregarElementoLSimbolosR(token, "Número", listaTab.buscaRepR(token) + 1, 500, token, "Int");
-                token = "int";
+//                token = "int";
                 actual = actual + movs - 1;
 //                qErrorLexico(archivo, movs);
                 break;
@@ -233,6 +227,23 @@ public class ClasificaRebuilt {
             }
             return 0;
         }
+    }
+    
+    
+    /// esto deeria ir en el Semantico, ignoren 
+    public String cambiazo(String token) {
+        conv.convertirCaracter(token.charAt(0));
+        if (!palR.ExistePalabraReservada(token) 
+                && (tipo.esMinuscula(conv.getAscii())
+                    || (tipo.esMinuscula(conv.getAscii()))
+                )
+            )
+        {
+            return "ID";
+        } else if (tipo.esNumero(conv.getAscii())) {
+            return "int";
+        } 
+        return token;
     }
 
     public static void main(String[] args) {
