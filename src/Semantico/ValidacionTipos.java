@@ -4,10 +4,12 @@ import Lexico.Tipos;
 import Lexico.ConversionCaracter;
 import Estructuras.ListasR;
 import Lexico.ClasificaRebuilt;
+import Lexico.PalabraReservada;
 
 public class ValidacionTipos {
     Tipos tipo = new Tipos();
     ConversionCaracter conv = new ConversionCaracter();
+    PalabraReservada pr = new PalabraReservada();
     ListasR tabla;
     ClasificaRebuilt lexico;
     
@@ -34,9 +36,21 @@ public class ValidacionTipos {
         return flag;
     }
     
-    public void idenficiaVT() {
+    public void idenficiaVT(String codigo) {
         lexico.reiniciarLectura();
-        lexico.pedirToken();
+        String t = lexico.pedirToken();
+        
+        if (t == ":=") {
+            // Revisar uno antes :=
+            if (pr.getValorPalabraReservada(lexico.tokenAnt) == 203) {
+                // el tipo es int/INT
+                //tabla.agregarElementoLTokensR(tabla, t, token);
+            }
+            // Revisar uno despues de :=
+            if (validacionInt(t)) {
+                // es un entero
+            }
+        }
     }
     
     public static void main(String[] args) {
