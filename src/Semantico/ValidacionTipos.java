@@ -34,8 +34,9 @@ public class ValidacionTipos {
         return flag;
     }
     
-    public void idenficiaVT(String codigo) {
-        
+    public void idenficiaVT() {
+        lexico.reiniciarLectura();
+        lexico.pedirToken();
     }
     
     public static void main(String[] args) {

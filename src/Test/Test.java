@@ -13,10 +13,13 @@ public class Test {
         MatrizPredictiva sintactico = new MatrizPredictiva(lexico);
         sintactico.LlDiver();
         ValidacionTipos semantico = new ValidacionTipos(tabla, lexico);
+        semantico.idenficiaVT();
     }
     
     public static void main(String[] args) {
         Test t = new Test();
         t.analizadores();
+        
+        
     }
 }

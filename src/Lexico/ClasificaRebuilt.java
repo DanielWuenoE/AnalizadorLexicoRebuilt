@@ -14,7 +14,8 @@ public class ClasificaRebuilt {
     PalabraReservada palR;
     ValidacionTipos validaT;
     int actual = 0;
-    String tokenAnt;
+    public String tokenAnt;
+    private String token1 = "";
 
     public ClasificaRebuilt(ListasR tabla) {
         leer.leerArchivo();
@@ -24,8 +25,7 @@ public class ClasificaRebuilt {
         this.listaTab = tabla;
     }
     
-    public void retocedeToken(String token){
-        String token1;
+    public void retrocedeToken(String token){
         tokenAnt = token1;
         token1 = token;        
     }
@@ -36,11 +36,16 @@ public class ClasificaRebuilt {
             listaTab.agregarElementoLSimbolosR("begin", tipoPalabra("begin"), listaTab.buscaRepR("begin") - 1, calValToken("begin"), -1, null);
         }
     }
+    
+    public void reiniciarLectura(){
+        actual = 0;
+    }
 
     public String pedirToken() {
         q0(archivo);
         System.out.println(token);
-        retrocederToken(token);
+        retrocedeToken(token);
+        System.out.println("Token anterior: "+tokenAnt);
         return token;
     }
 
@@ -231,10 +236,11 @@ public class ClasificaRebuilt {
     }
 
     public static void main(String[] args) {
-        //ClasificaRebuilt obj = new ClasificaRebuilt();
+//        ClasificaRebuilt obj = new ClasificaRebuilt();
 //        while (!obj.pedirToken().equals("end")) {
 //            obj.pedirToken();
 //        }
 //        obj.imprimeTablas();
+     
     }
 }
