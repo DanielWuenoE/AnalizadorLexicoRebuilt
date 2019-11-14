@@ -60,6 +60,7 @@ public class MatrizPredictiva {
         String x = pila.peak(); // tope de la pila
 //        System.out.println("x: "+x);
         String a = lexico.pedirToken(); // pedir la primer palabra
+        a = lexico.cambiazo(a);
 //        System.out.println("pedir token 1");
 //        System.out.println("a: "+a);
 //        System.out.println("inicia pila:");
