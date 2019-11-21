@@ -167,7 +167,7 @@ public class ClasificaRebuilt {
             conv.convertirCaracter(archivo.charAt(i));
             if (tipo.esEspacio(conv.getAscii())) {
                 token = crearCadena(actual - 1, actual + movs, archivo);
-                listaTab.agregarElementoLSimbolosR(token, "Simb. Esp.", listaTab.buscaRepR(token) + 1, (int) (token.charAt(0)) + 300, -1, "Asignación");
+                listaTab.agregarElementoLSimbolosR(token, "Simb. Esp.", listaTab.buscaRepR(token) + 1, (int) (token.charAt(0)) + 300, null, "Asignación");
                 actual = actual + movs;
                 break;
             } else if (tipo.esIgual(conv.getAscii()) == true) {
@@ -175,7 +175,7 @@ public class ClasificaRebuilt {
                 //NOTA: SOLO DEBE HABER UNO
             } else {
                 token = crearCadena(actual - 1, actual + movs, archivo);
-                listaTab.agregarElementoLSimbolosR(token, "Simb. Esp.", listaTab.buscaRepR(token) + 1, (int) (token.charAt(0)) + 300, -1, "Asignación");
+                listaTab.agregarElementoLSimbolosR(token, "Simb. Esp.", listaTab.buscaRepR(token) + 1, (int) (token.charAt(0)) + 300, null, "Asignación");
                 actual = actual + movs - 1;
 //                qErrorLexico(archivo, movs);
                 break;
