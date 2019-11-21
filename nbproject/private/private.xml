@@ -3,7 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/Daniel/Documents/NetBeansProjects/AnalizadorLexicoRebuilt/src/Lexico/ClasificaRebuilt.java</file>
+=======
+            <file>file:/F:/Escritorio/7mo%20Semestre/Lenguajes%20y%20Autómatas%20II/GitHub/AnalizadorLexicoRebuilt-1/src/Semantico/ValidacionTipos.java</file>
+            <file>file:/F:/Escritorio/7mo%20Semestre/Lenguajes%20y%20Autómatas%20II/GitHub/AnalizadorLexicoRebuilt-1/src/Test/Test.java</file>
+            <file>file:/F:/Escritorio/7mo%20Semestre/Lenguajes%20y%20Autómatas%20II/GitHub/AnalizadorLexicoRebuilt-1/src/Archivos/codigo.txt</file>
+            <file>file:/F:/Escritorio/7mo%20Semestre/Lenguajes%20y%20Autómatas%20II/GitHub/AnalizadorLexicoRebuilt-1/src/Lexico/ClasificaRebuilt.java</file>
+            <file>file:/F:/Escritorio/7mo%20Semestre/Lenguajes%20y%20Autómatas%20II/GitHub/AnalizadorLexicoRebuilt-1/src/Archivos/ProgramaV1.0.txt</file>
+            <file>file:/F:/Escritorio/7mo%20Semestre/Lenguajes%20y%20Autómatas%20II/GitHub/AnalizadorLexicoRebuilt-1/src/Sintactico/MatrizPredictiva.java</file>
+            <file>file:/F:/Escritorio/7mo%20Semestre/Lenguajes%20y%20Autómatas%20II/GitHub/AnalizadorLexicoRebuilt-1/src/Lexico/ConversionCaracter.java</file>
+>>>>>>> 79417d11b522cfadd1dd88c6765c12fb21ca0e23
         </group>
     </open-files>
 </project-private>
