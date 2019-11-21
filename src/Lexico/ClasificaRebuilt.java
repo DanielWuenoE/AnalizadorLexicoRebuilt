@@ -129,15 +129,6 @@ public class ClasificaRebuilt {
         }
     }
     
-    public String tipoIdentif(String t){
-        if(t.equals("Palabra Re."))
-            return "Palabra Re.";
-        else if(t.equals("Identificador"))
-            return "Int";
-        else
-            return "";
-    }
-
     public void q2NumeroEntero(String archivo) {
         int movs = 1;
         for (int i = actual; i < archivo.length(); i++) {
