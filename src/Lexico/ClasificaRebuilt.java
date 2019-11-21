@@ -144,7 +144,7 @@ public class ClasificaRebuilt {
             conv.convertirCaracter(archivo.charAt(i));
             if (tipo.esEspacio(conv.getAscii())) {
                 token = crearCadena(actual - 1, actual + movs, archivo);
-                listaTab.agregarElementoLSimbolosR(token, "Número", listaTab.buscaRepR(token) + 1, 500, token, "Int");
+                listaTab.agregarElementoLSimbolosR(token, "Número", listaTab.buscaRepR(token) + 1, calValToken(token) + 500, token, "Int");
                 //token = "int";
                 //validaT.validacionInt(token); //LLama a metodo/s del analizador Sincatico
                 actual = actual + movs;
@@ -153,7 +153,7 @@ public class ClasificaRebuilt {
                 movs++;
             } else {
                 token = crearCadena(actual - 1, actual + movs, archivo);
-                listaTab.agregarElementoLSimbolosR(token, "Número", listaTab.buscaRepR(token) + 1, 500, token, "Int");
+                listaTab.agregarElementoLSimbolosR(token, "Número", listaTab.buscaRepR(token) + 1, calValToken(token) + 500, token, "Int");
 //                token = "int";    actual = actual + movs - 1;
 //                qErrorLexico(archivo, movs);
                 break;
