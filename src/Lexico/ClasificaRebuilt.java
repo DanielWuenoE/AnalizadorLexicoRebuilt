@@ -69,22 +69,22 @@ public class ClasificaRebuilt {
                 actual++;
                 token = crearCadena(actual - 1, actual + 1, archivo);
                 /*Token|Tipo Token|Valor Token|Valor Identf|Tipo Identif|#Veces Repite|*/
-                listaTab.agregarElementoLSimbolosR(token, "Simb. Esp.", listaTab.buscaRepR(token) + 1, (int) (token.charAt(0)) + 300, 0, null);
+                listaTab.agregarElementoLSimbolosR(token, "Simb. Esp.", listaTab.buscaRepR(token) + 1, (int) (token.charAt(0)) + 300, null, "Simb. Esp.");
 //                q1Identificador(archivo);
             } else if (tipo.esParentesis2(conv.getAscii()) == true) {
                 actual++;
                 token = crearCadena(actual - 1, actual + 1, archivo);
-                listaTab.agregarElementoLSimbolosR(token, "Simb. Esp.", listaTab.buscaRepR(token) + 1, (int) (token.charAt(0)) + 300, 0, null);
+                listaTab.agregarElementoLSimbolosR(token, "Simb. Esp.", listaTab.buscaRepR(token) + 1, (int) (token.charAt(0)) + 300, null, "Simb. Esp.");
 //                q1Identificador(archivo);
             } else if (tipo.esComa(conv.getAscii()) == true) {
                 actual++;
                 token = crearCadena(actual - 1, actual + 1, archivo);
-                listaTab.agregarElementoLSimbolosR(token, "Simb. Esp.", listaTab.buscaRepR(token) + 1, (int) (token.charAt(0)) + 300, 0, null);
+                listaTab.agregarElementoLSimbolosR(token, "Simb. Esp.", listaTab.buscaRepR(token) + 1, (int) (token.charAt(0)) + 300, null, "Simb. Esp.");
 //                q1Identificador(archivo);
             } else if (tipo.esPyC(conv.getAscii()) == true) {
                 actual++;
                 token = crearCadena(actual - 1, actual + 1, archivo);
-                listaTab.agregarElementoLSimbolosR(token, "Simb. Esp.", listaTab.buscaRepR(token) + 1, (int) (token.charAt(0)) + 300, 0, null);
+                listaTab.agregarElementoLSimbolosR(token, "Simb. Esp.", listaTab.buscaRepR(token) + 1, (int) (token.charAt(0)) + 300, null, "Simb. Esp.");
 //                q1Identificador(archivo);
             } else if (tipo.esDPuntos(conv.getAscii()) == true) {
                 actual++;
@@ -92,12 +92,12 @@ public class ClasificaRebuilt {
             } else if (tipo.esMas(conv.getAscii()) == true) {
                 actual++;
                 token = crearCadena(actual - 1, actual + 1, archivo);
-                listaTab.agregarElementoLSimbolosR(token, "Simb. Esp.", listaTab.buscaRepR(token) + 1, (int) (token.charAt(0)) + 300, 0, null);
+                listaTab.agregarElementoLSimbolosR(token, "Simb. Esp.", listaTab.buscaRepR(token) + 1, (int) (token.charAt(0)) + 300, null, "Simb. Esp.");
 //                q1Identificador(archivo);
             } else if (tipo.esMenos(conv.getAscii()) == true) {
                 actual++;
                 token = crearCadena(actual - 1, actual + 1, archivo);
-                listaTab.agregarElementoLSimbolosR(token, "Simb. Esp.", listaTab.buscaRepR(token) + 1, (int) (token.charAt(0)) + 300, 0, null);
+                listaTab.agregarElementoLSimbolosR(token, "Simb. Esp.", listaTab.buscaRepR(token) + 1, (int) (token.charAt(0)) + 300, null, "Simb. Esp.");
 //                q1Identificador(archivo);
             } else {
                 actual++;
@@ -112,7 +112,7 @@ public class ClasificaRebuilt {
             conv.convertirCaracter(archivo.charAt(i));
             if (tipo.esEspacio(conv.getAscii())) {
                 token = crearCadena(actual - 1, actual + movs, archivo);
-                listaTab.agregarElementoLSimbolosR(token, tipoPalabra(token), listaTab.buscaRepR(token) + 1, calValToken(token), -1, null);
+                listaTab.agregarElementoLSimbolosR(token, tipoPalabra(token)[0], listaTab.buscaRepR(token) + 1, calValToken(token), tipoPalabra(token)[1], tipoPalabra(token);
                 actual = actual + movs;
                 break;
             } else if ((tipo.esMinuscula(conv.getAscii()) == true)
@@ -121,12 +121,21 @@ public class ClasificaRebuilt {
                 movs++;
             } else {
                 token = crearCadena(actual - 1, actual + movs, archivo);
-                listaTab.agregarElementoLSimbolosR(token, tipoPalabra(token), listaTab.buscaRepR(token) + 1, calValToken(token), -1, null);
+                listaTab.agregarElementoLSimbolosR(token, tipoPalabra(token), listaTab.buscaRepR(token) + 1, calValToken(token), 0, tipoPalabra(token));
                 actual = actual + movs - 1;
 //                qErrorLexico(archivo, movs);
                 break;
             }
         }
+    }
+    
+    public String tipoIdentif(String t){
+        if(t.equals("Palabra Re."))
+            return "Palabra Re.";
+        else if(t.equals("Identificador"))
+            return "Int";
+        else
+            return "";
     }
 
     public void q2NumeroEntero(String archivo) {
@@ -161,7 +170,7 @@ public class ClasificaRebuilt {
             conv.convertirCaracter(archivo.charAt(i));
             if (tipo.esEspacio(conv.getAscii())) {
                 token = crearCadena(actual - 1, actual + movs, archivo);
-                listaTab.agregarElementoLSimbolosR(token, "Simb. Esp.", listaTab.buscaRepR(token) + 1, (int) (token.charAt(0)) + 300, 0, null);
+                listaTab.agregarElementoLSimbolosR(token, "Simb. Esp.", listaTab.buscaRepR(token) + 1, (int) (token.charAt(0)) + 300, -1, "Asignación");
                 actual = actual + movs;
                 break;
             } else if (tipo.esIgual(conv.getAscii()) == true) {
@@ -169,7 +178,7 @@ public class ClasificaRebuilt {
                 //NOTA: SOLO DEBE HABER UNO
             } else {
                 token = crearCadena(actual - 1, actual + movs, archivo);
-                listaTab.agregarElementoLSimbolosR(token, "Simb. Esp.", listaTab.buscaRepR(token) + 1, (int) (token.charAt(0)) + 300, 0, null);
+                listaTab.agregarElementoLSimbolosR(token, "Simb. Esp.", listaTab.buscaRepR(token) + 1, (int) (token.charAt(0)) + 300, -1, "Asignación");
                 actual = actual + movs - 1;
 //                qErrorLexico(archivo, movs);
                 break;
@@ -206,11 +215,18 @@ public class ClasificaRebuilt {
         listaTab.mostrarListaSimbolosR();
     }
 
-    public String tipoPalabra(String token) {
+    public String[] tipoPalabra(String token) {
+        String res[] = new String[3];
         if (palR.ExistePalabraReservada(token)) {
-            return "Palabra Re.";
+            res[0] = "Palabra Re.";
+            res[1] = null;
+            res[2] = "Palabra Re.";
+            return res;
         } else {
-            return "Identificador";
+            res[0] = "Identificador";
+            res[1] = "0";
+            res[2] = "Int";
+            return res;
         }
     }
 

@@ -31,7 +31,7 @@ public class Tipos {
     }
     
     public boolean esNumero(int ascii){                 //verifica si el caracter es numero
-        if(ascii >= 49 && ascii <= 57)
+        if(ascii >= 48 && ascii <= 57)
             return true;
         else
             return false;
