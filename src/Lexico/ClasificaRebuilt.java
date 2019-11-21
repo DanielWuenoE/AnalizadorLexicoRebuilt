@@ -154,9 +154,6 @@ public class ClasificaRebuilt {
             } else {
                 token = crearCadena(actual - 1, actual + movs, archivo);
                 listaTab.agregarElementoLSimbolosR(token, "Número", listaTab.buscaRepR(token) + 1, 500, token, "Int");
-//                token = "int";
-                   token = crearCadena(actual - 1, actual + movs, archivo);
-                listaTab.agregarElementoLSimbolosR(token, "Número", listaTab.buscaRepR(token) + 1, 500, token, "Int");
 //                token = "int";    actual = actual + movs - 1;
 //                qErrorLexico(archivo, movs);
                 break;
