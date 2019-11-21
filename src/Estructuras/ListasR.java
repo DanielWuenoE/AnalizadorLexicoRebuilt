@@ -191,6 +191,17 @@ public class ListasR<dato> {
             }
             return 0;
         }
+        //busca columa token y cambia valores valor identificador - esto si sirve :3
+        public void buscaYReplaza(String token, dato newValor) {
+            NodoTSimR recorrer = inicioSim;
+            while (recorrer != null) {
+                if (recorrer.token.equals(token)) {
+                    recorrer.valorIdentificador = newValor;
+                }
+                recorrer = recorrer.siguiente;
+            }
+        }
+        
         //borrar
         public int buscaRepR(String token) {
             NodoTSimR recorrer = inicioSim;
