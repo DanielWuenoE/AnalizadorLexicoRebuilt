@@ -19,10 +19,6 @@ public class TestLista {
         System.out.println(al.ultimoEnFila());
     }
     
-    public void bucate() {
-        al.buscaIdent(null)
-    }
-    
     public static void main(String[] args) {
         TestLista t = new TestLista();
         t.test(":=", "Identificador");
