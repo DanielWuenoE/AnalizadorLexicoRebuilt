@@ -19,8 +19,8 @@ public class TestLista {
         System.out.println(al.ultimoEnFila());
     }
     
-    public void bucate() {
-        al.buscaIdent(null)
+    public void buscameEsta() {
+        al.buscaYReplaza(":=", "holas");
     }
     
     public static void main(String[] args) {
