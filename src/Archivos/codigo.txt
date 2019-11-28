@@ -1,9 +1,11 @@
 begin read(ID);
 	ID := ID + (int - ID);
 	write(ID);
-        ID := 2;
+        a := 0;
 end
-begin a:=0;
+begin a:=2;
+a := 3 ;
+a:= 2 + 2;
 f:=a+(4-a);end
-begin read (a); read(b);
+begin read (a); read(b); f:= 1 ;
 	f:=a+(4-b);write(f); end
