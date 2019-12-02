@@ -1,8 +1,61 @@
-begin read (ID);
-	ID := ID + (int - ID);
-	write(ID);
-end
-begin a:=0;
- f:=a+(4-a);end
-begin read (a); read(b);
-	f:=a+(4-b);write(f);end
+Expresión
+    (2-((3+4)+9))
+
+Seperar Tokens
+        (, 2, -, (, (, 3, +, 4, ), +, 9, ), )
+
+Conviertir a notación posfija utilizando el algoritmo Shunting-yard de Edsger W. Dijkstra
+    2, 3, 4, +, 9, +, -
+
+Generar árbol de Parseo
+
+            -
+          /    \
+         2      +
+              /   \
+             +     9
+           /   \
+          3     4
+
+
+
+Mientras haya un token para ser leído
+    Leer un token 
+    Si token es un número
+        Agregar token a la cola de salida
+    Si token es igual a paréntesis de apertura, entonces:
+        Agregar token a la pila
+        Aumentar en uno contadorParentesis
+    Si el token es un operador, entonces:
+        Si la pila no está vacia, entonces:
+            Si la precedencia del token es menor a la de opTopPila, entonces:
+                Agregar opTopPila a la cola de salida
+                Agregar token a la pila
+            Sino, entonces:
+                Agregar token a la pila
+        Sino, entonces:
+            Agregar token a la pila
+    Si el token es un paréntesis de cierre ')', entonces:
+        Restar uno a contadorParentesis
+        Si pila no está vacía, entonces:
+            Mientras verdadero, entonces
+                Si la pila no está vacía, entonces,
+                    Si la topPila es distinto de paréntesis de apertura, entonces
+                        Agregar topPila a la cola de salida
+                    Sino, entonces:
+                        Hacer pop a la pila,
+                        Terminar ciclo,
+                Sino, entonces
+                    Terminar ciclo
+            Fin del ciclo
+        Sino, entonces:
+            Lanzar excepción: Paréntesis de cierre sobrante
+    Si contadorParentesis es menor a 0, entonces:
+        Lanzar excepcion: Paréntesis de cierre sobrante
+Fin ciclo
+Mientras la pila no esté vacía, entonces:
+    Si pilaTop es distinto de un paréntesis de apertura '(', entonces:
+        Agregar pilaTop a la cola de salida
+    Sino, entonces:
+        Lanzar excepción: Paréntesis de apertura sobrante.
+Fin ciclo

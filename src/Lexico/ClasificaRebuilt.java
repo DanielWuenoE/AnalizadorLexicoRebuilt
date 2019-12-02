@@ -253,12 +253,12 @@ public class ClasificaRebuilt {
         return token;
     }
 
-    public static void main(String[] args) {
-//        ClasificaRebuilt obj = new ClasificaRebuilt();
+//    public static void main(String[] args) {
+//        ListasR tabla = new ListasR();
+//        ClasificaRebuilt obj = new ClasificaRebuilt(tabla);
 //        while (!obj.pedirToken().equals("end")) {
 //            obj.pedirToken();
 //        }
-//        obj.imprimeTablas();
-     
-    }
+//        tabla.mostrarListaSimbolosR();
+//    }
 }
