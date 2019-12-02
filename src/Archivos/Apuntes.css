@@ -5,9 +5,9 @@ Seperar Tokens
         (, 2, -, (, (, 3, +, 4, ), +, 9, ), )
 
 Conviertir a notación posfija utilizando el algoritmo Shunting-yard de Edsger W. Dijkstra
-    2, 3, 4, +, 9, +, -
+    2, 3, 4, +, 9, +, -   Tipo de recorrido en post orden (izquierdo, derecho, padre))
 
-Generar árbol de Parseo
+Generar árbol de Parseo  (Verificar árbol)
 
             -
           /    \
@@ -16,9 +16,28 @@ Generar árbol de Parseo
              +     9
            /   \
           3     4
+          
+    (Según yo ~)      
+          -
+        /   \
+       2     +
+           /   \
+          3      9
+                   \
+                     +
+                   /
+                 4
+          
+          (9 - (5 + 2))
+          952+-
+          
+                    -
+                  /   \
+                 9     +
+                     /   \
+                    5     2
 
-
-
+                    
 Mientras haya un token para ser leído
     Leer un token 
     Si token es un número
