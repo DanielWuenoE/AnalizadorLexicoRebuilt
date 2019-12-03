@@ -5,6 +5,7 @@ import Estructuras.Pila;
 import Lexico.ClasificaRebuilt;
 import Lexico.ConversionCaracter;
 import Lexico.Tipos;
+import Errores.ErrorGenerico;
 
 public class GenerarArbol {
     /* Expresión
@@ -17,7 +18,7 @@ public class GenerarArbol {
     ConversionCaracter conv = new ConversionCaracter();
     Pila pila = new Pila();
     
-    public void separarTokens() {
+    public void separarTokens() throws ErrorGenerico {
         int i = 0;
         String a = lexico.pedirToken();
         while (!a.equals("$")) {
@@ -34,12 +35,16 @@ public class GenerarArbol {
     }
     
     // Mata la aplicación 
-    public void kill() {
+    public void kill() throws ErrorGenerico {
         mostrarTokens();
         Runtime.getRuntime().addShutdownHook(new Thread() {
             @Override
             public void run() {
-                System.out.println("Si ves este mensaje algo salio mal");
+                try {
+                    throw new ErrorGenerico("Si ves este mensaje algo salio mal");
+                } catch (ErrorGenerico ex) {
+                    ex.getStackTrace();
+                }
             }
         });
     }
@@ -50,7 +55,9 @@ public class GenerarArbol {
         while (token != null) {
             //System.out.println(token);
             conv.convertirCaracter(token.charAt(0));
-            if (tipo.esNumero(conv.getAscii()) == true) {
+            if (tipo.esNumero(conv.getAscii()) == true 
+                    || tipo.esMayuscula(conv.getAscii()) == true
+                    || tipo.esMinuscula(conv.getAscii()) == true) {
                 //System.out.print("\t-" + tipo.esNumero(conv.getAscii()) + "\n");
                 tablas.agregarElementoLTokensR(token, null, -1);
             } else if (tipo.esParentesis1(conv.getAscii()) == true) {
@@ -104,7 +111,7 @@ public class GenerarArbol {
         }
         
         while(pila.isEmpty()) {
-            if(!pila.peak().equals("(")) {
+            if(!pila.peek().equals("(")) {
                 tablas.agregarElementoLTokensR(pila.popConRetorno(), null, -1);
             } else {
                 throw new ParentesisAperturaException("Parentesis de apertura sobrante");
@@ -172,7 +179,19 @@ public class GenerarArbol {
         System.out.print("\n");
     }
     
-    public static void main(String[] args) throws ParentesisCierreException, ParentesisAperturaException {
+    // lo mismo que el de arriba pero en un string
+    private String expresionPrefijaString() {
+        String cadena = "";
+        String token = tablas.listPrefija();
+        while (token != null) {
+            cadena += token + " ";
+            token = tablas.listPrefija();
+        }
+        //System.out.print("\n");
+        return cadena;
+    }
+    
+    public static void main(String[] args) throws ParentesisCierreException, ParentesisAperturaException, ErrorGenerico {
         GenerarArbol ap = new GenerarArbol();
         //try {
             ap.separarTokens();
@@ -180,6 +199,7 @@ public class GenerarArbol {
             ap.shuntingYard();
             ap.expresionOriginal();
             ap.expresionPrefija();
+            System.out.println(ap.expresionPrefijaString());
         //} catch (ParentesisAperturaException | ParentesisCierreException e) {
             //e.printStackTrace();
         //}
