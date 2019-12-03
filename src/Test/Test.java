@@ -1,5 +1,6 @@
 package Test;
 
+    import Errores.ErrorGenerico;
     import Estructuras.ListasR;
     import Lexico.ClasificaRebuilt;
     import Sintactico.MatrizPredictiva;

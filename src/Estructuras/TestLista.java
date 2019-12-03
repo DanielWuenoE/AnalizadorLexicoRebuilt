@@ -9,24 +9,27 @@ public class TestLista {
     }
     
     public void test(String token, String tipo) {
-        al.agregarElementoLSimbolosR(token, tipo, al.buscaRepR(token) + 1, (int)(token.charAt(0)), 0, null);
+        al.agregarElementoLPostfija(token, tipo);
     }
     
     public void imp() {
         System.out.println(al.ExistePalabraT("0"));
-        al.mostrarListaSimbolosR();
+        al.mostrarListaPostfija();
         System.out.println(al.buscaIdent("!"));
         System.out.println(al.ultimoEnFila());
+    }
+    
+    private void avanza() {
+        //ListasR.NodoTPostfija = al.inicioPostfija;
     }
     
     public static void main(String[] args) {
         TestLista t = new TestLista();
         t.test(":=", "Identificador");
-        t.test("!", "Sim. Esp.");
-        t.test("!", "Identificador");
-        t.test(":=", "Sim. Esp.");
+        t.test("3", "Sim. Esp.");
+        t.test("2", "Identificador");
         t.test("#", "Sim. Esp.");
-        t.test("#", "Identificador");
+        t.test("7", "Identificador");
         t.test("!", "Sim. Esp.");
         t.imp();
         
