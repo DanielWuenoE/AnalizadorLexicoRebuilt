@@ -38,6 +38,6 @@ public class LeerArchivo extends javax.swing.JFrame {
     }
     
     public String datos() {
-        return cadena + ' ';
+        return cadena +'$'+' ';
     }
 }

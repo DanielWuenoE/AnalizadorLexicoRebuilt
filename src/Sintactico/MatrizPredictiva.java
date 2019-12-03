@@ -117,8 +117,8 @@ public class MatrizPredictiva {
 //                System.out.println("");
                 LlDiver();
             } else {
-                System.out.println("Análisis terminado");
-                lexico.imprimeTablas();
+                System.out.println("Análisis léxico/sintáctico terminado con éxito");
+//                lexico.imprimeTablas();
             }
         }
     }
