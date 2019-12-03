@@ -1,8 +1,10 @@
 package Estructuras;
 
+    import Errores.ErrorGenerico;
+
 public class ListasR<dato> {
     private NodoTSimR inicioSim, finSim;
-    private NodoTErrores inicioErr, finErr;
+    public NodoTPostfija inicioPostfija, finPostfija;
     private NodoTToken inicioTok, finTok;
     private NodoTReservadas inicioR, finR;
     
@@ -27,12 +29,13 @@ public class ListasR<dato> {
         }
     }
     
-    class NodoTErrores {
-        public String error;
-        public NodoTErrores siguiente;
+    class NodoTPostfija {
+        public String tokenPosfija, tipoToken;
+        public NodoTPostfija siguiente, anterior;
         
-        public NodoTErrores (String error) {
-            this.error = error;
+        public NodoTPostfija (String error, String tipoToken) {
+            this.tokenPosfija = error;
+            this.tipoToken = tipoToken;
         }
     }
     
@@ -62,7 +65,7 @@ public class ListasR<dato> {
             Tipo    Identificador   Valor
         */
         public void agregarElementoLSimbolosR(String token, String tipoToken, dato vecesRepite, dato valorToken, dato valorIdentificador, String tipoIdentificador) {
-            if (!ExistePalabraT(token)) {
+            //if (!ExistePalabraT(token)) {
                 NodoTSimR agregarElemento = new NodoTSimR(token, tipoToken, valorToken, valorIdentificador, tipoIdentificador, vecesRepite);
                 if (inicioSim != null) {  // Existe el inicio
                     finSim.siguiente = agregarElemento;  //Agregar al final de la
@@ -70,7 +73,7 @@ public class ListasR<dato> {
                 } else {
                     inicioSim = finSim = agregarElemento; //Crea la lista con su primer Nodo
                 }
-            } else
+            //} else
                 siExiste(token, vecesRepite);
         }
         
@@ -91,13 +94,14 @@ public class ListasR<dato> {
                 Errores
             Palabra  Error
         */
-        public void agregarElementoLErroresR(String palabra) {
-            NodoTErrores agregarElemento = new NodoTErrores(palabra);
-            if (inicioErr != null) {
-                finErr.siguiente = agregarElemento;
-                finErr = agregarElemento;
+        public void agregarElementoLPostfija(String palabra, String tipoToken) {
+            NodoTPostfija agregarElemento = new NodoTPostfija(palabra, tipoToken);
+            if (inicioPostfija != null) {
+                finPostfija.siguiente = agregarElemento;
+                agregarElemento.anterior = finPostfija;
+                finPostfija = agregarElemento;
             } else {
-                inicioErr = finErr = agregarElemento;
+                inicioPostfija = finPostfija = agregarElemento;
             }
         }
         
@@ -129,10 +133,10 @@ public class ListasR<dato> {
             }
         }
         
-        public void mostrarListaErroresR() {
-            NodoTErrores recorrer = inicioErr;
+        public void mostrarListaPostfija() {
+            NodoTPostfija recorrer = inicioPostfija;
             while (recorrer != null) {
-                System.out.println(recorrer.error);
+                System.out.println(recorrer.tokenPosfija);
                 recorrer = recorrer.siguiente;
             }
         }
@@ -218,11 +222,11 @@ public class ListasR<dato> {
         public int ultimoEnFila() {
             NodoTSimR recorrer = inicioSim;
             int idValue = 0;
-            while (recorrer != null) {
-                if (recorrer.tipoToken.equals("Identificador"))
-                    idValue = (int) recorrer.valorToken;
-                recorrer = recorrer.siguiente;
-            }
+                while (recorrer != null) {
+                    if (recorrer.tipoToken.equals("Identificador"))
+                        idValue = (int) recorrer.valorToken;
+                    recorrer = recorrer.siguiente;
+                }
             return idValue;
         }
         
