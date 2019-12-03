@@ -1,8 +1,10 @@
 package Estructuras;
 
+import Estructuras.ListasR.NodoTPostfija;
+
 public class TestLista {
     
-    ListasR al;
+    ListasR al, NodoTPostfija;
             
     TestLista() {
         al = new ListasR();
@@ -12,26 +14,32 @@ public class TestLista {
         al.agregarElementoLPostfija(token, tipo);
     }
     
-    public void imp() {
-        System.out.println(al.ExistePalabraT("0"));
-        al.mostrarListaPostfija();
-        System.out.println(al.buscaIdent("!"));
-        System.out.println(al.ultimoEnFila());
+    public NodoTPostfija tomaLaListaDelInicio() {
+        return al.inicioPostfija;
     }
     
-    private void avanza() {
-        //ListasR.NodoTPostfija = al.inicioPostfija;
+    public void imp() {
+        //System.out.println(al.ExistePalabraT("0"));
+        al.mostrarListaPostfija();
+        //System.out.println(al.buscaIdent("!"));
+        //System.out.println(al.ultimoEnFila());
     }
     
     public static void main(String[] args) {
         TestLista t = new TestLista();
         t.test(":=", "Identificador");
-        t.test("3", "Sim. Esp.");
-        t.test("2", "Identificador");
+        t.test("!", "Sim. Esp.");
+        t.test("{", "Identificador");
+        t.test(":=", "Sim. Esp.");
         t.test("#", "Sim. Esp.");
-        t.test("7", "Identificador");
+        t.test("#", "Identificador");
         t.test("!", "Sim. Esp.");
         t.imp();
+        System.out.println("\n");
+        
+        System.out.println(t.tomaLaListaDelInicio().siguiente.tokenPosfija);
+        System.out.println(t.tomaLaListaDelInicio().siguiente.siguiente.tokenPosfija);
+        System.out.println(t.tomaLaListaDelInicio().siguiente.siguiente.anterior.tokenPosfija);
         
 //        char c[] = {
 //                    ',',
