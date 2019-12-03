@@ -45,8 +45,6 @@ public class ClasificaRebuilt {
     public String pedirToken() {
         q0(archivo);
 //        System.out.println(token);
-        
-//        System.out.println("Token anterior: "+tokenAnt);
         return token;
     }
 

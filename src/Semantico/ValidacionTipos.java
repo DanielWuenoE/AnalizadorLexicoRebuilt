@@ -28,24 +28,16 @@ public class ValidacionTipos {
                 flag = true;
                 return flag;
             }
-        }
-        if (!flag) {
-            System.out.println("Análisis semántico terminado con éxito");
-            flag = false;
-            return flag;
-        }
-        return flag;
+        }return flag;
     }
 
     public void idenficiaVT() {
         String t = "", var = "";
         lexico.reiniciarLectura();
-        while (!(lexico.tokenAnt2.equals("end") && t.equals("end"))) {
+        while (!t.equals("$")) {
             t = lexico.pedirToken();
             lexico.retrocedeToken(t);
-//            System.out.println(t);
             if (t.equals(":=")) {
-                System.out.println(t);
                 // Revisar uno antes :=
                 var = lexico.tokenAnt;
 
@@ -53,12 +45,12 @@ public class ValidacionTipos {
                 lexico.retrocedeToken(t);
                 t = lexico.pedirToken();
                 lexico.retrocedeToken(t);
-                System.out.println("Var: " + var + " = " + lexico.tokenAnt);
-                if (t.equals(";")) {
-
-//                System.out.println("Var: "+var+" = "+lexico.tokenAnt);
+//                System.out.println("Var: " + var + " = " + lexico.tokenAnt);
+                if (t.equals(";") && !validacionInt(lexico.tokenAnt)) {
+                    validacionInt(lexico.tokenAnt);
                     tabla.buscaYReplaza(var, lexico.tokenAnt);
                 }
+               
 //            if (pr.getValorPalabraReservada(lexico.tokenAnt) == 203) {
 //                // el tipo es int/INT
 //                //tabla.agregarElementoLTokensR(tabla, t, token);
@@ -67,9 +59,11 @@ public class ValidacionTipos {
 //            if (validacionInt(t)) {
 //                // es un entero
 //            }
+               
             }
 
         }
+        System.out.println("Análisis semántico terminado con éxito\n");
     }
 
     public static void main(String[] args) {

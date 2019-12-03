@@ -3,8 +3,8 @@ begin read(ID);
 	write(ID);
         a := 0;
 end
-begin a:=2;
-a := 3 ;
+begin a:=b;
+a := 2 ;
 a:= 2 + 2;
 f:=a+(4-a);end
 begin read (a); read(b); f:= 1 ;
