@@ -37,10 +37,10 @@ public class ListasR<dato> {
     }
     
     class NodoTToken {
-        public String tipoTok, palabra; int tokenTok;
+        public dato palabra; String tipoTok; int tokenTok;
         public NodoTToken siguiente;
         
-        public NodoTToken (String palabra, String tipoTok, int tokenTok) {
+        public NodoTToken (dato palabra, String tipoTok, int tokenTok) {
             this.palabra = palabra;
             this.tipoTok = tipoTok;
             this.tokenTok = tokenTok;
@@ -62,7 +62,7 @@ public class ListasR<dato> {
             Tipo    Identificador   Valor
         */
         public void agregarElementoLSimbolosR(String token, String tipoToken, dato vecesRepite, dato valorToken, dato valorIdentificador, String tipoIdentificador) {
-            if (!ExistePalabraT(token) || true) { // elimiar el true para evitar duplicados
+            if (!ExistePalabraT(token)) {
                 NodoTSimR agregarElemento = new NodoTSimR(token, tipoToken, valorToken, valorIdentificador, tipoIdentificador, vecesRepite);
                 if (inicioSim != null) {  // Existe el inicio
                     finSim.siguiente = agregarElemento;  //Agregar al final de la
@@ -70,7 +70,7 @@ public class ListasR<dato> {
                 } else {
                     inicioSim = finSim = agregarElemento; //Crea la lista con su primer Nodo
                 }
-            } else {} // elimiar llaves para permitir el conteo de duplicados
+            } else
                 siExiste(token, vecesRepite);
         }
         
@@ -105,7 +105,7 @@ public class ListasR<dato> {
                 Tokens
             Palabra  Tipo   Token
         */
-        public void agregarElementoLTokensR(String palabra, String tipo, int token) {
+        public void agregarElementoLTokensR(dato palabra, String tipo, int token) {
             NodoTToken agregarElemento = new NodoTToken(palabra, tipo, token);
             if (inicioTok != null) {
                 finTok.siguiente = agregarElemento;
@@ -224,55 +224,5 @@ public class ListasR<dato> {
                 recorrer = recorrer.siguiente;
             }
             return idValue;
-        }
-        
-        //manda la lista de Tokens completa()
-        int contaSimR = 0;
-        public String listToken() {
-            NodoTSimR recorrer = inicioSim;
-            String tokenR = "";
-            int contameEsta = 0;
-            while (recorrer != null && contaSimR >= contameEsta) {
-                contameEsta++;
-                tokenR = recorrer.token;
-                recorrer = recorrer.siguiente;
-            }
-            
-            recorrer = inicioSim; contameEsta = 0;
-            while (recorrer != null && contaSimR >= contameEsta + 1) {
-                contameEsta++;
-                recorrer = recorrer.siguiente;
-            }
-            if (recorrer == null) {
-                contaSimR = 0;
-                return null;
-            }
-            contaSimR++;
-            return tokenR;
-        }
-        
-        // manda la lista de ER usada para guardar orden en Prefijo de las operaciones
-        int contaSimRP = 0;
-        public String listPrefija() {
-            NodoTToken recorrer = inicioTok;
-            String tokenR = "";
-            int contameEsta = 0;
-            while (recorrer != null && contaSimR >= contameEsta) {
-                contameEsta++;
-                tokenR = recorrer.palabra;
-                recorrer = recorrer.siguiente;
-            }
-            
-            recorrer = inicioTok; contameEsta = 0;
-            while (recorrer != null && contaSimR >= contameEsta + 1) {
-                contameEsta++;
-                recorrer = recorrer.siguiente;
-            }
-            if (recorrer == null) {
-                contaSimR = 0;
-                return null;
-            }
-            contaSimR++;
-            return tokenR;
         }
 }
