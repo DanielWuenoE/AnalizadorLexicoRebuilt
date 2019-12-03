@@ -1,4 +1,4 @@
-package ArbolParseo;
+package Errores;
 
 public class ParentesisAperturaException extends Exception{
     public ParentesisAperturaException(String mensage) {

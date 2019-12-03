@@ -6,7 +6,7 @@ end
 begin
 a := 2983 ;
 a:= 2 + 2;
-b:=3;
+b:=(1 - (5+3))- 2;
 f:=a+(435-a);end
 begin read (a); read(b); f:= 1 ;
 	f:=a+(4-b);write(f); end

@@ -1,5 +1,7 @@
-package ArbolParseo;
+package Parseo;
 
+import Errores.ParentesisAperturaException;
+import Errores.ParentesisCierreException;
 import Estructuras.ListasR;
 import Estructuras.Pila;
 import Lexico.ClasificaRebuilt;
@@ -7,7 +9,7 @@ import Lexico.ConversionCaracter;
 import Lexico.Tipos;
 import Errores.ErrorGenerico;
 
-public class GenerarArbol {
+public class ShuntingYard {
     /* Expresión
             (2*((3*4)+9))
     */
@@ -107,7 +109,7 @@ public class GenerarArbol {
                 throw new ParentesisCierreException("Parentesis de cierre sobrante");
             }
             
-            token = tablas.listToken();
+            token = tablas.listToken(); // pide el proximo token
         }
         
         while(pila.isEmpty()) {
@@ -192,7 +194,7 @@ public class GenerarArbol {
     }
     
     public static void main(String[] args) throws ParentesisCierreException, ParentesisAperturaException, ErrorGenerico {
-        GenerarArbol ap = new GenerarArbol();
+        ShuntingYard ap = new ShuntingYard();
         //try {
             ap.separarTokens();
             ap.mostrarTokens();
