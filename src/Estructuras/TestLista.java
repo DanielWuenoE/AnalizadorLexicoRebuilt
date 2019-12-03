@@ -19,6 +19,10 @@ public class TestLista {
         System.out.println(al.ultimoEnFila());
     }
     
+    public void buscameEsta() {
+        al.buscaYReplaza(":=", "holas");
+    }
+    
     public static void main(String[] args) {
         TestLista t = new TestLista();
         t.test(":=", "Identificador");

@@ -43,6 +43,20 @@ public class Pila {
             System.out.println("Pila vacia");
     }
     
+    public String popConRetorno() {
+        Nodo temp = inicio;
+        String t;
+        if (inicio != null) {
+            t = inicio.dato;
+            inicio = temp.sig;
+            temp.sig = null;
+            return t;
+        } else {
+            System.out.println("Pila vacia");
+            return null;
+        }
+    }
+    
     public String peak() {
         if (inicio != null) {
             return  inicio.dato;
@@ -64,14 +78,19 @@ public class Pila {
 }
 
 class test {
-//    public static void main(String[] args) {
-//        Pila p = new Pila();
-//        p.push("1");
-//        p.push("2");
-//        p.push("3");
-//        p.push("4");
-//        System.out.println(":" + p.peak());
-//        p.pop();
-//        p.imprime();
-//    }
+    public static void main(String[] args) {
+        Pila p = new Pila();
+        
+        p.push("1");
+        p.push("2");
+        p.push("3");
+        p.imprime();
+        
+        System.out.println("popR " + p.popConRetorno());
+        p.imprime();
+        
+        System.out.println("peak " + p.peak());
+        
+        System.out.println("empty " + p.isEmpty());
+    }
 }
