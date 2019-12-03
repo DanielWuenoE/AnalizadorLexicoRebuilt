@@ -172,6 +172,8 @@ public class GenerarArbol {
         System.out.print("\n");
     }
     
+    
+    
     public static void main(String[] args) throws ParentesisCierreException, ParentesisAperturaException {
         GenerarArbol ap = new GenerarArbol();
         //try {
