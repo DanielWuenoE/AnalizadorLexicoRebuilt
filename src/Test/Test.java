@@ -12,7 +12,6 @@ public class Test {
         ClasificaRebuilt lexico = new ClasificaRebuilt(tabla);
         MatrizPredictiva sintactico = new MatrizPredictiva(lexico);
         sintactico.LlDiver();
-        tabla.mostrarListaSimbolosR();
         ValidacionTipos semantico = new ValidacionTipos(tabla, lexico);
         semantico.idenficiaVT();
         tabla.mostrarListaSimbolosR();
