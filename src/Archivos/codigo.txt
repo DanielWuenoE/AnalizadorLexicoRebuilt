@@ -3,9 +3,10 @@ begin read(ID);
 	write(ID);
         a := 0;
 end
-begin a:=b;
-a := 2 ;
+begin
+a := 2983 ;
 a:= 2 + 2;
-f:=a+(442-a);end
+b:=3;
+f:=a+(435-a);end
 begin read (a); read(b); f:= 1 ;
 	f:=a+(4-b);write(f); end

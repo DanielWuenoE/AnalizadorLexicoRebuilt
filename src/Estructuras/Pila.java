@@ -43,7 +43,28 @@ public class Pila {
             System.out.println("Pila vacia");
     }
     
+    public String popConRetorno() {
+        Nodo temp = inicio;
+        String t;
+        if (inicio != null) {
+            t = inicio.dato;
+            inicio = temp.sig;
+            temp.sig = null;
+            return t;
+        } else {
+            System.out.println("Pila vacia");
+            return null;
+        }
+    }
+    
     public String peak() {
+        if (inicio != null) {
+            return  inicio.dato;
+        } else
+            return null;
+    }
+    
+    public String peek() {
         if (inicio != null) {
             return  inicio.dato;
         } else
