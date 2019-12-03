@@ -62,7 +62,7 @@ public class GenerarArbol {
                 //System.out.print("\t-" + tipo.esMenos(conv.getAscii()) + "\n");
                 if(pila.isEmpty()) {
                     //System.out.println("\t signo:");
-                    if(comparaPrecedencia(token, pila.peak())) {
+                    if(comparaPrecedencia(token, pila.peek())) {
                         //System.out.print("\t-" + comparaPrecedencia(token, pila.peak()) + "\n");
                         tablas.agregarElementoLTokensR(pila.popConRetorno(), null, -1);
                         pila.push(token);
@@ -80,7 +80,7 @@ public class GenerarArbol {
                 if(pila.isEmpty()) {
                     while(true) {
                         if(pila.isEmpty()) {
-                            if(!pila.peak().equals("(")) {
+                            if(!pila.peek().equals("(")) {
                                 //System.out.println("\t" + pila.peak());
                                 tablas.agregarElementoLTokensR(pila.popConRetorno(), null, -1);
                             } else {
