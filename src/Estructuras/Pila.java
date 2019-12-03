@@ -58,6 +58,13 @@ public class Pila {
     }
     
     public String peak() {
+        if (fin != null) {
+            return  fin.dato;
+        } else
+            return null;
+    }
+    
+    public String peek() {
         if (inicio != null) {
             return  inicio.dato;
         } else

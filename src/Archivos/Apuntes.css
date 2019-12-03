@@ -1,11 +1,15 @@
 Expresión
-    (2-((3+4)+9))
+    (2-((3+4)+9)) = 14
 
 Seperar Tokens
         (, 2, -, (, (, 3, +, 4, ), +, 9, ), )
 
 Conviertir a notación posfija utilizando el algoritmo Shunting-yard de Edsger W. Dijkstra
     2, 3, 4, +, 9, +, -   Tipo de recorrido en post orden (izquierdo, derecho, padre))
+        3+4
+        7+9
+        16-2
+    
 
 Generar árbol de Parseo  (Verificar árbol)
 
@@ -36,6 +40,9 @@ Generar árbol de Parseo  (Verificar árbol)
                  9     +
                      /   \
                     5     2
+
+
+    
 
                     
 Mientras haya un token para ser leído
