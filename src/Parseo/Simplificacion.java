@@ -1,20 +1,26 @@
 package ArbolParseo;
 
+import Estructuras.ListasR;
+
+ListasR
+
 public class Simplificacion {
     public void simplificacionSentencia(Lista s){
-        Lista t;
+        Lista t,t1,t2,t3;
         String simple = "";
         int op = numeroOperadores(s), op2 = 0;      //busqueda de operadores en sentencia
 //        s = invertirCadena(s);                      //inversion de la cadena
         for (int i = 0; i < s.length(); i++) {      //revision de sentencia
             t=s.sigToken();
-            if ((t=='-')||(t=='+')) {   //si encuentra un signo
+            if (t.tipo=="Simb. Esp.") {   //si encuentra un signo
                 op--;       //disminuye el contador
             }
             if(op==op2){    //si el contador es la posicion buscada
                 op2++;      //aumenta posicion
-                if () {     //si hay dos numeros despues del signo
-                    
+                t1 = s.sigToken();
+                t2 = s.sigToken();
+                if (t1.tipo=="Número" && t2.tipo=="Número") {     //si hay dos numeros despues del signo
+                    simple =+ "temp"+op2+" = "+t1.token+" "+t2.token+" ";
                 }else if () {   //si hay un numero antes y uno despues (crear v. temp.)
                     
                 }

@@ -25,8 +25,8 @@ public class TestLista {
     
     public static void main(String[] args) {
         TestLista t = new TestLista();
-        t.test(":=", "Identificador");
-        t.test("3", "Sim. Esp.");
+        t.test("3", "Identificador");
+        t.test("3", "Identificador");
         t.test("2", "Identificador");
         t.test("#", "Sim. Esp.");
         t.test("7", "Identificador");

@@ -65,7 +65,7 @@ public class ListasR<dato> {
             Tipo    Identificador   Valor
         */
         public void agregarElementoLSimbolosR(String token, String tipoToken, dato vecesRepite, dato valorToken, dato valorIdentificador, String tipoIdentificador) {
-            //if (!ExistePalabraT(token)) {
+            if (!ExistePalabraT(token)) {
                 NodoTSimR agregarElemento = new NodoTSimR(token, tipoToken, valorToken, valorIdentificador, tipoIdentificador, vecesRepite);
                 if (inicioSim != null) {  // Existe el inicio
                     finSim.siguiente = agregarElemento;  //Agregar al final de la
@@ -73,7 +73,7 @@ public class ListasR<dato> {
                 } else {
                     inicioSim = finSim = agregarElemento; //Crea la lista con su primer Nodo
                 }
-            //} else
+            } else
                 siExiste(token, vecesRepite);
         }
         
