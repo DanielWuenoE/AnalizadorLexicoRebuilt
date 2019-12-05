@@ -222,7 +222,7 @@ public class ListasR<dato> {
         public int ultimoEnFila() {
             NodoTSimR recorrer = inicioSim;
             int idValue = 0;
-                while (recorrer != null) {
+                while (recorrer != null && recorrer.tipoToken != null) {
                     if (recorrer.tipoToken.equals("Identificador"))
                         idValue = (int) recorrer.valorToken;
                     recorrer = recorrer.siguiente;
