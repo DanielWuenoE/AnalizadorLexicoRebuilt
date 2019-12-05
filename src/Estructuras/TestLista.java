@@ -37,7 +37,7 @@ public class TestLista {
         t.imp();
         System.out.println("\n");
         
-        System.out.println(t.tomaLaListaDelInicio().siguiente.tokenPosfija);
+        System.out.println(t.tomaLaListaDelInicio().siguiente.tokenPosfija); // avanza
         System.out.println(t.tomaLaListaDelInicio().siguiente.siguiente.tokenPosfija);
         System.out.println(t.tomaLaListaDelInicio().siguiente.siguiente.anterior.tokenPosfija);
         
