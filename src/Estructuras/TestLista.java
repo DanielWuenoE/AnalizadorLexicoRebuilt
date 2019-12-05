@@ -6,7 +6,7 @@ public class TestLista {
     
     ListasR al, NodoTPostfija;
             
-    public TestLista() {
+    TestLista() {
         al = new ListasR();
     }
     
