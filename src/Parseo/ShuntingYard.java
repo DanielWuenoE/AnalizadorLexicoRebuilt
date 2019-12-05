@@ -201,16 +201,18 @@ public class ShuntingYard {
     }
     
     public static void main(String[] args) throws ParentesisCierreException, ParentesisAperturaException, ErrorGenerico {
-        //ShuntingYard ap = new ShuntingYard();
-        //try {
-//            ap.separarTokens();
-//            ap.mostrarTokens();
-//            ap.shuntingYard();
-//            ap.expresionOriginal();
-//            ap.expresionPrefija();
-//            System.out.println(ap.expresionPrefijaString());
-        //} catch (ParentesisAperturaException | ParentesisCierreException e) {
-            //e.printStackTrace();
-        //}
+        ListasR t = new ListasR();
+        ClasificaRebuilt c = new ClasificaRebuilt(t);
+        ShuntingYard ap = new ShuntingYard(t, c);
+        try {
+            ap.separarTokens();
+            ap.mostrarTokens();
+            ap.shuntingYard();
+            ap.expresionOriginal();
+            ap.expresionPrefija();
+            System.out.println(ap.expresionPrefijaString());
+        } catch (ParentesisAperturaException | ParentesisCierreException e) {
+            e.printStackTrace();
+        }
     }
 }

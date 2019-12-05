@@ -183,6 +183,37 @@ public class ListasR<dato> {
             }
         }
         
+        // Borra elementos en la posición x
+        public void borrar_x(int x) {
+            x--;
+                NodoTToken aux = inicioTok;
+            if (inicioR != null) {
+                while (aux.siguiente != null && x > 0) {
+                        aux = aux.siguiente;
+                        x--;
+                }
+                aux.siguiente = aux.siguiente.siguiente; 
+                aux = null;
+            } else
+                inicioTok = finTok = aux;
+        }
+        
+        // inserta elementos en alguna posicion intermedia de la lista
+        public void insertar_x(String n, String e, int x) { 
+        NodoTToken nuevo = new NodoTToken(n, e, x);
+        x--;
+        if (inicioTok != null) {
+            NodoTToken aux = inicioTok;
+            while (aux.siguiente != null && x > 0) {
+                    aux = aux.siguiente;
+                    x--;        
+            }
+            nuevo.siguiente = aux.siguiente;
+            aux.siguiente = nuevo;
+        } else
+            inicioTok = finTok = nuevo;
+    }
+        
         public boolean ExistePalabraT(String token) {
             NodoTSimR recorrer = inicioSim;
             while (recorrer != null) {

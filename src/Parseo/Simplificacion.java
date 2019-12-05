@@ -11,11 +11,8 @@ public class Simplificacion {
         String simple = "";
         int op = numeroOperadores(s), op2 = 0;      //busqueda de operadores en sentencia
 //        s = invertirCadena(s);                      //inversion de la cadena
-        for (int i = 0; i < s.length(); i++) {      //revision de sentencia
-            t = s.sigToken();
-            if ((t == '-') || (t == '+')) {   //si encuentra un signo
-                op--;       //disminuye el contador
-            }
+        for (int i = 0; i < s.length(); i++) {      //revision de sentenciad
+            
             if (op == op2) {    //si el contador es la posicion buscada
                 op2++;      //aumenta posicion
                 if () {     //si hay dos numeros despues del signo

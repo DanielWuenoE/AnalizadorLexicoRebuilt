@@ -17,7 +17,7 @@ public class PilaTercetos {
             this.dato = dato;
         }
         
-        public void toTercetosE() {//conversion de posicion de memoria a string
+        public void toTercetosE() { //conversion de posicion de memoria a string
             dato.mostrarTerceto();
         }
     }
