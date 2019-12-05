@@ -14,6 +14,14 @@ public class ListasR<dato> {
       w        identificador         115                0                int              3
     */
     
+    public NodoTPostfija tomaLaListaDelInicio() {
+        return inicioPostfija;
+    }
+    
+    public NodoTPostfija tomaLaListaDelFin() {
+        return finPostfija;
+    }
+    
     class NodoTSimR<dato> {
         public String token, tipoToken, tipoIdentificador;
         dato valorToken, valorIdentificador, vecesRepite;
