@@ -47,6 +47,8 @@ public class TestLista {
         System.out.println(t.tomaLaListaDelInicio().siguiente.siguiente.anterior.tokenPosfija);
         System.out.println(t.tomaLaListaDelFin().tokenPosfija);
         
+        String dk = t.tomaLaListaDelFin().tokenPosfija;
+        
 //        char c[] = {
 //                    ',',
 //                    '(',

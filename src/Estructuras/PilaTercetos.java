@@ -79,7 +79,7 @@ public class PilaTercetos {
     public void imprime() {
         NodoTercetos temp = inicio;
         while (temp != null) {
-            System.out.println(temp);
+            temp.dato.mostrarTerceto();
             temp = temp.sig;
         }
     }
