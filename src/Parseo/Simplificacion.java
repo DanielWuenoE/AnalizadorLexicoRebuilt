@@ -1,13 +1,16 @@
 package Parseo;
 
-import Estructuras.TestLista;
+import Estructuras.ListasR.NodoTPostfija;
+import Estructuras.ListasR;
 
 public class Simplificacion {
+    
+    NodoTPostfija t;
+            
 
-    TestLista t = new TestLista();
 
-    public void simplificacionSentencia(TestLista s) {
-        TestLista t;
+    public void simplificacionSentencia(ListasR s) {
+        t = s.inicioPostfija.tokenPosfija;
         String simple = "";
         int op = numeroOperadores(s), op2 = 0;      //busqueda de operadores en sentencia
 //        s = invertirCadena(s);                      //inversion de la cadena

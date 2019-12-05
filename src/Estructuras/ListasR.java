@@ -37,7 +37,7 @@ public class ListasR<dato> {
         }
     }
     
-    class NodoTPostfija {
+    public class NodoTPostfija {
         public String tokenPosfija, tipoToken;
         public NodoTPostfija siguiente, anterior;
         
