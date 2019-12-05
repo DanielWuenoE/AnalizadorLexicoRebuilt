@@ -65,7 +65,7 @@ public class ListasR<dato> {
             Tipo    Identificador   Valor
         */
         public void agregarElementoLSimbolosR(String token, String tipoToken, dato vecesRepite, dato valorToken, dato valorIdentificador, String tipoIdentificador) {
-            //if (!ExistePalabraT(token)) {
+//            if (!ExistePalabraT(token)) {
                 NodoTSimR agregarElemento = new NodoTSimR(token, tipoToken, valorToken, valorIdentificador, tipoIdentificador, vecesRepite);
                 if (inicioSim != null) {  // Existe el inicio
                     finSim.siguiente = agregarElemento;  //Agregar al final de la
@@ -73,8 +73,8 @@ public class ListasR<dato> {
                 } else {
                     inicioSim = finSim = agregarElemento; //Crea la lista con su primer Nodo
                 }
-            //} else
-                siExiste(token, vecesRepite);
+//            } else
+//                siExiste(token, vecesRepite);
         }
         
         public void siExiste(String token, dato vecesRepite) {
@@ -219,6 +219,18 @@ public class ListasR<dato> {
             return sumEn;
         }
         
+//        public int ultimoEnFila() {
+//            NodoTSimR recorrer = inicioSim;
+//            int idValue = 0;
+//                while (recorrer != null) {
+//                    System.out.println("imprimiendo recorrer tipo");
+//                    System.out.println(recorrer.tipoToken);
+//                    if (recorrer.tipoToken.equals("Identificador"))
+//                        idValue = (int) recorrer.valorToken;
+//                    recorrer = recorrer.siguiente;
+//                }
+//            return idValue;
+//        }
         public int ultimoEnFila() {
             NodoTSimR recorrer = inicioSim;
             int idValue = 0;
