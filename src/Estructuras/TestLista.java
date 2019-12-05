@@ -18,6 +18,10 @@ public class TestLista {
         return al.inicioPostfija;
     }
     
+    public NodoTPostfija tomaLaListaDelFin() {
+        return al.finPostfija;
+    }
+    
     public void imp() {
         //System.out.println(al.ExistePalabraT("0"));
         al.mostrarListaPostfija();
@@ -33,13 +37,15 @@ public class TestLista {
         t.test(":=", "Sim. Esp.");
         t.test("#", "Sim. Esp.");
         t.test("#", "Identificador");
-        t.test("!", "Sim. Esp.");
+        t.test("¿", "Sim. Esp.");
         t.imp();
         System.out.println("\n");
         
+        System.out.println(t.tomaLaListaDelInicio().tokenPosfija);
         System.out.println(t.tomaLaListaDelInicio().siguiente.tokenPosfija); // avanza
         System.out.println(t.tomaLaListaDelInicio().siguiente.siguiente.tokenPosfija);
         System.out.println(t.tomaLaListaDelInicio().siguiente.siguiente.anterior.tokenPosfija);
+        System.out.println(t.tomaLaListaDelFin().tokenPosfija);
         
 //        char c[] = {
 //                    ',',

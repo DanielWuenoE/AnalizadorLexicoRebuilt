@@ -1,8 +1,9 @@
 package Test;
 
-    import Errores.ErrorGenerico;
+    //import Errores.ErrorGenerico;
     import Estructuras.ListasR;
     import Lexico.ClasificaRebuilt;
+import Parseo.ShuntingYard;
     import Sintactico.MatrizPredictiva;
     import Semantico.ValidacionTipos;
 
@@ -15,6 +16,9 @@ public class Test {
         sintactico.LlDiver();
         ValidacionTipos semantico = new ValidacionTipos(tabla, lexico);
         semantico.idenficiaVT();
+        
+        // inicia la fase de Generación de Código intermedio
+        ShuntingYard ap = new ShuntingYard(tabla, lexico);
         tabla.mostrarListaSimbolosR();
     }
     

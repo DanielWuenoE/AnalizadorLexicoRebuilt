@@ -14,11 +14,18 @@ public class ShuntingYard {
             (2*((3*4)+9))
     */
     
-    ListasR tablas = new ListasR();
-    ClasificaRebuilt lexico = new ClasificaRebuilt(tablas);
+    //ListasR tablas = new ListasR();
+    //ClasificaRebuilt lexico = new ClasificaRebuilt(tablas);
     Tipos tipo = new Tipos();
     ConversionCaracter conv = new ConversionCaracter();
     Pila pila = new Pila();
+    ClasificaRebuilt lexico;
+    ListasR tabla;
+    
+    public ShuntingYard(ListasR tabla, ClasificaRebuilt lexico) {
+        this.lexico = lexico;
+        this.tabla = tabla;
+    }
     
     public void separarTokens() throws ErrorGenerico {
         int i = 0;
@@ -52,7 +59,7 @@ public class ShuntingYard {
     }
     
     private void shuntingYard() throws ParentesisCierreException, ParentesisAperturaException {
-        String token = tablas.listToken();
+        String token = tabla.listToken();
         int contadorParentesis = 0;
         while (token != null) {
             //System.out.println(token);
@@ -61,7 +68,7 @@ public class ShuntingYard {
                     || tipo.esMayuscula(conv.getAscii()) == true
                     || tipo.esMinuscula(conv.getAscii()) == true) {
                 //System.out.print("\t-" + tipo.esNumero(conv.getAscii()) + "\n");
-                tablas.agregarElementoLTokensR(token, null, -1);
+                tabla.agregarElementoLTokensR(token, null, -1);
             } else if (tipo.esParentesis1(conv.getAscii()) == true) {
                 //System.out.print("\t-" + tipo.esParentesis1(conv.getAscii()) + "\n");
                 pila.push(token);
@@ -73,7 +80,7 @@ public class ShuntingYard {
                     //System.out.println("\t signo:");
                     if(comparaPrecedencia(token, pila.peek())) {
                         //System.out.print("\t-" + comparaPrecedencia(token, pila.peak()) + "\n");
-                        tablas.agregarElementoLTokensR(pila.popConRetorno(), null, -1);
+                        tabla.agregarElementoLTokensR(pila.popConRetorno(), null, -1);
                         pila.push(token);
                     } else {
                         //System.out.print("\t" + token + "\n");
@@ -91,7 +98,7 @@ public class ShuntingYard {
                         if(pila.isEmpty()) {
                             if(!pila.peek().equals("(")) {
                                 //System.out.println("\t" + pila.peak());
-                                tablas.agregarElementoLTokensR(pila.popConRetorno(), null, -1);
+                                tabla.agregarElementoLTokensR(pila.popConRetorno(), null, -1);
                             } else {
                                 pila.pop();
                                 break;
@@ -109,12 +116,12 @@ public class ShuntingYard {
                 throw new ParentesisCierreException("Parentesis de cierre sobrante");
             }
             
-            token = tablas.listToken(); // pide el proximo token
+            token = tabla.listToken(); // pide el proximo token
         }
         
         while(pila.isEmpty()) {
             if(!pila.peek().equals("(")) {
-                tablas.agregarElementoLTokensR(pila.popConRetorno(), null, -1);
+                tabla.agregarElementoLTokensR(pila.popConRetorno(), null, -1);
             } else {
                 throw new ParentesisAperturaException("Parentesis de apertura sobrante");
             }
@@ -162,21 +169,21 @@ public class ShuntingYard {
     }
     
     private void expresionOriginal() {
-        String token = tablas.listToken();
+        String token = tabla.listToken();
         System.out.println("Original:");
         while (token != null) {
             System.out.print(token + " ");
-            token = tablas.listToken();
+            token = tabla.listToken();
         }
         System.out.print("\n");
     }
     
     private void expresionPrefija() {
-        String token = tablas.listPrefija();
+        String token = tabla.listPrefija();
         System.out.println("Prefija: (Árbol de Sintaxis abstracta?");
         while (token != null) {
             System.out.print(token + " ");
-            token = tablas.listPrefija();
+            token = tabla.listPrefija();
         }
         System.out.print("\n");
     }
@@ -184,24 +191,24 @@ public class ShuntingYard {
     // lo mismo que el de arriba pero en un string
     private String expresionPrefijaString() {
         String cadena = "";
-        String token = tablas.listPrefija();
+        String token = tabla.listPrefija();
         while (token != null) {
             cadena += token + " ";
-            token = tablas.listPrefija();
+            token = tabla.listPrefija();
         }
         //System.out.print("\n");
         return cadena;
     }
     
     public static void main(String[] args) throws ParentesisCierreException, ParentesisAperturaException, ErrorGenerico {
-        ShuntingYard ap = new ShuntingYard();
+        //ShuntingYard ap = new ShuntingYard();
         //try {
-            ap.separarTokens();
-            ap.mostrarTokens();
-            ap.shuntingYard();
-            ap.expresionOriginal();
-            ap.expresionPrefija();
-            System.out.println(ap.expresionPrefijaString());
+//            ap.separarTokens();
+//            ap.mostrarTokens();
+//            ap.shuntingYard();
+//            ap.expresionOriginal();
+//            ap.expresionPrefija();
+//            System.out.println(ap.expresionPrefijaString());
         //} catch (ParentesisAperturaException | ParentesisCierreException e) {
             //e.printStackTrace();
         //}

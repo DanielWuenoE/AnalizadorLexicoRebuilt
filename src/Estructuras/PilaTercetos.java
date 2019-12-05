@@ -1,32 +1,33 @@
 package Estructuras;
 
-public class Pila {
-    Nodo inicio, fin;
+import Parseo.TercetosE;
+
+public class PilaTercetos {
+    NodoTercetos inicio, fin;
     
-    public Pila() {
+    public PilaTercetos() {
         inicio = null;
     }
     
-    public class Nodo {
-        Nodo sig;
-        String dato;
+    public class NodoTercetos {
+        NodoTercetos sig;
+        TercetosE dato;
         
-        public Nodo(String dato) {
+        public NodoTercetos(TercetosE dato) {
             this.dato = dato;
         }
         
-        @Override
-        public String toString() {//conversion de posicion de memoria a string
-            return dato.toString();
+        public void toTercetosE() {//conversion de posicion de memoria a string
+            dato.mostrarTerceto();
         }
     }
     
-    public void push(String dato) {
-        Nodo nuevo = new Nodo(dato);
+    public void push(TercetosE dato) {
+        NodoTercetos nuevo = new NodoTercetos(dato);
         push(nuevo);
     }
     
-    private void push(Nodo dato) {
+    private void push(NodoTercetos dato) {
         if (inicio != null) {
             dato.sig = inicio;
             inicio = dato;
@@ -35,7 +36,7 @@ public class Pila {
     }
     
     public void pop() {
-        Nodo temp = inicio;
+        NodoTercetos temp = inicio;
         if (inicio != null) {
             inicio = temp.sig;
             temp.sig = null;
@@ -43,9 +44,9 @@ public class Pila {
             System.out.println("Pila vacia");
     }
     
-    public String popConRetorno() {
-        Nodo temp = inicio;
-        String t;
+    public TercetosE popConRetorno() {
+        NodoTercetos temp = inicio;
+        TercetosE t;
         if (inicio != null) {
             t = inicio.dato;
             inicio = temp.sig;
@@ -57,14 +58,14 @@ public class Pila {
         }
     }
     
-    public String peak() {
+    public TercetosE peak() {
         if (inicio != null) {
             return  inicio.dato;
         } else
             return null;
     }
     
-    public String peek() {
+    public TercetosE peek() {
         if (inicio != null) {
             return  inicio.dato;
         } else
@@ -76,7 +77,7 @@ public class Pila {
     }
     
     public void imprime() {
-        Nodo temp = inicio;
+        NodoTercetos temp = inicio;
         while (temp != null) {
             System.out.println(temp);
             temp = temp.sig;
@@ -84,8 +85,8 @@ public class Pila {
     }
 }
 
-class test {
-//    public static void main(String[] args) {
+class testT {
+//    public static void main(TercetosE[] args) {
 //        Pila p = new Pila();
 //        p.push("1");
 //        p.push("2");
