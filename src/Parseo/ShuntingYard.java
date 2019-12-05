@@ -200,6 +200,10 @@ public class ShuntingYard {
         return cadena;
     }
     
+    private void deliberaOperaciones() {
+        
+    }
+    
     public static void main(String[] args) throws ParentesisCierreException, ParentesisAperturaException, ErrorGenerico {
         ListasR t = new ListasR();
         ClasificaRebuilt c = new ClasificaRebuilt(t);

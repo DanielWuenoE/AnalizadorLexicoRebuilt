@@ -199,7 +199,7 @@ public class ListasR<dato> {
         }
         
         // inserta elementos en alguna posicion intermedia de la lista
-        public void insertar_x(String n, String e, int x) { 
+        public void insertar_x(String n, String e, int x) {
         NodoTToken nuevo = new NodoTToken(n, e, x);
         x--;
         if (inicioTok != null) {

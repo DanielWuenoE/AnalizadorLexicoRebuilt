@@ -39,13 +39,26 @@ public class Simplificacion {
         return count;
     }
 //    
-//    public String invertirCadena(String c){
-//        String cc = "";
-//        for (int i = c.length()-1; i >= 0; i--) {
-//            cc = cc + c.charAt(i);
+//    NodoTPostfija t;
+//            
+//
+//
+//    public void simplificacionSentencia(ListasR s) {
+//        t = s.inicioPostfija.tokenPosfija;
+//        String simple = "";
+//        int op = numeroOperadores(s), op2 = 0;      //busqueda de operadores en sentencia
+////        s = invertirCadena(s);                      //inversion de la cadena
+//        for (int i = 0; i < s.length(); i++) {      //revision de sentenciad
+//            
+//            if (op == op2) {    //si el contador es la posicion buscada
+//                op2++;      //aumenta posicion
+//                if () {     //si hay dos numeros despues del signo
+//
+//                } else if () {   //si hay un numero antes y uno despues (crear v. temp.)
+//
+//                }
+//            }
 //        }
-////        System.out.println(cc);
-//        return cc;
 //    }
 
     public int numeroOperadores(ListasR e) {

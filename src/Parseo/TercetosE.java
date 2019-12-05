@@ -1,13 +1,17 @@
 package Parseo;
 
-public class TercetosE {
+import Estructuras.PilaTercetos;
 
+public class TercetosE {
+        PilaTercetos p = new PilaTercetos();
+        
 	private String elem1;
 	private String elem2;
 	private String elem3;
         private String elem4;
 	private String label; //Para marcar a donde saltar (Comentario)
 	
+        
 	public TercetosE(String e1, String e2, String e3) {
 		 elem1 = e1;
 		 elem2 = e2;
