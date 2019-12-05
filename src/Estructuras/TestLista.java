@@ -15,11 +15,11 @@ public class TestLista {
     }
     
     public NodoTPostfija tomaLaListaDelInicio() {
-        return al.inicioPostfija;
+        return al.tomaLaListaDelInicio();
     }
     
     public NodoTPostfija tomaLaListaDelFin() {
-        return al.finPostfija;
+        return al.tomaLaListaDelFin();
     }
     
     public void imp() {
