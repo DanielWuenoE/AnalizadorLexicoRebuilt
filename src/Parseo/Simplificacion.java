@@ -1,9 +1,43 @@
-//package Parseo;
-//
-//import Estructuras.ListasR.NodoTPostfija;
-//import Estructuras.ListasR;
-//
-//public class Simplificacion {
+package Parseo;
+
+import Estructuras.ListasR.NodoTPostfija;
+import Estructuras.ListasR;
+
+public class Simplificacion {
+    
+    NodoTPostfija t;
+            
+
+
+    public void simplificacionSentencia(ListasR s) {
+        t = s.tomaLaListaDelFin();
+        String simple = "";
+        int nodos = contarNodos(s);
+        int op = numeroOperadores(s), op1 = op, op2 = 0;      //busqueda de operadores en sentencia
+//        s = invertirCadena(s);                      //inversion de la cadena
+        while (t.anterior != null) {      //revision de sentenciad
+            
+            if (op == op2) {    //si el contador es la posicion buscada
+                op2++;      //aumenta posicion
+                if ((t.anterior.tipoToken.equals("Numero")||t.anterior.tipoToken.equals("Identificador"))
+                        && (t.anterior.anterior.tipoToken.equals("Numero")||t.anterior.anterior.tipoToken.equals("Identificador"))) {     //si hay dos numeros despues del signo
+                    
+                }
+            }else{
+                t = t.anterior;
+            }
+        }
+    }
+    
+    public int contarNodos(ListasR l){
+        NodoTPostfija t = l.tomaLaListaDelInicio();
+        int count = 0;
+        while (t.siguiente != null) {
+            count++;
+            t = t.siguiente;
+        }
+        return count;
+    }
 //    
 //    NodoTPostfija t;
 //            
@@ -26,30 +60,23 @@
 //            }
 //        }
 //    }
-////    
-////    public String invertirCadena(String c){
-////        String cc = "";
-////        for (int i = c.length()-1; i >= 0; i--) {
-////            cc = cc + c.charAt(i);
-////        }
-//////        System.out.println(cc);
-////        return cc;
-////    }
-//
-//    public int numeroOperadores(String e) {
-//        int contador = 0;
-//        for (int i = 0; i < e.length(); i++) {      //NOTA: CAMBIAR LENGHT POR TOKENS DE LISTA
-//            if ((e.charAt(i) == '-') || (e.charAt(i) == '+')) {
-//                contador++;
-//            }
-//        }
-////        System.out.println(contador);
-//        return contador;
-//    }
-//
-//    public static void main(String[] args) {
+
+    public int numeroOperadores(ListasR e) {
+        NodoTPostfija a = e.tomaLaListaDelInicio();
+        int contador = 0;
+        while (a.siguiente != null) {      //NOTA: CAMBIAR LENGHT POR TOKENS DE LISTA
+            if (a.tipoToken.equalsIgnoreCase("Simb. Esp.")) {
+                contador++;
+            }
+            a = a.siguiente;
+        }
+//        System.out.println(contador);
+        return contador;
+    }
+
+    public static void main(String[] args) {
 //        Simplificacion s = new Simplificacion();
 //        s.invertirCadena("cad-e+n:=a++");
 //        s.numeroOperadores("cad-e+n:=a++");
 //    }
-//}
+}
