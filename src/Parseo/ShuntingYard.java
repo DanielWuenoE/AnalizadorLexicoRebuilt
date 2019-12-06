@@ -30,6 +30,7 @@ public class ShuntingYard {
     public void separarTokens() throws ErrorGenerico {
         int i = 0;
         String a = lexico.pedirToken();
+        if (deliberaOperaciones(a) == true)
         while (!a.equals("$")) {
             if (i++ > 100) {
                 kill();
@@ -200,8 +201,11 @@ public class ShuntingYard {
         return cadena;
     }
     
-    private void deliberaOperaciones() {
-        
+    private boolean deliberaOperaciones(String token) {
+        if (token.equals(":")) {
+            
+        }
+        return true;
     }
     
     public static void main(String[] args) throws ParentesisCierreException, ParentesisAperturaException, ErrorGenerico {
