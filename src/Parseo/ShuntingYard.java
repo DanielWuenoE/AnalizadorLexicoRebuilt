@@ -219,6 +219,7 @@ public class ShuntingYard {
             ap.mostrarTokens();
             ap.shuntingYard();
             ap.expresionOriginal();
+            System.out.println("abajo sale el postfijo");
             ap.expresionPrefija();
             System.out.println(ap.expresionPrefijaString());
             System.out.println("Tokens");

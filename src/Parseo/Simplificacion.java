@@ -1,44 +1,45 @@
 package Parseo;
 
 //import Estructuras.ListasR.NodoTPostfija;
-import Estructuras.ListasR.NodoTPostfija;
+import Estructuras.ListasR.NodoTToken;
 import Estructuras.ListasR;
 import Lexico.ClasificaRebuilt;
+import Parseo.Terceto;
 import Estructuras.TestLista;
 
 public class Simplificacion {
 
     Terceto terceto = new Terceto();
-    NodoTPostfija t;
+    NodoTToken t;
     TestLista test;
 
     public void simplificacionSentencia(ListasR s) {
-        t = s.finPostfija;
+        t = s.finTok;
 //        System.out.println("token inicio: "+s.inicioTok.palabra);
 //        System.out.println(t.tokenPosfija);
         String simple = "";
         int nodos = contarNodos(s);
         int op = numeroOperadores(s), op1 = op, op2 = 0, c = 0;      //busqueda de operadores en sentencia
-        System.out.println("token fin: " + t.tokenPosfija);
+        System.out.println("token fin: " + t.palabra);
 //        s = invertirCadena(s);                      //inversion de la cadena
         while (t != null) {      //revision de sentenciad
             System.out.println("Ingresando al while");
             c++;
             System.out.println("op: " + op);
             System.out.println("op2: " + op2);
-            System.out.println("token actual: " + t.tokenPosfija);
-            if (t.tipoToken.equals("Simb. Esp.")) {
+            System.out.println("token actual: " + t.palabra);
+            if (t.tipoTok.equals("Simb. Esp.")) {
                 op--;
 
                 if (op == op2) {    //si el contador es la posicion buscada
                     System.out.println("Ingresando condicion operador");
                     op2++;      //aumenta posicion
-                    System.out.println(t.anterior.tipoToken);
-                    System.out.println(t.anterior.anterior.tipoToken);
+                    System.out.println(t.anterior.tipoTok);
+                    System.out.println(t.anterior.anterior.tipoTok);
 
-                    if (t.anterior.tipoToken.equals("Números") && t.anterior.anterior.tipoToken.equals("Números")) {     //si hay dos numeros despues del signo
+                    if (t.anterior.tipoTok.equals("Números") && t.anterior.anterior.tipoTok.equals("Números")) {     //si hay dos numeros despues del signo
                         System.out.println("Ingresando condicion numeros");
-                        terceto.Terceto(t.tokenPosfija, t.anterior.tokenPosfija, t.anterior.anterior.tokenPosfija, "t" + op);
+                        terceto.Terceto(t.palabra, t.anterior.palabra, t.anterior.anterior.palabra, "t" + op);
                         System.out.println("Termino insercion en pila");
                         s.borraPostfija(nodos - (c));
                         s.borraPostfija(nodos - (c - 1));
@@ -46,7 +47,7 @@ public class Simplificacion {
                         s.insertaPostfija("t" + op, "Números", c - 2);
                         System.out.println("Borrado e insercion");
                         op = op1;
-                        t = s.finPostfija;
+                        t = s.finTok;
                         System.out.println("Inicia lista");
                         s.mostrarListaTokensR();
                         System.out.println("Termina lista");
@@ -54,11 +55,11 @@ public class Simplificacion {
                 } else {
                     t = t.anterior;
                 }
-            } else if (t.tipoToken.equals("Números")) {
+            } else if (t.tipoTok.equals("Números")) {
                 System.out.println("es un numero");
                 t = t.anterior;
             } else {
-                System.out.println("es de tipo: " + t.tipoToken);
+                System.out.println("es de tipo: " + t.tipoTok);
                 t = t.anterior;
                 System.out.println("op: " + op);
             }
@@ -72,7 +73,7 @@ public class Simplificacion {
     }
 
     public int contarNodos(ListasR l) {
-        NodoTPostfija t = l.inicioPostfija;
+        NodoTToken t = l.inicioTok;
         int count = 0;
         while (t != null) {
             count++;
@@ -104,10 +105,10 @@ public class Simplificacion {
 //    }
 
     public int numeroOperadores(ListasR e) {
-        NodoTPostfija a = e.inicioPostfija;
+        NodoTToken a = e.inicioTok;
         int contador = 0;
         while (a != null) {      //NOTA: CAMBIAR LENGHT POR TOKENS DE LISTA
-            if (a.tipoToken.equalsIgnoreCase("Simb. Esp.") && a.tipoToken != null) {
+            if (a.tipoTok.equalsIgnoreCase("Simb. Esp.") && a.tipoTok != null) {
                 contador++;
             }
             a = a.siguiente;

@@ -191,7 +191,7 @@ public class ListasR<dato> {
         // Borra elementos en la posición x
         public void borrar_x(int x) {
             x--;
-                NodoTPostfija aux = inicioPostfija;
+                NodoTToken aux = inicioTok;
             if (inicioPostfija != null) {
                 while (aux.siguiente != null && x > 0) {
                         aux = aux.siguiente;
@@ -199,15 +199,15 @@ public class ListasR<dato> {
                 }
                 aux.siguiente = aux.siguiente.siguiente;
             } else
-                inicioPostfija = finPostfija = aux;
+                inicioTok = finTok = aux;
         }
         
         // inserta elementos en alguna posicion intermedia de la lista
         public void insertar_x(String n, String e, int x) {
-        NodoTPostfija nuevo = new NodoTPostfija(n, e);
+            NodoTToken nuevo = new NodoTToken(n, e, x);
         x--;
-        if (inicioPostfija != null) {
-            NodoTPostfija aux = inicioPostfija;
+        if (inicioTok != null) {
+            NodoTToken aux = inicioTok;
             while (aux.siguiente != null && x > 0) {
                     aux = aux.siguiente;
                     x--;        
@@ -215,7 +215,7 @@ public class ListasR<dato> {
             nuevo.siguiente = aux.siguiente;
             aux.siguiente = nuevo;
         } else
-            inicioPostfija = finPostfija = nuevo;
+            inicioTok = finTok = nuevo;
     }
         
     public void borraPostfija(int b) {
