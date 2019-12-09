@@ -20,6 +20,7 @@ public class Simplificacion {
         String simple = "";
         int nodos = contarNodos(s);
         int op = numeroOperadores(s), op1 = op, op2 = 0, c = 0;      //busqueda de operadores en sentencia
+//        System.out.println("token fin: " + t.tokenPosfija);
         System.out.println("token fin: " + t.palabra);
 //        s = invertirCadena(s);                      //inversion de la cadena
         while (t != null) {      //revision de sentenciad
