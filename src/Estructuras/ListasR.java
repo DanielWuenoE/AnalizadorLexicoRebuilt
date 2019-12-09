@@ -218,6 +218,14 @@ public class ListasR<dato> {
             inicioPostfija = finPostfija = nuevo;
     }
         
+    public void borraPostfija(int b) {
+        borrar_x(b);
+    }
+    
+    public void insertaPostfija(String d, String t, int i) {
+        insertar_x(d, t, i);
+    }
+        
         public boolean ExistePalabraT(String token) {
             NodoTSimR recorrer = inicioSim;
             while (recorrer != null) {
