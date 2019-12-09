@@ -192,7 +192,7 @@ public class ListasR<dato> {
         public void borrar_x(int x) {
             x--;
                 NodoTToken aux = inicioTok;
-            if (inicioPostfija != null) {
+            if (inicioTok != null) {
                 while (aux.siguiente != null && x > 0) {
                         aux = aux.siguiente;
                         x--;

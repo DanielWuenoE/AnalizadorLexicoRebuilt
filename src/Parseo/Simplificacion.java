@@ -37,7 +37,8 @@ public class Simplificacion {
                     System.out.println(t.anterior.tipoTok);
                     System.out.println(t.anterior.anterior.tipoTok);
 
-                    if (t.anterior.tipoTok.equals("Números") && t.anterior.anterior.tipoTok.equals("Números")) {     //si hay dos numeros despues del signo
+                    if ((t.anterior.tipoTok.equals("Números") && t.anterior.anterior.tipoTok.equals("Números"))
+                            && (true)) {     //si hay dos numeros despues del signo
                         System.out.println("Ingresando condicion numeros");
                         terceto.Terceto(t.palabra, t.anterior.palabra, t.anterior.anterior.palabra, "t" + op);
                         System.out.println("Termino insercion en pila");
