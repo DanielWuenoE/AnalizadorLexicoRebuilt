@@ -5,11 +5,13 @@ import Estructuras.ListasR.NodoTToken;
 import Estructuras.ListasR;
 import Lexico.ClasificaRebuilt;
 import Parseo.Terceto;
+import Estructuras.TestLista;
 
 public class Simplificacion {
 
     Terceto terceto = new Terceto();
     NodoTToken t;
+    TestLista test;
 
     public void simplificacionSentencia(ListasR s) {
         t = s.finTok;
@@ -38,10 +40,11 @@ public class Simplificacion {
                     if (t.anterior.tipoTok.equals("Números") && t.anterior.anterior.tipoTok.equals("Números")) {     //si hay dos numeros despues del signo
                         System.out.println("Ingresando condicion numeros");
                         terceto.Terceto(t.palabra, t.anterior.palabra, t.anterior.anterior.palabra, "t" + op);
-                        s.borrar_x(nodos - (c));
-                        s.borrar_x(nodos - (c - 1));
-                        s.borrar_x(nodos - (c - 2));
-                        s.insertar_x("t" + op, "Números", c - 2);
+                        System.out.println("Termino insercion en pila");
+                        test.borra(nodos - (c));
+                        test.borra(nodos - (c - 1));
+                        test.borra(nodos - (c - 2));
+                        test.ingresa("t" + op, "Números", c - 2);
                         System.out.println("Borrado e insercion");
                         op = op1;
                         t = s.finTok;
