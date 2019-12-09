@@ -41,10 +41,10 @@ public class Simplificacion {
                         System.out.println("Ingresando condicion numeros");
                         terceto.Terceto(t.palabra, t.anterior.palabra, t.anterior.anterior.palabra, "t" + op);
                         System.out.println("Termino insercion en pila");
-                        test.borra(nodos - (c));
-                        test.borra(nodos - (c - 1));
-                        test.borra(nodos - (c - 2));
-                        test.ingresa("t" + op, "Números", c - 2);
+                        s.borraPostfija(nodos - (c));
+                        s.borraPostfija(nodos - (c - 1));
+                        s.borraPostfija(nodos - (c - 2));
+                        s.insertaPostfija("t" + op, "Números", c - 2);
                         System.out.println("Borrado e insercion");
                         op = op1;
                         t = s.finTok;
