@@ -76,10 +76,18 @@ public class PilaTercetos {
         return inicio != null;
     }
     
-    public void imprime() {
+    public void imprimeTerceto() {
         NodoTercetos temp = inicio;
         while (temp != null) {
             temp.dato.mostrarTerceto();
+            temp = temp.sig;
+        }
+    }
+    
+    public void imprimeCuarteto() {
+        NodoTercetos temp = inicio;
+        while (temp != null) {
+            temp.dato.mostrarCuarteto();
             temp = temp.sig;
         }
     }

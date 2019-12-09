@@ -14,6 +14,6 @@ public class Terceto {
     }
     
     public void imprimeTodo() {
-        pilaT.imprime();
+        pilaT.imprimeCuarteto();
     }
 }
