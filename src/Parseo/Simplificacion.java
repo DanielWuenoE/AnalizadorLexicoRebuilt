@@ -41,18 +41,26 @@ public class Simplificacion {
                         s.borrar_x(nodos - (c));
                         s.borrar_x(nodos - (c - 1));
                         s.borrar_x(nodos - (c - 2));
-                        s.insertar_x("t" + op, "identificador", c - 2);
+                        s.insertar_x("t" + op, "Números", c - 2);
+                        System.out.println("Borrado e insercion");
                         op = op1;
+                        t = s.finTok;
+                        System.out.println("Inicia lista");
+                        s.mostrarListaTokensR();
+                        System.out.println("Termina lista");
                     }
-                } else if (t.tipoTok.equals("Números")) {
-                    System.out.println("es un numero");
-                    t = t.anterior;
                 } else {
-                    System.out.println("es de tipo: " + t.tipoTok);
                     t = t.anterior;
-                    System.out.println("op: " + op);
                 }
+            } else if (t.tipoTok.equals("Números")) {
+                System.out.println("es un numero");
+                t = t.anterior;
+            } else {
+                System.out.println("es de tipo: " + t.tipoTok);
+                t = t.anterior;
+                System.out.println("op: " + op);
             }
+
         }
     }
 

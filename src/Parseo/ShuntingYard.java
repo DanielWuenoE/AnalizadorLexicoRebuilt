@@ -227,8 +227,8 @@ public class ShuntingYard {
             t.mostrarListaPostfija();
             sm.simplificacionSentencia(t);
             
-
-            //sm.imprimeTodo();
+            System.out.println("Imprimiendo tercetos");
+            sm.imprimeTodo();
         } catch (ParentesisAperturaException | ParentesisCierreException e) {
             e.printStackTrace();
         }
