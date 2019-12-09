@@ -49,8 +49,11 @@ public class TestLista {
         t.imp();
         System.out.println("\n");
         
-        //t.NodoTPostfija.borrar_x(3);
-        t.NodoTPostfija.insertar_x("ss", "os", 9);
+        t.borra(7);
+        t.ingresa("ss", "os", 2);
+        t.ingresa("ss", "os", -1);
+        
+        t.imp();
         
         String dk = t.tomaLaListaDelFin().tokenPosfija;
         
