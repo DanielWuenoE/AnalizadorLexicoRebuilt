@@ -22,6 +22,14 @@ public class TestLista {
         return al.tomaLaListaDelFin();
     }
     
+    public void borra(int b) {
+        al.borrar_x(b);
+    }
+    
+    public void ingresa(String d, String t, int i) {
+        al.insertar_x(d, t, i);
+    }
+    
     public void imp() {
         //System.out.println(al.ExistePalabraT("0"));
         al.mostrarListaPostfija();
@@ -41,11 +49,11 @@ public class TestLista {
         t.imp();
         System.out.println("\n");
         
-        System.out.println(t.tomaLaListaDelInicio().tokenPosfija);
-        System.out.println(t.tomaLaListaDelInicio().siguiente.tokenPosfija); // avanza
-        System.out.println(t.tomaLaListaDelInicio().siguiente.siguiente.tokenPosfija);
-        System.out.println(t.tomaLaListaDelInicio().siguiente.siguiente.anterior.tokenPosfija);
-        System.out.println(t.tomaLaListaDelFin().tokenPosfija);
+        t.borra(7);
+        t.ingresa("ss", "os", 2);
+        t.ingresa("ss", "os", -1);
+        
+        t.imp();
         
         String dk = t.tomaLaListaDelFin().tokenPosfija;
         
