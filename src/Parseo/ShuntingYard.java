@@ -8,6 +8,7 @@ import Lexico.ClasificaRebuilt;
 import Lexico.ConversionCaracter;
 import Lexico.Tipos;
 import Errores.ErrorGenerico;
+import Parseo.Terceto;
 
 public class ShuntingYard {
     /* Expresión
@@ -68,7 +69,7 @@ public class ShuntingYard {
                     || tipo.esMayuscula(conv.getAscii()) == true
                     || tipo.esMinuscula(conv.getAscii()) == true) {
                 //System.out.print("\t-" + tipo.esNumero(conv.getAscii()) + "\n");
-                tabla.agregarElementoLTokensR(token, null, -1);
+                tabla.agregarElementoLTokensR(token, "Números", -1);
             } else if (tipo.esParentesis1(conv.getAscii()) == true) {
                 //System.out.print("\t-" + tipo.esParentesis1(conv.getAscii()) + "\n");
                 pila.push(token);
@@ -80,7 +81,7 @@ public class ShuntingYard {
                     //System.out.println("\t signo:");
                     if(comparaPrecedencia(token, pila.peek())) {
                         //System.out.print("\t-" + comparaPrecedencia(token, pila.peak()) + "\n");
-                        tabla.agregarElementoLTokensR(pila.popConRetorno(), null, -1);
+                        tabla.agregarElementoLTokensR(pila.popConRetorno(), "Simb. Esp.", -1);
                         pila.push(token);
                     } else {
                         //System.out.print("\t" + token + "\n");
@@ -98,7 +99,7 @@ public class ShuntingYard {
                         if(pila.isEmpty()) {
                             if(!pila.peek().equals("(")) {
                                 //System.out.println("\t" + pila.peak());
-                                tabla.agregarElementoLTokensR(pila.popConRetorno(), null, -1);
+                                tabla.agregarElementoLTokensR(pila.popConRetorno(), "Simb. Esp.", -1);
                             } else {
                                 pila.pop();
                                 break;
@@ -121,7 +122,7 @@ public class ShuntingYard {
         
         while(pila.isEmpty()) {
             if(!pila.peek().equals("(")) {
-                tabla.agregarElementoLTokensR(pila.popConRetorno(), null, -1);
+                tabla.agregarElementoLTokensR(pila.popConRetorno(), "Simb. Esp.", -1);
             } else {
                 throw new ParentesisAperturaException("Parentesis de apertura sobrante");
             }
@@ -206,6 +207,7 @@ public class ShuntingYard {
     
     public static void main(String[] args) throws ParentesisCierreException, ParentesisAperturaException, ErrorGenerico {
         ListasR t = new ListasR();
+        Simplificacion sm = new Simplificacion();
         ClasificaRebuilt c = new ClasificaRebuilt(t);
         ShuntingYard ap = new ShuntingYard(t, c);
         try {
@@ -215,6 +217,14 @@ public class ShuntingYard {
             ap.expresionOriginal();
             ap.expresionPrefija();
             System.out.println(ap.expresionPrefijaString());
+            System.out.println("Tokens");
+            t.mostrarListaTokensR();
+            System.out.println("Posfija");
+            t.mostrarListaPostfija();
+            sm.simplificacionSentencia(t);
+            
+
+            //sm.imprimeTodo();
         } catch (ParentesisAperturaException | ParentesisCierreException e) {
             e.printStackTrace();
         }

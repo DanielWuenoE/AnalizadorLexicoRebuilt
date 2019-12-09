@@ -5,7 +5,7 @@ package Estructuras;
 public class ListasR<dato> {
     private NodoTSimR inicioSim, finSim;
     public NodoTPostfija inicioPostfija, finPostfija;
-    private NodoTToken inicioTok, finTok;
+    public NodoTToken inicioTok, finTok;
     private NodoTReservadas inicioR, finR;
     
     /*
@@ -47,9 +47,9 @@ public class ListasR<dato> {
         }
     }
     
-    class NodoTToken {
-        public String palabra; String tipoTok; int tokenTok;
-        public NodoTToken siguiente;
+    public class NodoTToken {
+        public String palabra, tipoTok; int tokenTok;
+        public NodoTToken siguiente, anterior;
         
         public NodoTToken (String palabra, String tipoTok, int tokenTok) {
             this.palabra = palabra;
@@ -121,6 +121,7 @@ public class ListasR<dato> {
             NodoTToken agregarElemento = new NodoTToken(palabra, tipo, token);
             if (inicioTok != null) {
                 finTok.siguiente = agregarElemento;
+                agregarElemento.anterior = finTok;
                 finTok = agregarElemento;
             } else {
                 inicioTok = finTok = agregarElemento;
@@ -173,6 +174,10 @@ public class ListasR<dato> {
                 recorrer = recorrer.siguiente;
             }
         }
+        
+         public NodoTToken traeListaTokensR() {
+            return finTok;
+        }   
         
         public void mostrarListaReservadasR() {
             NodoTReservadas recorrer = inicioR;
