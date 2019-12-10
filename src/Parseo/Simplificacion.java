@@ -37,19 +37,22 @@ public class Simplificacion {
                     op2++;      //aumenta posicion
                     System.out.println(t.anterior.tipoTok);
                     System.out.println(t.anterior.anterior.tipoTok);
+                    
+                        System.out.println("Inicia lista");
+                        s.mostrarListaTokensR();
+                        System.out.println("Termina lista");
 
-                    if ((t.anterior.tipoTok.equals("Números") && t.anterior.anterior.tipoTok.equals("Números"))
-                            && (true)) {     //si hay dos numeros despues del signo
+                    if ((t.anterior.tipoTok.equals("Números") && t.anterior.anterior.tipoTok.equals("Números"))) {     //si hay dos numeros despues del signo
                         System.out.println("Ingresando condicion numeros");
                         terceto.Terceto(t.palabra, t.anterior.palabra, t.anterior.anterior.palabra, "t" + op);
                         System.out.println("Termino insercion en pila");
                         s.borraPostfija(nodos - (c));
-                        s.borraPostfija(nodos - (c - 1));
-                        s.borraPostfija(nodos - (c - 2));
-                        s.insertaPostfija("t" + op, "Números", c - 2);
+                        s.borraPostfija(nodos - (c + 1));
+                        s.borraPostfija(nodos - (c + 2));
+                        s.insertaPostfija("t" + op, "Números", c - 3);
                         System.out.println("Borrado e insercion");
                         op = op1;
-                        t = s.finTok;
+                        t = t.siguiente.siguiente.siguiente;
                         System.out.println("Inicia lista");
                         s.mostrarListaTokensR();
                         System.out.println("Termina lista");
@@ -67,6 +70,10 @@ public class Simplificacion {
             }
 
         }
+        
+                        System.out.println("Inicia lista");
+                        s.mostrarListaTokensR();
+                        System.out.println("Termina lista");
     }
 
     public void imprimeTodo() {
