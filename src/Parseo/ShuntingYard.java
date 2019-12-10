@@ -219,7 +219,7 @@ public class ShuntingYard {
 
     public static void main(String[] args) throws ParentesisCierreException, ParentesisAperturaException, ErrorGenerico {
         ListasR t = new ListasR();
-        Simplificacion sm = new Simplificacion();
+        Simplificacion sm = new Simplificacion(t);
         ClasificaRebuilt c = new ClasificaRebuilt(t);
         ShuntingYard ap = new ShuntingYard(t, c);
         try {
@@ -232,10 +232,10 @@ public class ShuntingYard {
             System.out.println(ap.expresionPrefijaString());
             System.out.println("Tokens");
             t.mostrarListaTokensR();
-            sm.simplificacionSentencia(t);
+            sm.simplificacionSentencia();
             System.out.println("Imprimiendo tercetos");
             sm.imprimeTodo();
-            t.mostrarListaTokensR();
+//            t.mostrarListaTokensR();
         } catch (ParentesisAperturaException | ParentesisCierreException e) {
             e.printStackTrace();
         }

@@ -10,8 +10,13 @@ public class Simplificacion {
 
     Terceto terceto = new Terceto();
     NodoTToken t;
+    ListasR s;
 
-    public void simplificacionSentencia(ListasR s) {
+    public Simplificacion(ListasR tabla) {
+        this.s = tabla;
+    }
+
+    public void simplificacionSentencia() {
         t = s.finTok;
 //        System.out.println("token inicio: "+s.inicioTok.palabra);
 //        System.out.println(t.tokenPosfija);
@@ -117,11 +122,11 @@ public class Simplificacion {
     }
 
     public static void main(String[] args) {
-        Simplificacion s = new Simplificacion();
-
-        ListasR t = new ListasR();
-        ClasificaRebuilt c = new ClasificaRebuilt(t);
-        ShuntingYard ap = new ShuntingYard(t, c);
+//        Simplificacion tabla = new Simplificacion();
+//
+//        ListasR t = new ListasR();
+//        ClasificaRebuilt c = new ClasificaRebuilt(t);
+//        ShuntingYard ap = new ShuntingYard(t, c);
 
 //        s.invertirCadena("cad-e+n:=a++");
 //        s.numeroOperadores("cad-e+n:=a++");
