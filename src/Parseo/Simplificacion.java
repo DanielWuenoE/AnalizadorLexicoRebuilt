@@ -3,7 +3,6 @@ package Parseo;
 //import Estructuras.ListasR.NodoTPostfija;
 import Estructuras.ListasR.NodoTToken;
 import Estructuras.ListasR;
-import Lexico.ClasificaRebuilt;
 import Parseo.Terceto;
 
 public class Simplificacion {
@@ -38,8 +37,8 @@ public class Simplificacion {
                 if (op == op2) {    //si el contador es la posicion buscada
                     System.out.println("Ingresando condicion operador");
                     op2++;      //aumenta posicion
-                    System.out.println(t.anterior.tipoTok);
-                    System.out.println(t.anterior.anterior.tipoTok);
+//                    System.out.println(t.anterior.tipoTok);
+//                    System.out.println(t.anterior.anterior.tipoTok);
 
                     if ((t.anterior.tipoTok.equals("Números") && t.anterior.anterior.tipoTok.equals("Números"))) {     //si hay dos numeros despues del signo
                         System.out.println("Ingresando condicion numeros");
@@ -50,8 +49,9 @@ public class Simplificacion {
                         s.borraPostfija(nodos - (c + 2));
                         s.insertaPostfija("t" + op, "Números", c - 3);
                         System.out.println("Borrado e insercion");
-                        op = op1;
+                        
                         t = s.finTok;
+                        op = op1;
                         System.out.println("Inicia lista");
                         s.mostrarListaTokensR();
                         System.out.println("Termina lista");
@@ -74,6 +74,15 @@ public class Simplificacion {
     public void imprimeTodo() {
 //        terceto.Terceto("9", "98", "83");
         terceto.imprimeTodo();
+    }
+    
+    public void ImprimirListaActual(){
+        t = s.inicioTok;
+            while (t != null) {
+                System.out.println(t.palabra + "\t" +
+                                   t.tipoTok + "\t");
+                t = t.siguiente;
+            }
     }
 
     public int contarNodos(ListasR l) {

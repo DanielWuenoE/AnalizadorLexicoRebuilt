@@ -235,7 +235,16 @@ public class ShuntingYard {
             sm.simplificacionSentencia();
             System.out.println("Imprimiendo tercetos");
             sm.imprimeTodo();
+            System.out.println("TokensR");
+            sm.ImprimirListaActual();
+           
 //            t.mostrarListaTokensR();
+//            System.out.println("Postfija");
+//            t.mostrarListaPostfija();
+//            System.out.println("Reservadas");
+//            t.mostrarListaReservadasR();
+//            System.out.println("Simbolos");
+//            t.mostrarListaSimbolosR();
         } catch (ParentesisAperturaException | ParentesisCierreException e) {
             e.printStackTrace();
         }
