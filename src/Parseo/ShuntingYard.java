@@ -232,12 +232,10 @@ public class ShuntingYard {
             System.out.println(ap.expresionPrefijaString());
             System.out.println("Tokens");
             t.mostrarListaTokensR();
-            System.out.println("Posfija");
-            t.mostrarListaPostfija();
             sm.simplificacionSentencia(t);
-
             System.out.println("Imprimiendo tercetos");
             sm.imprimeTodo();
+            t.mostrarListaTokensR();
         } catch (ParentesisAperturaException | ParentesisCierreException e) {
             e.printStackTrace();
         }

@@ -5,13 +5,11 @@ import Estructuras.ListasR.NodoTToken;
 import Estructuras.ListasR;
 import Lexico.ClasificaRebuilt;
 import Parseo.Terceto;
-import Estructuras.TestLista;
 
 public class Simplificacion {
 
     Terceto terceto = new Terceto();
     NodoTToken t;
-    TestLista test;
 
     public void simplificacionSentencia(ListasR s) {
         t = s.finTok;
@@ -37,10 +35,6 @@ public class Simplificacion {
                     op2++;      //aumenta posicion
                     System.out.println(t.anterior.tipoTok);
                     System.out.println(t.anterior.anterior.tipoTok);
-                    
-                        System.out.println("Inicia lista");
-                        s.mostrarListaTokensR();
-                        System.out.println("Termina lista");
 
                     if ((t.anterior.tipoTok.equals("Números") && t.anterior.anterior.tipoTok.equals("Números"))) {     //si hay dos numeros despues del signo
                         System.out.println("Ingresando condicion numeros");
@@ -52,7 +46,7 @@ public class Simplificacion {
                         s.insertaPostfija("t" + op, "Números", c - 3);
                         System.out.println("Borrado e insercion");
                         op = op1;
-                        t = t.siguiente.siguiente.siguiente;
+                        t = s.finTok;
                         System.out.println("Inicia lista");
                         s.mostrarListaTokensR();
                         System.out.println("Termina lista");
@@ -70,10 +64,6 @@ public class Simplificacion {
             }
 
         }
-        
-                        System.out.println("Inicia lista");
-                        s.mostrarListaTokensR();
-                        System.out.println("Termina lista");
     }
 
     public void imprimeTodo() {

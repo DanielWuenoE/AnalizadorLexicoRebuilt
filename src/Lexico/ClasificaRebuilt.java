@@ -14,7 +14,7 @@ public class ClasificaRebuilt {
     PalabraReservada palR;
     ValidacionTipos validaT;
     int actual = 0;
-    public String tokenAnt = "", tokenAnt2 = "";
+    public String tokenAnt = "", tokenAnt2 = "", tokenAnt3 = "";
     private String token1 = "";
 
     public ClasificaRebuilt(ListasR tabla) {
@@ -26,6 +26,7 @@ public class ClasificaRebuilt {
     }
     
     public void retrocedeToken(String token){
+        tokenAnt3 = tokenAnt2;
         tokenAnt2 = tokenAnt;
         tokenAnt = token1;
         token1 = token;        
