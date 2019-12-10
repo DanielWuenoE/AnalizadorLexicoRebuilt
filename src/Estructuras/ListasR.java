@@ -4,7 +4,7 @@ package Estructuras;
 
 public class ListasR<dato> {
     private NodoTSimR inicioSim, finSim;
-    public NodoTPostfija inicioPostfija, finPostfija;
+    private NodoTPostfija inicioPostfija, finPostfija;
     public NodoTToken inicioTok, finTok;
     private NodoTReservadas inicioR, finR;
     
@@ -165,7 +165,7 @@ public class ListasR<dato> {
             }
         }
         
-        public void mostrarListaTokensR() {
+        public void mostrarListaTokensPostfija() {
             NodoTToken recorrer = inicioTok;
             while (recorrer != null) {
                 System.out.println(recorrer.palabra + "\t" +
@@ -218,11 +218,11 @@ public class ListasR<dato> {
             inicioTok = finTok = nuevo;
     }
         
-    public void borraPostfija(int b) {
+    public void borraTokenPostfija(int b) {
         borrar_x(b);
     }
     
-    public void insertaPostfija(String d, String t, int i) {
+    public void insertaTokenPostfija(String d, String t, int i) {
         insertar_x(d, t, i);
     }
         
@@ -318,9 +318,9 @@ public class ListasR<dato> {
             return tokenR;
         }
         
-        // manda la lista de ER usada para guardar orden en Prefijo de las operaciones
+        // manda la lista de ER usada para guardar orden en Postfija de las operaciones
         int contaSimRP = 0;
-        public String listPrefija() {
+        public String listaPostfijaToken() {
             NodoTToken recorrer = inicioTok;
             String tokenR = "";
             int contameEsta = 0;

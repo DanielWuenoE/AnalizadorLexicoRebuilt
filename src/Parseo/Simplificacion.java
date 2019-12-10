@@ -19,7 +19,7 @@ public class Simplificacion {
         t = s.finTok;
 //        System.out.println("token inicio: "+s.inicioTok.palabra);
 //        System.out.println(t.tokenPosfija);
-        String simple = "";
+        //String simple = "";
         int nodos = contarNodos(s);
         int op = numeroOperadores(s), op1 = op, op2 = 0, c = 0;      //busqueda de operadores en sentencia
 //        System.out.println("token fin: " + t.tokenPosfija);
@@ -35,26 +35,26 @@ public class Simplificacion {
                 op--;
 
                 if (op == op2) {    //si el contador es la posicion buscada
-                    System.out.println("Ingresando condicion operador");
+                    System.out.println("\u001B[32m Ingresando condicion operador");
                     op2++;      //aumenta posicion
 //                    System.out.println(t.anterior.tipoTok);
 //                    System.out.println(t.anterior.anterior.tipoTok);
 
-                    if ((t.anterior.tipoTok.equals("Números") && t.anterior.anterior.tipoTok.equals("Números"))) {     //si hay dos numeros despues del signo
-                        System.out.println("Ingresando condicion numeros");
+                    if ((t.anterior.tipoTok.trim().equals("Números") && t.anterior.anterior.tipoTok.trim().equals("Números"))) {     //si hay dos numeros despues del signo
+                        System.out.println("\u001B[31m Ingresando condicion numeros");
                         terceto.Terceto(t.palabra, t.anterior.palabra, t.anterior.anterior.palabra, "t" + op);
                         System.out.println("Termino insercion en pila");
-                        s.borraPostfija(nodos - (c));
-                        s.borraPostfija(nodos - (c + 1));
-                        s.borraPostfija(nodos - (c + 2));
-                        s.insertaPostfija("t" + op, "Números", c - 3);
-                        System.out.println("Borrado e insercion");
+                        s.borraTokenPostfija(nodos - (c));
+                        s.borraTokenPostfija(nodos - (c + 1));
+                        s.borraTokenPostfija(nodos - (c + 2));
+                        s.insertaTokenPostfija("t" + op, "Números", c - 3);
+                        System.out.println("\u001B[33m Borrado e insercion");
                         
                         t = s.finTok;
                         op = op1;
-                        System.out.println("Inicia lista");
-                        s.mostrarListaTokensR();
-                        System.out.println("Termina lista");
+                        System.out.println("\u001B[35m Inicia lista");
+                        s.mostrarListaTokensPostfija();
+                        System.out.println("\u001B[35m Termina lista");
                     }
                 } else {
                     t = t.anterior;
@@ -67,7 +67,6 @@ public class Simplificacion {
                 t = t.anterior;
                 System.out.println("op: " + op);
             }
-
         }
     }
 

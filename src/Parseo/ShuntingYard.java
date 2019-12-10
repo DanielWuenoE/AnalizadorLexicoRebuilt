@@ -8,7 +8,7 @@ import Lexico.ClasificaRebuilt;
 import Lexico.ConversionCaracter;
 import Lexico.Tipos;
 import Errores.ErrorGenerico;
-import Parseo.Terceto;
+//import Parseo.Terceto;
 
 public class ShuntingYard {
 
@@ -16,8 +16,6 @@ public class ShuntingYard {
             (2*((3*4)+9))
      */
 
-    //ListasR tablas = new ListasR();
-    //ClasificaRebuilt lexico = new ClasificaRebuilt(tablas);
     Tipos tipo = new Tipos();
     ConversionCaracter conv = new ConversionCaracter();
     Pila pila = new Pila();
@@ -34,7 +32,7 @@ public class ShuntingYard {
         String a = lexico.pedirToken();
         if (deliberaOperaciones(a) == true) {
             while (!a.equals("$")) {
-                if (i++ > 100) {
+                if (i++ > 1000) {
                     kill();
                     System.exit(0);
                 }
@@ -43,13 +41,13 @@ public class ShuntingYard {
         }
     }
 
-    public void mostrarTokens() {
+    public void mostrarTokensAnalisisLexico() {
         lexico.imprimeTablas();
     }
 
     // Mata la aplicación 
     public void kill() throws ErrorGenerico {
-        mostrarTokens();
+        mostrarTokensAnalisisLexico();
         Runtime.getRuntime().addShutdownHook(new Thread() {
             @Override
             public void run() {
@@ -187,24 +185,33 @@ public class ShuntingYard {
         }
         System.out.print("\n");
     }
-
-    private void expresionPrefija() {
-        String token = tabla.listPrefija();
+    
+    private void expresionPostfija() {
+        String token = tabla.listaPostfijaToken();
         System.out.println("Prefija: (Árbol de Sintaxis abstracta?");
         while (token != null) {
             System.out.print(token + " ");
-            token = tabla.listPrefija();
+            token = tabla.listaPostfijaToken();
         }
         System.out.print("\n");
     }
+    
+    private void impPost() {
+        ListasR.NodoTToken recorrer = tabla.inicioTok;
+            while (recorrer != null) {
+                System.out.println(recorrer.palabra + "\t" +
+                                   recorrer.tipoTok + "\t");
+                recorrer = recorrer.siguiente;
+            }
+    }
 
     // lo mismo que el de arriba pero en un string
-    private String expresionPrefijaString() {
+    private String expresionPostfijaString() {
         String cadena = "";
-        String token = tabla.listPrefija();
+        String token = tabla.listaPostfijaToken();
         while (token != null) {
             cadena += token + " ";
-            token = tabla.listPrefija();
+            token = tabla.listaPostfijaToken();
         }
         //System.out.print("\n");
         return cadena;
@@ -224,14 +231,16 @@ public class ShuntingYard {
         ShuntingYard ap = new ShuntingYard(t, c);
         try {
             ap.separarTokens();
-            ap.mostrarTokens();
+            ap.mostrarTokensAnalisisLexico();
             ap.shuntingYard();
             ap.expresionOriginal();
-            System.out.println("abajo sale el postfijo");
-            ap.expresionPrefija();
-            System.out.println(ap.expresionPrefijaString());
-            System.out.println("Tokens");
-            t.mostrarListaTokensR();
+            System.out.println("Postfija");
+            ap.expresionPostfija();
+            System.out.println("Lista Tokens Postfija");
+            ap.impPost();
+            System.out.println(ap.expresionPostfijaString());
+            System.out.println("Tokens Postfija");
+            t.mostrarListaTokensPostfija();
             sm.simplificacionSentencia();
             System.out.println("Imprimiendo tercetos");
             sm.imprimeTodo();
