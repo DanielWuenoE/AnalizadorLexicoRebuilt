@@ -55,7 +55,7 @@ public class MatrizPredictiva {
         return false;
     }
 
-    public void LlDiver() { //a sera el lexema enviado del analizador lexico
+    public boolean LlDiver() { //a sera el lexema enviado del analizador lexico
         pila.push(gramatica.simboloInicial());
         String x = pila.peak(); // tope de la pila
 //        System.out.println("x: "+x);
@@ -83,7 +83,7 @@ public class MatrizPredictiva {
 //                    System.out.println("error 1");
                     errorSintactico(a);
                     lexico.imprimeTablas();
-                    break;
+                    return false;
                 }
             } else {
                 if (x.equals(a)) {
@@ -104,7 +104,7 @@ public class MatrizPredictiva {
 //                    System.out.println("error 2");
                     errorSintactico(a);
                     lexico.imprimeTablas();
-                    break;
+                    return false;
                 }
             }
         }
@@ -121,6 +121,7 @@ public class MatrizPredictiva {
 //                lexico.imprimeTablas();
             }
         }
+        return true;
     }
 
     private void cicloPush(int produccion) {

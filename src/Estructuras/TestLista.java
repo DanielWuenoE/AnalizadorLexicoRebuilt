@@ -1,6 +1,6 @@
 package Estructuras;
 
-import Estructuras.ListasR.NodoTPostfija;
+import Estructuras.ListasR.NodoTToken;
 
 public class TestLista {
     
@@ -10,52 +10,63 @@ public class TestLista {
         al = new ListasR();
     }
     
-    public void test(String token, String tipo) {
-        al.agregarElementoLPostfija(token, tipo);
+    public void test(String token, String tipo, int s) {
+        al.agregarElementoLTokensR(token, tipo, s);
     }
     
-    public NodoTPostfija tomaLaListaDelInicio() {
-        return al.tomaLaListaDelInicio();
+    public NodoTToken tomaLaListaDelInicio() {
+        return al.inicioTok;
     }
     
-    public NodoTPostfija tomaLaListaDelFin() {
-        return al.tomaLaListaDelFin();
+    public NodoTToken tomaLaListaDelFin() {
+        return al.finTok;
     }
     
     public void borra(int b) {
-        al.borrar_x(b);
+        al.borraTokenPostfija(b);
     }
     
     public void ingresa(String d, String t, int i) {
-        al.insertar_x(d, t, i);
+        al.insertaTokenPostfija(d, t, i);
     }
     
     public void imp() {
         //System.out.println(al.ExistePalabraT("0"));
-        al.mostrarListaPostfija();
+        al.mostrarListaTokensPostfija();
         //System.out.println(al.buscaIdent("!"));
         //System.out.println(al.ultimoEnFila());
     }
     
     public static void main(String[] args) {
         TestLista t = new TestLista();
-        t.test(":=", "Identificador");
-        t.test("!", "Sim. Esp.");
-        t.test("{", "Identificador");
-        t.test(":=", "Sim. Esp.");
-        t.test("#", "Sim. Esp.");
-        t.test("#", "Identificador");
-        t.test("¿", "Sim. Esp.");
+        t.test(":=", "Identificador", -1);
+        t.test("!", "Sim. Esp.", -1);
+        t.test("{", "Identificador", -1);
+        t.test(":=", "Sim. Esp.", -1);
+        t.test("+", "Sim. Esp.", -1);
+        t.test("#", "Identificador", -1);
+        t.test("¿", "Sim. Esp.", -1);
         t.imp();
         System.out.println("\n");
         
-        t.borra(7);
-        t.ingresa("ss", "os", 2);
-        t.ingresa("ss", "os", -1);
+//        t.borra(1);
+//        t.borra(3);
+//        t.borra(1);
+        t.ingresa("ss", "os", 6578);
+//        t.ingresa("ss", "os", -1);
         
         t.imp();
+        System.out.println("\n");
         
-        String dk = t.tomaLaListaDelFin().tokenPosfija;
+        NodoTToken c = t.tomaLaListaDelFin();
+        
+        while (c!= null) {
+            System.out.println(c.palabra);
+            c = c.anterior;
+        }
+        
+//        System.out.println(palabra);
+        
         
 //        char c[] = {
 //                    ',',

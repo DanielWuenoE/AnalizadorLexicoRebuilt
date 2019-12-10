@@ -44,11 +44,16 @@ public class Simplificacion {
                         System.out.println("\u001B[31m Ingresando condicion numeros");
                         terceto.Terceto(t.palabra, t.anterior.palabra, t.anterior.anterior.palabra, "t" + op);
                         System.out.println("Termino insercion en pila");
-                        s.borraTokenPostfija(nodos - (c));
+                        s.borraTokenPostfija(nodos - (c - 1));
+                        s.borraTokenPostfija(nodos - (c ));
                         s.borraTokenPostfija(nodos - (c + 1));
-                        s.borraTokenPostfija(nodos - (c + 2));
-                        s.insertaTokenPostfija("t" + op, "Números", c - 3);
+                        
+                        System.out.println("\u001B[35m Inicia lista");
+                        s.mostrarListaTokensPostfija();
+                        System.out.println("\u001B[35m Termina lista");
+                        s.insertaTokenPostfija("t" + op, "Números", c - 1);
                         System.out.println("\u001B[33m Borrado e insercion");
+                        terceto.imprimeTodo();
                         
                         t = s.finTok;
                         op = op1;
@@ -68,6 +73,7 @@ public class Simplificacion {
                 System.out.println("op: " + op);
             }
         }
+        
     }
 
     public void imprimeTodo() {

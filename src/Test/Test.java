@@ -15,18 +15,18 @@ public class Test {
         ListasR tabla = new ListasR();
         ClasificaRebuilt lexico = new ClasificaRebuilt(tabla);
         MatrizPredictiva sintactico = new MatrizPredictiva(lexico);
-        sintactico.LlDiver();
-        ValidacionTipos semantico = new ValidacionTipos(tabla, lexico);
-        semantico.idenficiaVT();
+        if (sintactico.LlDiver()) {
+            ValidacionTipos semantico = new ValidacionTipos(tabla, lexico);
+            semantico.idenficiaVT();
 
-        Generacion cod = new Generacion(lexico);
-        cod.Generar();
-        
-        cod.terceto.imprimeTodo();
+            Generacion cod = new Generacion(lexico);
+            cod.Generar();
+            cod.terceto.imprimeTodo();
+        }
 
 //        inicia la fase de Generación de Código intermedio
 //        ShuntingYard ap = new ShuntingYard(tabla, lexico);
-//        tabla.mostrarListaSimbolosR();
+        tabla.mostrarListaSimbolosR();
     }
 
     public static void main(String[] args) {

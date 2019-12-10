@@ -1,5 +1,5 @@
 begin read(ID);
-	ID := ID + (int - ID);
+	ID :=  ID + (int - ID);
 	write(ID);
         a := 0;
 end
