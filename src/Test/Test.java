@@ -2,6 +2,8 @@ package Test;
 
 //import Errores.ErrorGenerico;
 import CodIntermedio.Generacion;
+import Errores.ParentesisAperturaException;
+import Errores.ParentesisCierreException;
 import Estructuras.ListasR;
 import Lexico.ClasificaRebuilt;
 import Parseo.ShuntingYard;
@@ -11,7 +13,7 @@ import Parseo.Terceto;
 
 public class Test {
 
-    private void analizadores() {
+    private void analizadores() throws ParentesisCierreException, ParentesisAperturaException {
         ListasR tabla = new ListasR();
         ClasificaRebuilt lexico = new ClasificaRebuilt(tabla);
         MatrizPredictiva sintactico = new MatrizPredictiva(lexico);
@@ -23,22 +25,14 @@ public class Test {
             cod.Generar();
             cod.terceto.imprimeTodo();
         }
-        System.out.println("_________________________________________________________________");
 
-        lexico.definirExpresion("( (2 + 1 ) - ( 5 + 3 ) ) - 2 ");
-        String tok = lexico.pedirTokenExpresion();
-        System.out.println(tok);
-        do {
-            tok = lexico.pedirTokenExpresion();
-            System.out.println(tok);
-        } while (tok != null);
 
 //        inicia la fase de Generación de Código intermedio
 //        ShuntingYard ap = new ShuntingYard(tabla, lexico);
 //        tabla.mostrarListaSimbolosR();
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParentesisCierreException, ParentesisAperturaException {
         Test t = new Test();
         t.analizadores();
     }

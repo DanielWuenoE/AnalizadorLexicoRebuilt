@@ -9,12 +9,13 @@ public class Simplificacion {
     Terceto terceto = new Terceto();
     NodoTToken t;
     ListasR s;
+//
+//    public Simplificacion(ListasR tabla) {
+//        this.s = tabla;
+//    }
 
-    public Simplificacion(ListasR tabla) {
-        this.s = tabla;
-    }
-
-    public void simplificacionSentencia() {
+    public String simplificacionSentencia() {
+        String regreso = "";
         t = s.finTok;
 //        System.out.println("token inicio: "+s.inicioTok.palabra);
 //        System.out.println(t.tokenPosfija);
@@ -41,26 +42,27 @@ public class Simplificacion {
 //                    System.out.println(t.anterior.anterior.tipoTok);
 
                     if ((t.anterior.tipoTok.trim().equals("Números") && t.anterior.anterior.tipoTok.trim().equals("Números"))) {     //si hay dos numeros despues del signo
-                        System.out.println("\u001B[31m Ingresando condicion numeros");
+//                        System.out.println("\u001B[31m Ingresando condicion numeros");
                         terceto.Terceto(t.palabra, t.anterior.palabra, t.anterior.anterior.palabra, "t" + op);
-                        System.out.println("Termino insercion en pila");
+                        regreso = "t"+op;
+//                        System.out.println("Termino insercion en pila");
                         if (numeroOperadores(s) != 1) {
                             System.out.println("c: "+c);
                             s.borraTokenPostfija(nodos - c - 1);
                             s.borraTokenPostfija(nodos - c - 1);
                             s.borraTokenPostfija(nodos - c - 1);
                             s.insertaTokenPostfija("t" + op, "Números", nodos-c-1);
-                            System.out.println("c-2: "+(c-2));
+//                            System.out.println("c-2: "+(c-2));
                         }
-                        System.out.println("\u001B[33m Borrado e insercion");
+//                        System.out.println("\u001B[33m Borrado e insercion");
                         terceto.imprimeTodo();
 
                         t = s.finTok;
                         op = op1;
                         c = 0;
-                        System.out.println("\u001B[35m Inicia lista");
-                        s.mostrarListaTokensPostfija();
-                        System.out.println("\u001B[35m Termina lista");
+//                        System.out.println("\u001B[35m Inicia lista");
+//                        s.mostrarListaTokensPostfija();
+//                        System.out.println("\u001B[35m Termina lista");
                     }
                 } else {
                     t = t.anterior;
@@ -74,6 +76,7 @@ public class Simplificacion {
                 System.out.println("op: " + op);
             }
         }
+        return regreso;
 
     }
 

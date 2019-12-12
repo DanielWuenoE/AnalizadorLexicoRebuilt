@@ -283,5 +283,13 @@ public class ClasificaRebuilt {
 //        }
 //        obj.imprimeTablas();
 
+//        lexico.definirExpresion("( (2 + 1 ) - ( 5 + 3 ) ) - 2 ");
+//        String tok = lexico.pedirTokenExpresion();
+////        System.out.println(tok);
+//        do {
+//            tok = lexico.pedirTokenExpresion();
+//            System.out.println(tok);
+//        } while (tok != null);
+
     }
 }

@@ -1,20 +1,26 @@
 package CodIntermedio;
 
+import Errores.ParentesisAperturaException;
+import Errores.ParentesisCierreException;
 import Lexico.ClasificaRebuilt;
 import Parseo.ShuntingYard;
 import Parseo.Terceto;
+import Parseo.Simplificacion;
+import Estructuras.ListasR;
 
 public class Generacion {
 
-    
-    ShuntingYard shunt;
+    ListasR lista;
     public Terceto terceto = new Terceto();
     ClasificaRebuilt lexico;
+    
+    Simplificacion simple = new Simplificacion();
+    ShuntingYard shunt = new ShuntingYard(lista ,lexico);
 
     public Generacion(ClasificaRebuilt lexico) {
         this.lexico = lexico;
     }
-    public void Generar() {
+    public void Generar() throws ParentesisCierreException, ParentesisAperturaException {
         String t = "", var = "", operacion = ""; //Declarar operacion como nueva lista
         lexico.reiniciarLectura();
         while (!t.equals("$")) {
@@ -69,7 +75,7 @@ public class Generacion {
                         //Correr Simplificacion con lista resultante
                         //(regresar ultima variable temporal)
 //                        System.out.println("Operacion: "+operacion);
-                        terceto.Terceto("=", "varTemp", "", var);
+                        terceto.Terceto("=", simple.simplificacionSentencia(), "", var);
 //                        System.out.println("Generacion operacion: "+operacion);
                         operacion = "";
                     }
