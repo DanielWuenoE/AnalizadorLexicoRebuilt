@@ -49,10 +49,10 @@ public class TestLista {
         t.imp();
         System.out.println("\n");
         
-        t.borra(-1);
+//        t.borra(-1);
 //        t.borra(3);
 //        t.borra(1);
-//        t.ingresa("ss", "os", 2);
+        t.ingresa("ss", "os", 7);
 //        t.ingresa("ss", "os", -1);
         
         t.imp();

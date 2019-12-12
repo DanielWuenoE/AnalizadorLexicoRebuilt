@@ -232,29 +232,27 @@ public class ListasR<dato> {
         if (inicioTok != null) {
             NodoTToken aux = inicioTok;
             NodoTToken auxAnt = null;
-            if (aux.siguiente != null && x == 1) {
-                nuevo.siguiente = aux;
-                aux.anterior = nuevo;
-                inicioTok = nuevo;
-            } else {
-                while (aux.siguiente != null && x > 1) {
-                    /*
-                finTok.siguiente = agregarElemento;
-                agregarElemento.anterior = finTok;
-                finTok = agregarElemento;
-                     */
-
+                while (aux.siguiente != null && x > 0) {
                     auxAnt = aux;
                     aux = aux.siguiente;
 
                     //aux.anterior = aux.siguiente;
                     x--;
                 }
-                nuevo.siguiente = aux;
-                nuevo.anterior = auxAnt;
-                aux.anterior = nuevo;
-                auxAnt.siguiente = nuevo;
-            }
+                if (aux.siguiente == null && false) {
+                    finTok.siguiente = nuevo;
+                    nuevo.anterior = finTok;
+                    finTok = nuevo;
+                } else if (aux.anterior == null) {
+                    aux.anterior = nuevo;
+                    nuevo.siguiente = aux;
+                    inicioTok = nuevo;
+                } else {
+                    nuevo.siguiente = aux;
+                    nuevo.anterior = auxAnt;
+                    aux.anterior = nuevo;
+                    auxAnt.siguiente = nuevo;
+                }
         } else {
             inicioTok = finTok = nuevo;
         }
