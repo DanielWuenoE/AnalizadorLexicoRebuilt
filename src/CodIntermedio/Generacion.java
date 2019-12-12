@@ -1,5 +1,6 @@
 package CodIntermedio;
 
+import Errores.ErrorGenerico;
 import Errores.ParentesisAperturaException;
 import Errores.ParentesisCierreException;
 import Lexico.ClasificaRebuilt;
@@ -10,17 +11,18 @@ import Estructuras.ListasR;
 
 public class Generacion {
 
-    ListasR lista;
+    ListasR tabla;
     public Terceto terceto = new Terceto();
     ClasificaRebuilt lexico;
     
-    Simplificacion simple = new Simplificacion(lista);
-    ShuntingYard shunt = new ShuntingYard(lista ,lexico);
+    Simplificacion simple = new Simplificacion(tabla);
+    ShuntingYard shunt = new ShuntingYard(tabla ,lexico);
 
-    public Generacion(ClasificaRebuilt lexico) {
+    public Generacion(ClasificaRebuilt lexico, ListasR tabla) {
         this.lexico = lexico;
+        this.tabla = tabla;
     }
-    public void Generar() throws ParentesisCierreException, ParentesisAperturaException {
+    public void Generar() throws ParentesisCierreException, ParentesisAperturaException, ErrorGenerico {
         String t = "", var = "", operacion = ""; //Declarar operacion como nueva lista
         lexico.reiniciarLectura();
         while (!t.equals("$")) {
@@ -70,8 +72,8 @@ public class Generacion {
                             if (!t.equals(";")) 
                                 operacion += t+" ";
                         }
-                        lexico.definirExpresion(operacion);//Enviar expresion a lexico
-                        shunt.shuntingYard();//Llamar a ShutingYard
+//                        lexico.definirExpresion(operacion);//Enviar expresion a lexico
+                        shunt.shuntingYard(operacion);//Llamar a ShutingYard
                         //Correr Simplificacion con lista resultante
                         //(regresar ultima variable temporal)
 //                        System.out.println("Operacion: "+operacion);
