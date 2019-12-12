@@ -82,6 +82,15 @@ public class Pila {
             temp = temp.sig;
         }
     }
+    
+    public Pila invierte(Pila p) {
+        Pila invertida = new Pila();
+
+        while(p.isEmpty()) {
+            invertida.push(p.popConRetorno());
+        }
+        return invertida;
+    }
 }
 
 class test {
@@ -91,7 +100,9 @@ class test {
 //        p.push("2");
 //        p.push("3");
 //        p.push("4");
-//        System.out.println(":" + p.peak());
+//        //p.imprime();
+//        p = p.invierte(p);
+//        //System.out.println(":" + p.peak());
 //        p.pop();
 //        p.imprime();
 //    }

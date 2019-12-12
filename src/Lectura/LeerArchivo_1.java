@@ -20,7 +20,7 @@ public class LeerArchivo_1 extends javax.swing.JFrame {
         ventana.setCurrentDirectory(new File("src/Archivos/"));
         FileNameExtensionFilter filtroTxt = new FileNameExtensionFilter("TXT", "txt");
         ventana.setFileFilter(filtroTxt);
-        ventana.setDialogTitle("Abrir archivo");
+        ventana.setDialogTitle("Abrir Gramática");
         if (ventana.showOpenDialog(ventana) == JFileChooser.APPROVE_OPTION) {
             archivo = ventana.getSelectedFile();
             try{
