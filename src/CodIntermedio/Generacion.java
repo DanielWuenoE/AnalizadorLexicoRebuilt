@@ -36,9 +36,9 @@ public class Generacion {
                 var = lexico.tokenAnt;
 //                System.out.println("Asignacion encontrada");
                 t = saltoToken(1);
-                operacion += t;             //NOTA: Falta cambio por lista
+                operacion += t+" ";             //NOTA: Falta cambio por lista
                 t = saltoToken(1);
-                operacion += t;
+                operacion += t+" ";
 //                System.out.println("Operacion: "+operacion);
                 if (t.equals(";")) {                 //es asignacion
 //                    System.out.println("Es asignacion");
@@ -47,9 +47,9 @@ public class Generacion {
                 } else {
 //                    System.out.println("No es asignacion");
                     t = saltoToken(1);
-                    operacion += t;
+                    operacion += t+" ";
                     t = saltoToken(1);
-                    operacion += t;
+                    operacion += t+" ";
                     if (t.equals(";")) {             //es operacion simple
 //                        System.out.println("Es operacion simple");
                         terceto.Terceto(lexico.tokenAnt2, lexico.tokenAnt, lexico.tokenAnt3, var);
@@ -59,20 +59,21 @@ public class Generacion {
                         while (!t.equals(";")) {
                             t = saltoToken(1);
                             if (!t.equals(";")) 
-                                operacion += t;
+                                operacion += t+" ";
                         }
                         //Enviar lista a ShutingYard
                         //Correr Simplificacion con lista resultante
                         //(regresar ultima variable temporal)
 //                        System.out.println("Operacion: "+operacion);
                         terceto.Terceto("=", "varTemp", "", var);
+//                        System.out.println("Generacion operacion: "+operacion);
                         operacion = "";
                     }
                 }
 
             } else if (t.equals("end")) {
                 terceto.Terceto("Fin", "", "", "");
-                System.out.println("Es end");
+//                System.out.println("Es end");
             }
         }
         System.out.println("Generación de codigo intermedio exitosa");

@@ -24,12 +24,12 @@ public class ClasificaRebuilt {
         //validaT = new ValidacionTipos();
         this.listaTab = tabla;
     }
-    
-    public void retrocedeToken(String token){
+
+    public void retrocedeToken(String token) {
         tokenAnt3 = tokenAnt2;
         tokenAnt2 = tokenAnt;
         tokenAnt = token1;
-        token1 = token;        
+        token1 = token;
     }
 
     public void retroceder() {
@@ -38,8 +38,8 @@ public class ClasificaRebuilt {
             listaTab.agregarElementoLSimbolosR("begin", tipoPalabra("begin")[1], listaTab.buscaRepR("begin") - 1, calValToken("begin"), -1, null);
         }
     }
-    
-    public void reiniciarLectura(){
+
+    public void reiniciarLectura() {
         actual = 0;
     }
 
@@ -127,7 +127,7 @@ public class ClasificaRebuilt {
             }
         }
     }
-    
+
     public void q2NumeroEntero(String archivo) {
         int movs = 1;
         for (int i = actual; i < archivo.length(); i++) {
@@ -191,11 +191,10 @@ public class ClasificaRebuilt {
 
     public String crearCadena(int i, int f, String archivo) {
         String cad = "";
-
+//        System.out.println("i: "+ i+" f: "+f+" expr: "+archivo);
         for (int j = i; j < f - 1; j++) {
             cad = cad + archivo.charAt(j);
         }
-
         return cad;
     }
 
@@ -235,30 +234,53 @@ public class ClasificaRebuilt {
             return 0;
         }
     }
-    
-    
+
     /// esto deeria ir en el Semantico, ignoren 
     public String cambiazo(String token) {
         conv.convertirCaracter(token.charAt(0));
-        if (!palR.ExistePalabraReservada(token) 
+        if (!palR.ExistePalabraReservada(token)
                 && (tipo.esMinuscula(conv.getAscii())
-                    || (tipo.esMinuscula(conv.getAscii()))
-                )
-            )
-        {
+                || (tipo.esMinuscula(conv.getAscii())))) {
             return "ID";
         } else if (tipo.esNumero(conv.getAscii())) {
             return "int";
-        } 
+        }
         return token;
     }
 
+    String expresion, tokenExpr;
+    int ap = 0;
+
+    public void definirExpresion(String expr) {
+        expresion = expr;
+        ap = 0;
+    }
+
+    public String pedirTokenExpresion() {
+        int movs = 1;
+        for (int i = ap; i < expresion.length(); i++) {
+            conv.convertirCaracter(expresion.charAt(i));
+            if (tipo.esEspacio(conv.getAscii())==true) {
+                tokenExpr = crearCadena(ap, ap + movs, expresion);
+//                listaTab.agregarElementoLSimbolosR(token, tipoPalabra(token)[0], listaTab.buscaRepR(token) + 1, calValToken(token), tipoPalabra(token)[1], tipoPalabra(token)[2]);
+                ap = ap + movs;
+                return tokenExpr;
+            } else {
+                movs++;
+            }
+        }
+        return null;
+    }
+
     public static void main(String[] args) {
-//        ClasificaRebuilt obj = new ClasificaRebuilt();
+        ListasR tabla = new ListasR();
+        ClasificaRebuilt lexico = new ClasificaRebuilt(tabla);
+        lexico.definirExpresion("((2+1)-(5+3))- 2");
+        System.out.println(lexico.pedirTokenExpresion());
 //        while (!obj.pedirToken().equals("end")) {
 //            obj.pedirToken();
 //        }
 //        obj.imprimeTablas();
-     
+
     }
 }

@@ -23,10 +23,19 @@ public class Test {
             cod.Generar();
             cod.terceto.imprimeTodo();
         }
+        System.out.println("_________________________________________________________________");
+
+        lexico.definirExpresion("( (2 + 1 ) - ( 5 + 3 ) ) - 2");
+        String tok = lexico.pedirTokenExpresion();
+        System.out.println(tok);
+        do {
+            tok = lexico.pedirTokenExpresion();
+            System.out.println(tok);
+        } while (tok != null);
 
 //        inicia la fase de Generación de Código intermedio
 //        ShuntingYard ap = new ShuntingYard(tabla, lexico);
-        tabla.mostrarListaSimbolosR();
+//        tabla.mostrarListaSimbolosR();
     }
 
     public static void main(String[] args) {
