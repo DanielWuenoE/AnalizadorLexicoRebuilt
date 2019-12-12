@@ -275,9 +275,6 @@ public class ClasificaRebuilt {
     public static void main(String[] args) {
         ListasR tabla = new ListasR();
         ClasificaRebuilt lexico = new ClasificaRebuilt(tabla);
-        lexico.definirExpresion("( ( 2 + 1 ) - ( 5 + 3 ) ) - 2 ");
-        while (lexico.pedirTokenExpresion() != null)
-            System.out.println(lexico.pedirTokenExpresion());
 //        while (!obj.pedirToken().equals("end")) {
 //            obj.pedirToken();
 //        }

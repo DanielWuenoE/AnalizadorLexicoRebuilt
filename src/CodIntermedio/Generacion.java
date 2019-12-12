@@ -15,10 +15,12 @@ public class Generacion {
     ClasificaRebuilt lexico;
     
     Simplificacion simple = new Simplificacion();
-    ShuntingYard shunt = new ShuntingYard(lista ,lexico);
+    ShuntingYard shunt;
 
-    public Generacion(ClasificaRebuilt lexico) {
+    public Generacion(ClasificaRebuilt lexico, ListasR lista) {
         this.lexico = lexico;
+        this.lista = lista;
+        shunt = new ShuntingYard(lista ,lexico);
     }
     public void Generar() throws ParentesisCierreException, ParentesisAperturaException {
         String t = "", var = "", operacion = ""; //Declarar operacion como nueva lista

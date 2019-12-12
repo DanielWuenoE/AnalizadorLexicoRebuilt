@@ -21,7 +21,7 @@ public class Test {
             ValidacionTipos semantico = new ValidacionTipos(tabla, lexico);
             semantico.idenficiaVT();
 
-            Generacion cod = new Generacion(lexico);
+            Generacion cod = new Generacion(lexico, tabla);
             cod.Generar();
             cod.terceto.imprimeTodo();
         }

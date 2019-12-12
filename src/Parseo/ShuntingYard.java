@@ -43,10 +43,10 @@ public class ShuntingYard {
         });
     }
     
-    public void shuntingYard(String expresion) throws ParentesisCierreException, ParentesisAperturaException, ErrorGenerico {
-        lexico.definirExpresion(expresion);
-        shuntingYard();
-    }
+//    public void shuntingYard(String expresion) throws ParentesisCierreException, ParentesisAperturaException, ErrorGenerico {
+//        lexico.definirExpresion(expresion);
+//        shuntingYard();
+//    }
 
     public void shuntingYard() throws ParentesisCierreException, ParentesisAperturaException {
         String token = lexico.pedirTokenExpresion();
@@ -201,38 +201,38 @@ public class ShuntingYard {
         return cadena;
     }
 
-    public static void main(String[] args) throws ParentesisCierreException, ParentesisAperturaException, ErrorGenerico {
-        ListasR t = new ListasR();
-        Simplificacion sm = new Simplificacion(t);
-        ClasificaRebuilt c = new ClasificaRebuilt(t);
-        ShuntingYard ap = new ShuntingYard(t, c);
-        //c.q0("((2+1)-(5+3))- 2$");
-        try {
-            ap.shuntingYard("( ( 2 + 1 ) - ( 5 + 3 ) ) - 2 ");
-            System.out.println("Expresion original");
-            //System.out.println(expresionOriginal());
-            System.out.println("Postfija");
-            ap.expresionPostfija();
-            System.out.println("Lista Tokens Postfija");
-            ap.impPost();
-            System.out.println(ap.expresionPostfijaString());
-            System.out.println("Tokens Postfija");
-            t.mostrarListaTokensPostfija();
-            sm.simplificacionSentencia();
-            System.out.println("Imprimiendo tercetos");
-            sm.imprimeTodo();
-            System.out.println("TokensR");
-            sm.ImprimirListaActual();
-           
-//            t.mostrarListaTokensR();
+//    public static void main(String[] args) throws ParentesisCierreException, ParentesisAperturaException, ErrorGenerico {
+//        ListasR t = new ListasR();
+//        Simplificacion sm = new Simplificacion(t);
+//        ClasificaRebuilt c = new ClasificaRebuilt(t);
+//        ShuntingYard ap = new ShuntingYard(t, c);
+//        //c.q0("((2+1)-(5+3))- 2$");
+//        try {
+//            ap.shuntingYard("( ( 2 + 1 ) - ( 5 + 3 ) ) - 2 ");
+//            System.out.println("Expresion original");
+//            //System.out.println(expresionOriginal());
 //            System.out.println("Postfija");
-//            t.mostrarListaPostfija();
-//            System.out.println("Reservadas");
-//            t.mostrarListaReservadasR();
-//            System.out.println("Simbolos");
-//            t.mostrarListaSimbolosR();
-        } catch (ParentesisAperturaException | ParentesisCierreException e) {
-            e.printStackTrace();
-        }
-    }
+//            ap.expresionPostfija();
+//            System.out.println("Lista Tokens Postfija");
+//            ap.impPost();
+//            System.out.println(ap.expresionPostfijaString());
+//            System.out.println("Tokens Postfija");
+//            t.mostrarListaTokensPostfija();
+//            sm.simplificacionSentencia();
+//            System.out.println("Imprimiendo tercetos");
+//            sm.imprimeTodo();
+//            System.out.println("TokensR");
+//            sm.ImprimirListaActual();
+//           
+////            t.mostrarListaTokensR();
+////            System.out.println("Postfija");
+////            t.mostrarListaPostfija();
+////            System.out.println("Reservadas");
+////            t.mostrarListaReservadasR();
+////            System.out.println("Simbolos");
+////            t.mostrarListaSimbolosR();
+//        } catch (ParentesisAperturaException | ParentesisCierreException e) {
+//            e.printStackTrace();
+//        }
+//    }
 }
