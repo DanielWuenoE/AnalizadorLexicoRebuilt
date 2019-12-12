@@ -206,7 +206,11 @@ public class ListasR<dato> {
                 //agregar.anterior = finTok;
                 x--;
             }
-            if (aux.anterior == null) {
+            if (aux.siguiente == null) {
+                aux = aux.anterior;
+                aux.siguiente = null;
+                finTok = aux;
+            } else if (aux.anterior == null) {
                 aux = aux.siguiente;
                 aux.anterior = null;
                 inicioTok = aux;
