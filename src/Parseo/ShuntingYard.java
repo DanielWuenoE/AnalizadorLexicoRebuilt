@@ -48,7 +48,7 @@ public class ShuntingYard {
         shuntingYard();
     }
 
-    private void shuntingYard() throws ParentesisCierreException, ParentesisAperturaException {
+    public void shuntingYard() throws ParentesisCierreException, ParentesisAperturaException {
         String token = lexico.pedirTokenExpresion();
         System.out.println("token: " + token);
         int contadorParentesis = 0;

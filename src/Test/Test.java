@@ -25,7 +25,7 @@ public class Test {
         }
         System.out.println("_________________________________________________________________");
 
-        lexico.definirExpresion("( (2 + 1 ) - ( 5 + 3 ) ) - 2");
+        lexico.definirExpresion("( (2 + 1 ) - ( 5 + 3 ) ) - 2 ");
         String tok = lexico.pedirTokenExpresion();
         System.out.println(tok);
         do {
