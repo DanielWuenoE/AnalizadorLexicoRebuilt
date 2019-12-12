@@ -13,6 +13,10 @@ public class Terceto {
         pilaT.push(new TercetosE(elm1, elm2, elm3, elm4));
     }
     
+    public void popTerceto() {
+        pilaT.pop();
+    }
+    
     public void imprimeTodo() {
         pilaT.imprimeCuarteto();
     }

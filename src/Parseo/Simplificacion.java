@@ -56,9 +56,7 @@ public class Simplificacion {
 //                            System.out.println("c-2: "+(c-2));
                         }
                         if (numeroOperadores(s)==1) {
-//                            s.borraTokenPostfija(1);
-//                            s.borraTokenPostfija(2);
-//                            s.borraTokenPostfija(3);
+                            s.borrar_x(1);
                         }
 //                        System.out.println("\u001B[33m Borrado e insercion");
                         terceto.imprimeTodo();
