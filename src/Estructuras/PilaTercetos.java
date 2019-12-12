@@ -3,7 +3,7 @@ package Estructuras;
 import Parseo.TercetosE;
 
 public class PilaTercetos {
-    NodoTercetos inicio, fin;
+    private NodoTercetos inicio, fin;
     
     public PilaTercetos() {
         inicio = null;
@@ -90,6 +90,25 @@ public class PilaTercetos {
             temp.dato.mostrarCuarteto();
             temp = temp.sig;
         }
+    }
+    
+    public PilaTercetos invierte(PilaTercetos p) {
+        PilaTercetos invertida = new PilaTercetos();
+
+        while(p.isEmpty()) {
+            invertida.push(p.popConRetorno());
+        }
+        return invertida;
+    }
+    
+    public String armaCadenaCuartetos(PilaTercetos pila) {
+        String cuartetos = "";
+        NodoTercetos temp = pila.inicio;
+        while (temp != null) {
+            cuartetos += temp.dato.regresaCuarteto() + "\n";
+            temp = temp.sig;
+        }
+        return cuartetos;
     }
 }
 

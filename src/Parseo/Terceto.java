@@ -16,4 +16,12 @@ public class Terceto {
     public void imprimeTodo() {
         pilaT.imprimeCuarteto();
     }
+    
+    public PilaTercetos invierte() {
+        return pilaT.invierte(pilaT);
+    }
+    
+    public String cadenaDeCuartetos(PilaTercetos pilaT){
+        return pilaT.armaCadenaCuartetos(pilaT);
+    }
 }

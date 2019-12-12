@@ -224,6 +224,12 @@ public class ListasR<dato> {
             inicioTok = finTok = aux;
         }
     }
+    
+    public void cicloBorrado(int b) {
+        for(int x = 0; x > b; x++) {
+            borrar_x(x);
+        }
+    }
 
     // inserta elementos en alguna posicion intermedia de la lista
     public void insertar_x(String n, String e, int x) {

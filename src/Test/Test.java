@@ -25,6 +25,7 @@ public class Test {
             Generacion cod = new Generacion(lexico, tabla);
             cod.Generar();
             cod.terceto.imprimeTodo();
+            cod.generaArchivoCuartetos();
         }
 
 

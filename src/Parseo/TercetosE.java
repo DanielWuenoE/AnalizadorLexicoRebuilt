@@ -72,4 +72,8 @@ public class TercetosE {
          public void mostrarCuarteto(){
 		 System.out.println("( " + elem1 + ", " + elem2 + ", " + elem3 + ", " + elem4 + " )"); //vemos los Cuartetos
 	 }
+         
+         public String regresaCuarteto(){
+		 return "( " + elem1 + ", " + elem2 + ", " + elem3 + ", " + elem4 + " )"; //vemos los Cuartetos
+	 }
 }
