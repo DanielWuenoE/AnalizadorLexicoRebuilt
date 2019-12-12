@@ -20,12 +20,13 @@ public class Simplificacion {
 //        System.out.println("token inicio: "+s.inicioTok.palabra);
 //        System.out.println(t.tokenPosfija);
         //String simple = "";
-        int nodos = contarNodos(s);
+        int nodos = 0;
         int op = numeroOperadores(s), op1 = op, op2 = 0, c = 0;      //busqueda de operadores en sentencia
 //        System.out.println("token fin: " + t.tokenPosfija);
         System.out.println("token fin: " + t.palabra);
 //        s = invertirCadena(s);                      //inversion de la cadena
         while (t != null) {      //revision de sentenciad
+            nodos =  contarNodos(s);
             System.out.println("Ingresando al while");
             c++;
             System.out.println("op: " + op);
@@ -45,16 +46,21 @@ public class Simplificacion {
                         terceto.Terceto(t.palabra, t.anterior.palabra, t.anterior.anterior.palabra, "t" + op);
                         System.out.println("Termino insercion en pila");
                         if (numeroOperadores(s) != 1) {
-                            s.borraTokenPostfija(nodos - (c - 1));
-                            s.borraTokenPostfija(nodos - (c));
-                            s.borraTokenPostfija(nodos - (c + 1));
-                            s.insertaTokenPostfija("t" + op, "Números", c - 2);
+                            System.out.println("c: "+c);
+                            s.borraTokenPostfija(nodos - c - 1);
+                            s.borraTokenPostfija(nodos - c - 1);
+                            s.borraTokenPostfija(nodos - c - 1);
+//                            s.borraTokenPostfija(nodos - c);
+//                            s.borraTokenPostfija(nodos - c + 1);
+                            s.insertaTokenPostfija("t" + op, "Números", nodos-c-1);
+                            System.out.println("c-2: "+(c-2));
                         }
                         System.out.println("\u001B[33m Borrado e insercion");
                         terceto.imprimeTodo();
 
                         t = s.finTok;
                         op = op1;
+                        c = 0;
                         System.out.println("\u001B[35m Inicia lista");
                         s.mostrarListaTokensPostfija();
                         System.out.println("\u001B[35m Termina lista");
