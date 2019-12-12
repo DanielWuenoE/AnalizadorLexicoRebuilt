@@ -21,33 +21,16 @@ public class ShuntingYard {
     Pila pila = new Pila();
     ClasificaRebuilt lexico;
     ListasR tabla;
+    String expresionOriginal = "";
 
     public ShuntingYard(ListasR tabla, ClasificaRebuilt lexico) {
         this.lexico = lexico;
         this.tabla = tabla;
     }
 
-    public void separarTokens() throws ErrorGenerico {
-        int i = 0;
-        String a = lexico.pedirToken();
-        if (deliberaOperaciones(a) == true) {
-            while (!a.equals("$")) {
-                if (i++ > 1000) {
-                    kill();
-                    System.exit(0);
-                }
-                a = lexico.pedirToken();
-            }
-        }
-    }
-
-    public void mostrarTokensAnalisisLexico() {
-        lexico.imprimeTablas();
-    }
-
     // Mata la aplicación 
     public void kill() throws ErrorGenerico {
-        mostrarTokensAnalisisLexico();
+        //mostrarTokensAnalisisLexico();
         Runtime.getRuntime().addShutdownHook(new Thread() {
             @Override
             public void run() {
@@ -59,9 +42,15 @@ public class ShuntingYard {
             }
         });
     }
+    
+    public void shuntingYard(String expresion) throws ParentesisCierreException, ParentesisAperturaException, ErrorGenerico {
+        
+        
+        //shuntingYard();
+    }
 
     private void shuntingYard() throws ParentesisCierreException, ParentesisAperturaException {
-        String token = tabla.listToken();
+        String token = lexico.pedirTokenExpresion();
         int contadorParentesis = 0;
         while (token != null) {
             //System.out.println(token);
@@ -117,8 +106,9 @@ public class ShuntingYard {
             if (contadorParentesis < 0) {
                 throw new ParentesisCierreException("Parentesis de cierre sobrante");
             }
-
-            token = tabla.listToken(); // pide el proximo token
+            
+            expresionOriginal += token + " "; // arma la expresión token a token
+            token = lexico.pedirTokenExpresion(); // pide el proximo token
         }
 
         while (pila.isEmpty()) {
@@ -175,15 +165,9 @@ public class ShuntingYard {
                 return 0;
         }
     }
-
-    private void expresionOriginal() {
-        String token = tabla.listToken();
-        System.out.println("Original:");
-        while (token != null) {
-            System.out.print(token + " ");
-            token = tabla.listToken();
-        }
-        System.out.print("\n");
+    
+    private String expresionOriginal() {
+        return expresionOriginal;
     }
     
     private void expresionPostfija() {
@@ -217,23 +201,16 @@ public class ShuntingYard {
         return cadena;
     }
 
-    private boolean deliberaOperaciones(String token) {
-        if (token.equals(":")) {
-
-        }
-        return true;
-    }
-
     public static void main(String[] args) throws ParentesisCierreException, ParentesisAperturaException, ErrorGenerico {
         ListasR t = new ListasR();
         Simplificacion sm = new Simplificacion(t);
         ClasificaRebuilt c = new ClasificaRebuilt(t);
         ShuntingYard ap = new ShuntingYard(t, c);
+        //c.q0("((2+1)-(5+3))- 2$");
         try {
-            ap.separarTokens();
-            ap.mostrarTokensAnalisisLexico();
-            ap.shuntingYard();
-            ap.expresionOriginal();
+            ap.shuntingYard("((2+1)-(5+3))-2$");
+            System.out.println("Expresion original");
+            System.out.println(expresionOriginal());
             System.out.println("Postfija");
             ap.expresionPostfija();
             System.out.println("Lista Tokens Postfija");
