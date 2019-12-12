@@ -14,7 +14,7 @@ public class Generacion {
     public Terceto terceto = new Terceto();
     ClasificaRebuilt lexico;
     
-    Simplificacion simple = new Simplificacion();
+    Simplificacion simple = new Simplificacion(lista);
     ShuntingYard shunt = new ShuntingYard(lista ,lexico);
 
     public Generacion(ClasificaRebuilt lexico) {
