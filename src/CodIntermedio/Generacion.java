@@ -8,6 +8,8 @@ import Parseo.ShuntingYard;
 import Parseo.Terceto;
 import Parseo.Simplificacion;
 import Estructuras.ListasR;
+import Estructuras.PilaTercetos;
+import Lectura.GeneraYGuarda;
 
 public class Generacion {
 
@@ -100,6 +102,11 @@ public class Generacion {
             lexico.retrocedeToken(t);
         }
         return t;
+    }
+    
+    public void generaArchivoCuartetos() {
+        GeneraYGuarda gg = new GeneraYGuarda();
+        gg.GuardarEnArchivo(terceto.cadenaDeCuartetos(terceto.invierte()), "cuartetos");
     }
 
     public static void main(String[] args) {
