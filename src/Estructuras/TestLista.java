@@ -39,20 +39,20 @@ public class TestLista {
     
     public static void main(String[] args) {
         TestLista t = new TestLista();
-        t.test(":=", "Identificador", 1);
-        t.test("!", "Sim. Esp.", 2);
-        t.test("{", "Identificador", 3);
-        t.test(":=", "Sim. Esp.", 4);
-        t.test("+", "Sim. Esp.", 5);
-        t.test("#", "Identificador", 6);
-        t.test("¿", "Sim. Esp.", 7);
+//        t.test(":=", "Identificador", 1);
+//        t.test("!", "Sim. Esp.", 2);
+//        t.test("{", "Identificador", 3);
+//        t.test(":=", "Sim. Esp.", 4);
+//        t.test("+", "Sim. Esp.", 5);
+//        t.test("#", "Identificador", 6);
+//        t.test("¿", "Sim. Esp.", 7);
         t.imp();
         System.out.println("\n");
         
-//        t.borra(-1);
+        t.borra(7);
 //        t.borra(3);
-//        t.borra(1);
-        t.ingresa("ss", "os", 7);
+//      77  t.borra(1);
+//        t.ingresa("ss", "os", 7);
 //        t.ingresa("ss", "os", -1);
         
         t.imp();
