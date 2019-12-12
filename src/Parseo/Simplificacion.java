@@ -27,7 +27,7 @@ public class Simplificacion {
         System.out.println("token fin: " + t.palabra);
 //        s = invertirCadena(s);                      //inversion de la cadena
         if (cont!=1) {
-            Terceto.pop
+            terceto.popTerceto();
         }
         while (t != null) {      //revision de sentenciad
             nodos =  contarNodos(s);
