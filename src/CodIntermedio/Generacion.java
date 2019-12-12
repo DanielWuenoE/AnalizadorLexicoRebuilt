@@ -28,6 +28,7 @@ public class Generacion {
     }
     public void Generar() throws ParentesisCierreException, ParentesisAperturaException, ErrorGenerico {
         String t = "", var = "", operacion = ""; //Declarar operacion como nueva lista
+        int cont = 0;
         lexico.reiniciarLectura();
         while (!t.equals("$")) {
             t = lexico.pedirToken();
@@ -76,12 +77,13 @@ public class Generacion {
                             if (!t.equals(";")) 
                                 operacion += t+" ";
                         }
+                        cont++;
 //                        lexico.definirExpresion(operacion);//Enviar expresion a lexico
                         shunt.shuntingYard(operacion);//Llamar a ShutingYard
                         //Correr Simplificacion con lista resultante
                         //(regresar ultima variable temporal)
 //                        System.out.println("Operacion: "+operacion);
-                        terceto.Terceto("=", simple.simplificacionSentencia(), "", var);
+                        terceto.Terceto("=", simple.simplificacionSentencia(cont), "", var);
 //                        System.out.println("Generacion operacion: "+operacion);
                         operacion = "";
                     }
