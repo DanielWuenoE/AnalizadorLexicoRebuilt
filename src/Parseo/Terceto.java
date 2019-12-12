@@ -17,6 +17,10 @@ public class Terceto {
         pilaT.pop();
     }
     
+    public void peek() {
+        pilaT.peek().mostrarCuarteto();
+    }
+    
     public void imprimeTodo() {
         pilaT.imprimeCuarteto();
     }
