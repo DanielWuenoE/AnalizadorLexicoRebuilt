@@ -17,6 +17,7 @@ public class Simplificacion {
 
     public String simplificacionSentencia(int cont) {
         String regreso = "";
+        boolean bandera = true;
         t = s.finTok;
 //        System.out.println("token inicio: "+s.inicioTok.palabra);
 //        System.out.println(t.tokenPosfija);
@@ -24,23 +25,21 @@ public class Simplificacion {
         int nodos = 0;
         int op = numeroOperadores(s), op1 = op, op2 = 0, c = 0;      //busqueda de operadores en sentencia
 //        System.out.println("token fin: " + t.tokenPosfija);
-        System.out.println("token fin: " + t.palabra);
+//        System.out.println("token fin: " + t.palabra);
 //        s = invertirCadena(s);                      //inversion de la cadena
-        if (cont!=1) {
-            terceto.popTerceto();
-        }
+
         while (t != null) {      //revision de sentenciad
-            nodos =  contarNodos(s);
-            System.out.println("Ingresando al while");
+            nodos = contarNodos(s);
+//            System.out.println("Ingresando al while");
             c++;
-            System.out.println("op: " + op);
-            System.out.println("op2: " + op2);
-            System.out.println("token actual: " + t.palabra);
+//            System.out.println("op: " + op);
+//            System.out.println("op2: " + op2);
+//            System.out.println("token actual: " + t.palabra);
             if (t.tipoTok.equals("Simb. Esp.")) {
                 op--;
 
                 if (op == op2) {    //si el contador es la posicion buscada
-                    System.out.println("\u001B[32m Ingresando condicion operador");
+//                    System.out.println("\u001B[32m Ingresando condicion operador");
                     op2++;      //aumenta posicion
 //                    System.out.println(t.anterior.tipoTok);
 //                    System.out.println(t.anterior.anterior.tipoTok);
@@ -48,18 +47,23 @@ public class Simplificacion {
                     if ((t.anterior.tipoTok.trim().equals("Números") && t.anterior.anterior.tipoTok.trim().equals("Números"))) {     //si hay dos numeros despues del signo
 //                        System.out.println("\u001B[31m Ingresando condicion numeros");
                         terceto.Terceto(t.palabra, t.anterior.anterior.palabra, t.anterior.palabra, "t" + op);
-                        regreso = "t"+op;
+                        regreso = "t" + op;
+                        if (cont != 1 && bandera == true) {
+                            terceto.popTerceto();
+                            terceto.peek();
+                            bandera = false;
+                        }
 //                        System.out.println("Termino insercion en pila");
                         if (numeroOperadores(s) != 1) {
-                            System.out.println("c: "+c);
+//                            System.out.println("c: "+c);
                             s.borraTokenPostfija(nodos - c - 1);
                             s.borraTokenPostfija(nodos - c - 1);
                             s.borraTokenPostfija(nodos - c - 1);
-                            s.insertaTokenPostfija("t" + op, "Números", nodos-c-1);
+                            s.insertaTokenPostfija("t" + op, "Números", nodos - c - 1);
 //                            System.out.println("c-2: "+(c-2));
                         }
 //                        System.out.println("\u001B[33m Borrado e insercion");
-                        terceto.imprimeTodo();
+//                        terceto.imprimeTodo();
 
                         t = s.finTok;
                         op = op1;
@@ -72,12 +76,12 @@ public class Simplificacion {
                     t = t.anterior;
                 }
             } else if (t.tipoTok.equals("Números")) {
-                System.out.println("es un numero");
+//                System.out.println("es un numero");
                 t = t.anterior;
             } else {
-                System.out.println("es de tipo: " + t.tipoTok);
+//                System.out.println("es de tipo: " + t.tipoTok);
                 t = t.anterior;
-                System.out.println("op: " + op);
+//                System.out.println("op: " + op);
             }
         }
         return regreso;

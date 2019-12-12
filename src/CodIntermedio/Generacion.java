@@ -78,6 +78,7 @@ public class Generacion {
                                 operacion += t+" ";
                         }
                         cont++;
+//                        System.out.println("Contador compuestas: "+cont);
 //                        lexico.definirExpresion(operacion);//Enviar expresion a lexico
                         shunt.shuntingYard(operacion);//Llamar a ShutingYard
                         //Correr Simplificacion con lista resultante
