@@ -21,7 +21,7 @@ public class ShuntingYard {
     Pila pila = new Pila();
     ClasificaRebuilt lexico;
     ListasR tabla;
-    String expresionOriginal = "";
+    static String expresionOriginal = "";
 
     public ShuntingYard(ListasR tabla, ClasificaRebuilt lexico) {
         this.lexico = lexico;
@@ -44,13 +44,13 @@ public class ShuntingYard {
     }
     
     public void shuntingYard(String expresion) throws ParentesisCierreException, ParentesisAperturaException, ErrorGenerico {
-        
-        
-        //shuntingYard();
+        lexico.definirExpresion(expresion);
+        shuntingYard();
     }
 
     private void shuntingYard() throws ParentesisCierreException, ParentesisAperturaException {
         String token = lexico.pedirTokenExpresion();
+        System.out.println("token: " + token);
         int contadorParentesis = 0;
         while (token != null) {
             //System.out.println(token);
@@ -208,9 +208,9 @@ public class ShuntingYard {
         ShuntingYard ap = new ShuntingYard(t, c);
         //c.q0("((2+1)-(5+3))- 2$");
         try {
-            ap.shuntingYard("((2+1)-(5+3))-2$");
+            ap.shuntingYard("( ( 2 + 1 ) - ( 5 + 3 ) ) - 2 ");
             System.out.println("Expresion original");
-            System.out.println(expresionOriginal());
+            //System.out.println(expresionOriginal());
             System.out.println("Postfija");
             ap.expresionPostfija();
             System.out.println("Lista Tokens Postfija");
