@@ -9,10 +9,10 @@ public class Simplificacion {
     Terceto terceto = new Terceto();
     NodoTToken t;
     ListasR s;
-//
-//    public Simplificacion(ListasR tabla) {
-//        this.s = tabla;
-//    }
+
+    public Simplificacion(ListasR tabla) {
+        this.s = tabla;
+    }
 
     public String simplificacionSentencia() {
         String regreso = "";
