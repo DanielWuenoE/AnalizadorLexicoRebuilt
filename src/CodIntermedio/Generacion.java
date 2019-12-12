@@ -15,12 +15,13 @@ public class Generacion {
     public Terceto terceto = new Terceto();
     ClasificaRebuilt lexico;
     
-    Simplificacion simple = new Simplificacion();
+    Simplificacion simple;
     ShuntingYard shunt;
 
     public Generacion(ClasificaRebuilt lexico, ListasR lista) {
         this.lexico = lexico;
-        this.lista = lista;
+        this.tabla = lista;
+        simple = new Simplificacion(lista);
         shunt = new ShuntingYard(lista ,lexico);
     }
     public void Generar() throws ParentesisCierreException, ParentesisAperturaException, ErrorGenerico {
@@ -74,7 +75,7 @@ public class Generacion {
                                 operacion += t+" ";
                         }
 //                        lexico.definirExpresion(operacion);//Enviar expresion a lexico
-                        shunt.shuntingYard(operacion);//Llamar a ShutingYard
+                        shunt.shuntingYard();//Llamar a ShutingYard
                         //Correr Simplificacion con lista resultante
                         //(regresar ultima variable temporal)
 //                        System.out.println("Operacion: "+operacion);
