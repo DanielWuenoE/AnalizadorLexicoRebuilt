@@ -15,7 +15,7 @@ public class Simplificacion {
         this.terceto = terceto;
     }
 
-    public String simplificacionSentencia() {
+    public String simplificacionSentencia(int cont) {
         String regreso = "";
         t = s.finTok;
 //        System.out.println("token inicio: "+s.inicioTok.palabra);
@@ -26,6 +26,9 @@ public class Simplificacion {
 //        System.out.println("token fin: " + t.tokenPosfija);
         System.out.println("token fin: " + t.palabra);
 //        s = invertirCadena(s);                      //inversion de la cadena
+        if (cont!=1) {
+            Terceto.pop
+        }
         while (t != null) {      //revision de sentenciad
             nodos =  contarNodos(s);
             System.out.println("Ingresando al while");
@@ -54,11 +57,6 @@ public class Simplificacion {
                             s.borraTokenPostfija(nodos - c - 1);
                             s.insertaTokenPostfija("t" + op, "Números", nodos-c-1);
 //                            System.out.println("c-2: "+(c-2));
-                        }
-                        if (numeroOperadores(s)==1) {
-//                            s.borraTokenPostfija(1);
-//                            s.borraTokenPostfija(2);
-//                            s.borraTokenPostfija(3);
                         }
 //                        System.out.println("\u001B[33m Borrado e insercion");
                         terceto.imprimeTodo();
