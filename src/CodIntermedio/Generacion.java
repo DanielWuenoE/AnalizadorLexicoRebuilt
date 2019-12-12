@@ -1,10 +1,13 @@
 package CodIntermedio;
 
 import Lexico.ClasificaRebuilt;
+import Parseo.ShuntingYard;
 import Parseo.Terceto;
 
 public class Generacion {
 
+    
+    ShuntingYard shunt;
     public Terceto terceto = new Terceto();
     ClasificaRebuilt lexico;
 
@@ -61,7 +64,8 @@ public class Generacion {
                             if (!t.equals(";")) 
                                 operacion += t+" ";
                         }
-                        //Enviar lista a ShutingYard
+                        lexico.definirExpresion(operacion);//Enviar expresion a lexico
+                        shunt.shuntingYard();//Llamar a ShutingYard
                         //Correr Simplificacion con lista resultante
                         //(regresar ultima variable temporal)
 //                        System.out.println("Operacion: "+operacion);
