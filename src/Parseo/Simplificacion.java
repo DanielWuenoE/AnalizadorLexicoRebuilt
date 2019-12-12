@@ -44,7 +44,7 @@ public class Simplificacion {
 
                     if ((t.anterior.tipoTok.trim().equals("Números") && t.anterior.anterior.tipoTok.trim().equals("Números"))) {     //si hay dos numeros despues del signo
 //                        System.out.println("\u001B[31m Ingresando condicion numeros");
-                        terceto.Terceto(t.palabra, t.anterior.palabra, t.anterior.anterior.palabra, "t" + op);
+                        terceto.Terceto(t.palabra, t.anterior.anterior.palabra, t.anterior.palabra, "t" + op);
                         regreso = "t"+op;
 //                        System.out.println("Termino insercion en pila");
                         if (numeroOperadores(s) != 1) {
@@ -54,6 +54,11 @@ public class Simplificacion {
                             s.borraTokenPostfija(nodos - c - 1);
                             s.insertaTokenPostfija("t" + op, "Números", nodos-c-1);
 //                            System.out.println("c-2: "+(c-2));
+                        }
+                        if (numeroOperadores(s)==1) {
+//                            s.borraTokenPostfija(1);
+//                            s.borraTokenPostfija(2);
+//                            s.borraTokenPostfija(3);
                         }
 //                        System.out.println("\u001B[33m Borrado e insercion");
                         terceto.imprimeTodo();
