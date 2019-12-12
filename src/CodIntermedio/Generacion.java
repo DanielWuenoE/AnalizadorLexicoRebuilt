@@ -21,7 +21,7 @@ public class Generacion {
     public Generacion(ClasificaRebuilt lexico, ListasR lista) {
         this.lexico = lexico;
         this.tabla = lista;
-        simple = new Simplificacion(lista);
+        simple = new Simplificacion(lista, terceto);
         shunt = new ShuntingYard(lista ,lexico);
     }
     public void Generar() throws ParentesisCierreException, ParentesisAperturaException, ErrorGenerico {

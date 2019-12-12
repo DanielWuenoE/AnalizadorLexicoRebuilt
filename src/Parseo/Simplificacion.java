@@ -6,12 +6,13 @@ import Estructuras.ListasR;
 
 public class Simplificacion {
 
-    Terceto terceto = new Terceto();
+    Terceto terceto;
     NodoTToken t;
     ListasR s;
 
-    public Simplificacion(ListasR tabla) {
+    public Simplificacion(ListasR tabla, Terceto terceto) {
         this.s = tabla;
+        this.terceto = terceto;
     }
 
     public String simplificacionSentencia() {
