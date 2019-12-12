@@ -2,6 +2,7 @@ package Test;
 
 //import Errores.ErrorGenerico;
 import CodIntermedio.Generacion;
+import Errores.ErrorGenerico;
 import Errores.ParentesisAperturaException;
 import Errores.ParentesisCierreException;
 import Estructuras.ListasR;
@@ -13,7 +14,7 @@ import Parseo.Terceto;
 
 public class Test {
 
-    private void analizadores() throws ParentesisCierreException, ParentesisAperturaException {
+    private void analizadores() throws ParentesisCierreException, ParentesisAperturaException, ErrorGenerico {
         ListasR tabla = new ListasR();
         ClasificaRebuilt lexico = new ClasificaRebuilt(tabla);
         MatrizPredictiva sintactico = new MatrizPredictiva(lexico);
@@ -32,7 +33,7 @@ public class Test {
 //        tabla.mostrarListaSimbolosR();
     }
 
-    public static void main(String[] args) throws ParentesisCierreException, ParentesisAperturaException {
+    public static void main(String[] args) throws ParentesisCierreException, ParentesisAperturaException, ErrorGenerico {
         Test t = new Test();
         t.analizadores();
     }
