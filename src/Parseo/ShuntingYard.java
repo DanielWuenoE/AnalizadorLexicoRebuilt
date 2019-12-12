@@ -43,10 +43,10 @@ public class ShuntingYard {
         });
     }
     
-//    public void shuntingYard(String expresion) throws ParentesisCierreException, ParentesisAperturaException, ErrorGenerico {
-//        lexico.definirExpresion(expresion);
-//        shuntingYard();
-//    }
+    public void shuntingYard(String expresion) throws ParentesisCierreException, ParentesisAperturaException, ErrorGenerico {
+        lexico.definirExpresion(expresion);
+        shuntingYard();
+    }
 
     public void shuntingYard() throws ParentesisCierreException, ParentesisAperturaException {
         String token = lexico.pedirTokenExpresion();

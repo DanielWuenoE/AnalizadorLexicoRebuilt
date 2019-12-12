@@ -75,7 +75,7 @@ public class Generacion {
                                 operacion += t+" ";
                         }
 //                        lexico.definirExpresion(operacion);//Enviar expresion a lexico
-                        shunt.shuntingYard();//Llamar a ShutingYard
+                        shunt.shuntingYard(operacion);//Llamar a ShutingYard
                         //Correr Simplificacion con lista resultante
                         //(regresar ultima variable temporal)
 //                        System.out.println("Operacion: "+operacion);
