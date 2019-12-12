@@ -3,7 +3,6 @@ package Parseo;
 //import Estructuras.ListasR.NodoTPostfija;
 import Estructuras.ListasR.NodoTToken;
 import Estructuras.ListasR;
-import Parseo.Terceto;
 
 public class Simplificacion {
 
@@ -50,8 +49,6 @@ public class Simplificacion {
                             s.borraTokenPostfija(nodos - c - 1);
                             s.borraTokenPostfija(nodos - c - 1);
                             s.borraTokenPostfija(nodos - c - 1);
-//                            s.borraTokenPostfija(nodos - c);
-//                            s.borraTokenPostfija(nodos - c + 1);
                             s.insertaTokenPostfija("t" + op, "Números", nodos-c-1);
                             System.out.println("c-2: "+(c-2));
                         }
